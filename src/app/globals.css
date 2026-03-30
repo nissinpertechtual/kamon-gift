@@ -26,3 +26,32 @@ body {
   color: #f0ede6;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
 }
+
+/* ===== スプラッシュアニメーション ===== */
+@keyframes splash-fade-out {
+  0%, 70% { opacity: 1; }
+  100%     { opacity: 0; }
+}
+
+.splash-animate {
+  animation: splash-fade-out 2.8s ease forwards;
+}
+
+/* ===== レスポンシブ用ユーティリティ ===== */
+.hidden-mobile {
+  display: flex;
+}
+
+.show-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+
+  .show-mobile {
+    display: flex !important;
+  }
+}
