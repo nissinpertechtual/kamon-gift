@@ -1,7 +1,5 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-
 // 素材名 → 英語プロンプト用マッピング
 const MATERIAL_MAP: Record<string, string> = {
   // 日本語キー（DBの値に合わせる）
@@ -20,6 +18,12 @@ export async function generateProductImage(
   productName: string,
   material: string
 ): Promise<{ base64: string; mimeType: string }> {
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) throw new Error('GEMINI_API_KEY が設定されていません');
+
+  // リクエスト時に初期化（ビルド時に環境変数がなくてもエラーにならないよう遅延）
+  const genAI = new GoogleGenerativeAI(apiKey);
+
   const model = genAI.getGenerativeModel({
     model: 'gemini-2.0-flash-preview-image-generation',
   });
