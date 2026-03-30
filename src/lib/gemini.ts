@@ -25,7 +25,7 @@ export async function generateProductImage(
   const genAI = new GoogleGenerativeAI(apiKey);
 
   const model = genAI.getGenerativeModel({
-    model: 'gemini-2.0-flash-exp-image-generation',
+    model: 'gemini-2.5-flash-image',
   });
 
   const materialDesc = MATERIAL_MAP[material] ?? 'polished metal with fine surface';
