@@ -2,13 +2,16 @@ import { NextRequest, NextResponse } from 'next/server';
 import { generateProductImage } from '@/lib/gemini';
 import { createClient } from '@supabase/supabase-js';
 
-// Service Role Key を使うのでサーバーサイド専用
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// リクエスト時に初期化（ビルド時に環境変数がなくてもエラーにならないよう遅延）
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 export async function POST(req: NextRequest) {
+  const supabase = getSupabase();
   const { productId, productName, material } = await req.json();
 
   if (!productId || !productName) {

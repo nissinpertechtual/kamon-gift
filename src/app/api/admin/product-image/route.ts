@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-// Service Role Key を使うのでサーバーサイド専用
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+// リクエスト時に初期化（ビルド時に環境変数がなくてもエラーにならないよう遅延）
+function getSupabase() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!
+  );
+}
 
 // POST: 本物の写真をアップロードして指定インデックスを差し替え
 export async function POST(req: NextRequest) {
+  const supabase = getSupabase();
   const formData = await req.formData();
   const productId = formData.get('productId') as string;
   const indexStr = formData.get('index') as string;
@@ -53,12 +56,10 @@ export async function POST(req: NextRequest) {
     const currentImages: string[] = product?.images ?? [];
 
     let newImages: string[];
-    if (index != null && index >= 0 && index < currentImages.length) {
-      // 指定インデックスを差し替え
+    if (index != null && !isNaN(index) && index >= 0 && index < currentImages.length) {
       newImages = [...currentImages];
       newImages[index] = publicUrl;
     } else {
-      // インデックス未指定 or 範囲外 → 先頭に追加
       newImages = [publicUrl, ...currentImages];
     }
 
@@ -78,6 +79,7 @@ export async function POST(req: NextRequest) {
 
 // DELETE: 指定インデックスの画像を削除
 export async function DELETE(req: NextRequest) {
+  const supabase = getSupabase();
   const { productId, index } = await req.json();
 
   if (!productId || index == null) {
