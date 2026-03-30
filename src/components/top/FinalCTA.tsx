@@ -3,16 +3,11 @@
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 
-// 家紋パターン（FinalCTA専用 — 少し濃い）
+// 家紋パターン（FinalCTA専用 — opacity 0.06）
 const FinalKamonBg = () => (
   <div
     aria-hidden="true"
-    style={{
-      position: 'absolute',
-      inset: 0,
-      pointerEvents: 'none',
-      overflow: 'hidden',
-    }}
+    style={{ position: 'absolute', inset: 0, pointerEvents: 'none', overflow: 'hidden' }}
   >
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style={{ position: 'absolute', inset: 0 }}>
       <defs>
@@ -31,8 +26,9 @@ const FinalKamonBg = () => (
           <line x1="18" y1="30" x2="42" y2="30" stroke="#c9a84c" strokeWidth="0.5" />
         </pattern>
       </defs>
-      <rect width="100%" height="100%" fill="url(#kamon-final-a)" opacity="0.08" />
-      <rect width="100%" height="100%" fill="url(#kamon-final-b)" opacity="0.08" />
+      {/* 修正: opacity 0.08 → 0.06 */}
+      <rect width="100%" height="100%" fill="url(#kamon-final-a)" opacity="0.06" />
+      <rect width="100%" height="100%" fill="url(#kamon-final-b)" opacity="0.06" />
     </svg>
   </div>
 );
@@ -55,7 +51,7 @@ export default function FinalCTA() {
   return (
     <section
       style={{
-        padding: '100px 24px',
+        padding: '120px 24px',
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
@@ -74,14 +70,26 @@ export default function FinalCTA() {
           transition: 'opacity 0.9s ease, transform 0.9s ease',
         }}
       >
+        {/* 装飾縦線（ボタンへ降りてくる感） */}
+        <div
+          style={{
+            width: '1px',
+            height: '48px',
+            background: '#c9a84c',
+            opacity: 0.4,
+            margin: '0 auto 48px',
+          }}
+        />
+
         {/* キャッチコピー */}
         <h2
           style={{
             fontSize: 'clamp(16px, 4vw, 24px)',
-            fontWeight: 400,
+            fontWeight: 300,
             letterSpacing: '0.1em',
+            lineHeight: 1.6,
             color: '#f0ede6',
-            marginBottom: '12px',
+            marginBottom: '16px',
             fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
           }}
         >
@@ -93,9 +101,10 @@ export default function FinalCTA() {
           style={{
             fontSize: '12px',
             color: '#666',
-            marginBottom: '40px',
+            marginBottom: '48px',
+            fontWeight: 300,
+            letterSpacing: '0.06em',
             fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-            letterSpacing: '0.05em',
           }}
         >
           家紋が分からない方も、まずはご相談ください。
@@ -108,15 +117,17 @@ export default function FinalCTA() {
             display: 'inline-block',
             background: '#c9a84c',
             color: '#0a0a0a',
-            padding: '18px 48px',
+            padding: '18px 52px',
             fontSize: '13px',
             letterSpacing: '0.2em',
+            fontWeight: 300,
             textDecoration: 'none',
             border: 'none',
+            borderRadius: 0,
             fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-            transition: 'opacity 0.2s ease',
+            transition: 'opacity 0.3s ease',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.85')}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.82')}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
         >
           ギフトのご相談・ご注文はこちら

@@ -11,7 +11,7 @@ export default function HeroSection() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '80px 24px 60px',
+        padding: '120px 24px 80px',   /* 余白を広げる */
         position: 'relative',
         textAlign: 'center',
       }}
@@ -19,10 +19,11 @@ export default function HeroSection() {
       {/* 上部ラベル */}
       <p
         style={{
-          fontSize: '10px',
-          letterSpacing: '0.3em',
+          fontSize: '9px',
+          letterSpacing: '0.35em',
           color: '#c9a84c',
-          marginBottom: '20px',
+          marginBottom: '28px',
+          fontWeight: 300,
           fontFamily: 'Georgia, serif',
         }}
       >
@@ -32,8 +33,8 @@ export default function HeroSection() {
       {/* メインコピー */}
       <h1
         style={{
-          fontSize: 'clamp(24px, 6vw, 40px)',
-          fontWeight: 400,
+          fontSize: 'clamp(22px, 5vw, 36px)',
+          fontWeight: 300,
           letterSpacing: '0.08em',
           lineHeight: 1.7,
           color: '#f0ede6',
@@ -45,14 +46,15 @@ export default function HeroSection() {
         {`あなたの家紋を、\n世界にひとつのギフトに。`}
       </h1>
 
-      {/* サブコピー */}
+      {/* サブコピー（間を広げる） */}
       <p
         style={{
           fontSize: '12px',
           letterSpacing: '0.1em',
-          lineHeight: 2,
+          lineHeight: 2.4,
           color: '#888',
-          marginTop: '16px',
+          marginTop: '28px',          /* 修正: 16→28px */
+          fontWeight: 300,
           fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
           whiteSpace: 'pre-line',
         }}
@@ -60,8 +62,8 @@ export default function HeroSection() {
         {`金属・革・ガラスへのレーザー彫刻\n結婚式・内祝い・推し活のギフトに`}
       </p>
 
-      {/* CTAボタン */}
-      <div className="hero-cta-buttons">
+      {/* CTAボタン（サブコピーとの間を広げる） */}
+      <div className="hero-cta-buttons" style={{ marginTop: '48px' }}>
         <Link href="/products" className="hero-btn-primary">
           商品を見る
         </Link>
@@ -74,20 +76,21 @@ export default function HeroSection() {
       <div
         style={{
           position: 'absolute',
-          bottom: '32px',
+          bottom: '36px',
           left: '50%',
           transform: 'translateX(-50%)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          gap: '8px',
+          gap: '10px',
         }}
       >
         <span
           style={{
             fontSize: '9px',
-            letterSpacing: '0.3em',
+            letterSpacing: '0.35em',
             color: '#555',
+            fontWeight: 300,
             fontFamily: 'Georgia, serif',
           }}
         >

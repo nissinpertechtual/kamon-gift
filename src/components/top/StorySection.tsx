@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 
 // ─── テキストはここだけ編集 ───────────────────────────────────────
 const STORY_CONTENT = {
@@ -19,7 +20,6 @@ const STORY_CONTENT = {
 };
 // ─────────────────────────────────────────────────────────────────
 
-// フェードインフックス
 function useFadeIn() {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -28,12 +28,7 @@ function useFadeIn() {
     const el = ref.current;
     if (!el) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
+      ([entry]) => { if (entry.isIntersecting) { setVisible(true); observer.disconnect(); } },
       { threshold: 0.15 }
     );
     observer.observe(el);
@@ -43,14 +38,7 @@ function useFadeIn() {
   return { ref, visible };
 }
 
-// ブロック単体コンポーネント
-function StoryBlock({
-  heading,
-  body,
-}: {
-  heading: string;
-  body: string;
-}) {
+function StoryBlock({ heading, body }: { heading: string; body: string }) {
   const { ref, visible } = useFadeIn();
 
   return (
@@ -64,11 +52,12 @@ function StoryBlock({
     >
       <h2
         style={{
-          fontSize: '20px',
-          fontWeight: 400,
+          fontSize: 'clamp(16px, 3vw, 20px)',
+          fontWeight: 300,
           letterSpacing: '0.1em',
+          lineHeight: 1.6,
           color: '#f0ede6',
-          marginBottom: '16px',
+          marginBottom: '20px',
           fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
         }}
       >
@@ -77,9 +66,10 @@ function StoryBlock({
       <p
         style={{
           fontSize: '13px',
-          lineHeight: 2.2,
+          lineHeight: 2.4,            /* 修正: 2.2→2.4 */
           color: '#888',
           letterSpacing: '0.05em',
+          fontWeight: 300,
           margin: 0,
           fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
           whiteSpace: 'pre-line',
@@ -91,79 +81,56 @@ function StoryBlock({
   );
 }
 
-// 区切り線
-function Divider() {
+// 修正: 短い金線の区切り
+function GoldDivider() {
   const { ref, visible } = useFadeIn();
   return (
     <div
       ref={ref}
       style={{
-        height: '0.5px',
-        backgroundColor: '#1e1e1e',
-        margin: '40px 0',
+        display: 'flex',
+        justifyContent: 'center',
+        margin: '64px 0',           /* 修正: 40→64px */
         opacity: visible ? 1 : 0,
         transition: 'opacity 0.8s ease',
-      }}
-    />
-  );
-}
-
-export default function StorySection() {
-  const { ref: labelRef, visible: labelVisible } = useFadeIn();
-
-  return (
-    <section
-      id="story"
-      style={{
-        padding: '80px 24px',
       }}
     >
       <div
         style={{
-          maxWidth: '680px',
-          margin: '0 auto',
+          width: '40px',
+          height: '0.5px',
+          background: '#c9a84c',
+          opacity: 0.4,
         }}
-      >
-        {/* セクションラベル */}
-        <div
-          ref={labelRef}
-          style={{
-            marginBottom: '32px',
-            textAlign: 'center',
-            opacity: labelVisible ? 1 : 0,
-            transform: labelVisible ? 'translateY(0)' : 'translateY(12px)',
-            transition: 'opacity 0.8s ease, transform 0.8s ease',
-          }}
-        >
-          <span
-            style={{
-              fontSize: '9px',
-              letterSpacing: '0.3em',
-              color: '#c9a84c',
-              fontFamily: 'Georgia, serif',
-            }}
-          >
-            STORY
-          </span>
-        </div>
+      />
+    </div>
+  );
+}
 
-        {/* ブロック1 */}
+export default function StorySection() {
+  return (
+    <section
+      id="story"
+      style={{ padding: '120px 24px' }}   /* 修正: 80→120px */
+    >
+      <div style={{ maxWidth: '560px', margin: '0 auto' }}>  {/* 修正: 680→560px */}
+
+        <SectionLabel en="STORY" ja="ものがたり" />
+
         <StoryBlock
           heading={STORY_CONTENT.block1.heading}
           body={STORY_CONTENT.block1.body}
         />
 
-        <Divider />
+        <GoldDivider />
 
-        {/* ブロック2 */}
         <StoryBlock
           heading={STORY_CONTENT.block2.heading}
           body={STORY_CONTENT.block2.body}
         />
 
-        <Divider />
+        <GoldDivider />
 
-        {/* ブロック3 */}
         <StoryBlock
           heading={STORY_CONTENT.block3.heading}
           body={STORY_CONTENT.block3.body}

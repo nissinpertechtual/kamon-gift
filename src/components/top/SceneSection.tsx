@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 
-// ─── シーン定数（ここを編集） ────────────────────────────────────
+// ─── シーン定数 ──────────────────────────────────────────────────
 const SCENES = [
   {
     title: '推し活ギフトに',
@@ -11,19 +12,8 @@ const SCENES = [
     href: '/products?scene=oshi',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        {/* 六角形 */}
-        <polygon
-          points="16,2 28,9 28,23 16,30 4,23 4,9"
-          fill="none"
-          stroke="#c9a84c"
-          strokeWidth="1"
-        />
-        <polygon
-          points="16,7 23,11 23,19 16,23 9,19 9,11"
-          fill="none"
-          stroke="#c9a84c"
-          strokeWidth="0.7"
-        />
+        <polygon points="16,2 28,9 28,23 16,30 4,23 4,9" fill="none" stroke="#c9a84c" strokeWidth="1" />
+        <polygon points="16,7 23,11 23,19 16,23 9,19 9,11" fill="none" stroke="#c9a84c" strokeWidth="0.7" />
         <circle cx="16" cy="15" r="3" fill="none" stroke="#c9a84c" strokeWidth="0.7" />
       </svg>
     ),
@@ -34,11 +24,9 @@ const SCENES = [
     href: '/products?scene=bridal',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        {/* 二重丸 */}
         <circle cx="16" cy="16" r="13" fill="none" stroke="#c9a84c" strokeWidth="1" />
         <circle cx="16" cy="16" r="8"  fill="none" stroke="#c9a84c" strokeWidth="0.8" />
         <circle cx="16" cy="16" r="3"  fill="none" stroke="#c9a84c" strokeWidth="0.7" />
-        {/* 上下左右の小飾り */}
         <line x1="16" y1="1" x2="16" y2="4" stroke="#c9a84c" strokeWidth="0.7" />
         <line x1="16" y1="28" x2="16" y2="31" stroke="#c9a84c" strokeWidth="0.7" />
         <line x1="1" y1="16" x2="4" y2="16" stroke="#c9a84c" strokeWidth="0.7" />
@@ -52,15 +40,10 @@ const SCENES = [
     href: '/products?scene=inbound',
     icon: (
       <svg width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        {/* 鳥居シルエット */}
-        {/* 上の笠木（二重） */}
         <line x1="3"  y1="8"  x2="29" y2="8"  stroke="#c9a84c" strokeWidth="1.2" />
         <line x1="5"  y1="11" x2="27" y2="11" stroke="#c9a84c" strokeWidth="0.8" />
-        {/* 左柱 */}
         <line x1="9"  y1="8"  x2="9"  y2="28" stroke="#c9a84c" strokeWidth="1.2" />
-        {/* 右柱 */}
         <line x1="23" y1="8"  x2="23" y2="28" stroke="#c9a84c" strokeWidth="1.2" />
-        {/* 貫（横木） */}
         <line x1="6"  y1="17" x2="26" y2="17" stroke="#c9a84c" strokeWidth="0.8" />
       </svg>
     ),
@@ -83,16 +66,12 @@ function useStaggeredFadeIn(total: number) {
         ([entry]) => {
           if (entry.isIntersecting) {
             setTimeout(() => {
-              setVisible((prev) => {
-                const next = [...prev];
-                next[i] = true;
-                return next;
-              });
+              setVisible((prev) => { const next = [...prev]; next[i] = true; return next; });
             }, i * 150);
             observer.disconnect();
           }
         },
-        { threshold: 0.15 }
+        { threshold: 0.1 }
       );
       observer.observe(el);
     });
@@ -106,28 +85,11 @@ export default function SceneSection() {
   const { refs, visible } = useStaggeredFadeIn(SCENES.length);
 
   return (
-    <section
-      style={{
-        padding: '80px 24px',
-        background: '#0d0d0d',
-      }}
-    >
+    <section style={{ padding: '120px 24px', background: '#0d0d0d' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        {/* セクションラベル */}
-        <p
-          style={{
-            fontSize: '9px',
-            letterSpacing: '0.3em',
-            color: '#c9a84c',
-            textAlign: 'center',
-            marginBottom: '40px',
-            fontFamily: 'Georgia, serif',
-          }}
-        >
-          FOR YOUR SCENE
-        </p>
 
-        {/* カードグリッド */}
+        <SectionLabel en="FOR YOUR SCENE" ja="シーン別" />
+
         <div className="scene-grid">
           {SCENES.map((scene, i) => (
             <div
@@ -140,15 +102,14 @@ export default function SceneSection() {
                 transition: 'opacity 0.7s ease, transform 0.7s ease',
               }}
             >
-              {/* アイコン */}
               <div>{scene.icon}</div>
 
-              {/* タイトル */}
               <p
                 style={{
                   fontSize: '14px',
                   letterSpacing: '0.1em',
-                  margin: '16px 0 8px',
+                  fontWeight: 300,
+                  margin: '20px 0 10px',
                   color: '#f0ede6',
                   fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
                 }}
@@ -156,13 +117,13 @@ export default function SceneSection() {
                 {scene.title}
               </p>
 
-              {/* 説明文 */}
               <p
                 style={{
                   fontSize: '11px',
                   color: '#666',
-                  lineHeight: 1.9,
+                  lineHeight: 2.0,
                   margin: 0,
+                  fontWeight: 300,
                   whiteSpace: 'pre-line',
                   fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
                 }}
@@ -170,16 +131,16 @@ export default function SceneSection() {
                 {scene.body}
               </p>
 
-              {/* リンク */}
               <Link
                 href={scene.href}
                 style={{
                   display: 'inline-block',
-                  marginTop: '16px',
+                  marginTop: '20px',
                   fontSize: '10px',
                   color: '#c9a84c',
                   textDecoration: 'none',
-                  letterSpacing: '0.05em',
+                  letterSpacing: '0.08em',
+                  fontWeight: 300,
                   fontFamily: 'Georgia, serif',
                 }}
               >

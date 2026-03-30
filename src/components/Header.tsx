@@ -18,9 +18,9 @@ const KamonIcon = () => (
 );
 
 const navLinks = [
-  { label: '商品',   href: '/products' },
+  { label: '商品',      href: '/products' },
   { label: 'ストーリー', href: '/#story' },
-  { label: 'コラム', href: '/column' },
+  { label: 'コラム',    href: '/column' },
 ];
 
 export default function Header() {
@@ -38,7 +38,7 @@ export default function Header() {
           overflow: 'hidden',
         }}
       >
-        {/* 背景家紋パターン（薄め） */}
+        {/* 背景家紋パターン */}
         <div style={{ position: 'absolute', inset: 0, opacity: 0.04, pointerEvents: 'none' }}>
           <KamonBackground />
         </div>
@@ -49,8 +49,8 @@ export default function Header() {
             zIndex: 1,
             maxWidth: '1200px',
             margin: '0 auto',
-            padding: '0 24px',
-            height: '60px',
+            padding: '0 32px',
+            height: '72px',           /* 修正: 60→72px */
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -62,7 +62,7 @@ export default function Header() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '10px',
+              gap: '14px',            /* 修正: 10→14px */
               textDecoration: 'none',
             }}
           >
@@ -71,7 +71,8 @@ export default function Header() {
               style={{
                 color: '#c9a84c',
                 fontSize: '15px',
-                letterSpacing: '0.15em',
+                letterSpacing: '0.2em',  /* 修正: 0.15→0.2em */
+                fontWeight: 300,          /* 追加 */
                 fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
               }}
             >
@@ -84,7 +85,7 @@ export default function Header() {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '28px',
+              gap: '32px',             /* 修正: 28→32px */
             }}
             className="hidden-mobile"
           >
@@ -92,14 +93,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                style={{
-                  color: '#f0ede6',
-                  fontSize: '13px',
-                  letterSpacing: '0.08em',
-                  textDecoration: 'none',
-                  opacity: 0.85,
-                  fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-                }}
+                className="nav-link"
               >
                 {link.label}
               </Link>
@@ -110,27 +104,33 @@ export default function Header() {
               href="/en"
               style={{
                 color: '#c9a84c',
-                fontSize: '12px',
-                letterSpacing: '0.1em',
+                fontSize: '11px',
+                letterSpacing: '0.15em',
+                fontWeight: 300,
                 textDecoration: 'none',
                 border: '0.5px solid #c9a84c',
                 padding: '4px 12px',
+                transition: 'background 0.3s ease',
               }}
             >
               EN
             </Link>
 
-            {/* 法人・卸売 */}
+            {/* 法人・卸売（右端に視覚的に分離） */}
             <Link
               href="/buyer"
               style={{
                 color: '#555',
                 fontSize: '9px',
                 letterSpacing: '0.05em',
+                fontWeight: 300,
                 textDecoration: 'none',
                 border: '0.5px solid #333',
                 padding: '4px 10px',
                 whiteSpace: 'nowrap',
+                paddingLeft: '32px',    /* 修正: 右端に寄せ */
+                borderLeft: 'none',
+                transition: 'color 0.3s ease',
               }}
             >
               法人・卸売の方はこちら →
@@ -150,7 +150,7 @@ export default function Header() {
             }}
             aria-label="メニューを開く"
           >
-            <Menu size={24} />
+            <Menu size={22} />
           </button>
         </div>
       </header>
@@ -158,18 +158,16 @@ export default function Header() {
       {/* モバイルドロワー */}
       {drawerOpen && (
         <>
-          {/* オーバーレイ */}
           <div
             onClick={() => setDrawerOpen(false)}
             style={{
               position: 'fixed',
               inset: 0,
               zIndex: 45,
-              backgroundColor: 'rgba(0,0,0,0.7)',
+              backgroundColor: 'rgba(0,0,0,0.75)',
             }}
           />
 
-          {/* ドロワー本体 */}
           <div
             style={{
               position: 'fixed',
@@ -179,32 +177,23 @@ export default function Header() {
               zIndex: 50,
               width: '260px',
               backgroundColor: '#0a0a0a',
-              borderLeft: '0.5px solid rgba(201,168,76,0.25)',
-              padding: '24px',
+              borderLeft: '0.5px solid rgba(201,168,76,0.2)',
+              padding: '28px 24px',
               display: 'flex',
               flexDirection: 'column',
-              gap: '0',
             }}
           >
-            {/* 閉じるボタン */}
-            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '32px' }}>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '40px' }}>
               <button
                 onClick={() => setDrawerOpen(false)}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: '#c9a84c',
-                  padding: '4px',
-                }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#c9a84c', padding: '4px' }}
                 aria-label="メニューを閉じる"
               >
-                <X size={22} />
+                <X size={20} />
               </button>
             </div>
 
-            {/* ナビリンク */}
-            <nav style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+            <nav style={{ display: 'flex', flexDirection: 'column', gap: '28px' }}>
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -212,8 +201,9 @@ export default function Header() {
                   onClick={() => setDrawerOpen(false)}
                   style={{
                     color: '#f0ede6',
-                    fontSize: '15px',
-                    letterSpacing: '0.1em',
+                    fontSize: '14px',
+                    letterSpacing: '0.12em',
+                    fontWeight: 300,
                     textDecoration: 'none',
                     fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
                   }}
@@ -227,8 +217,9 @@ export default function Header() {
                 onClick={() => setDrawerOpen(false)}
                 style={{
                   color: '#c9a84c',
-                  fontSize: '13px',
+                  fontSize: '12px',
                   letterSpacing: '0.1em',
+                  fontWeight: 300,
                   textDecoration: 'none',
                   border: '0.5px solid #c9a84c',
                   padding: '6px 14px',
@@ -244,10 +235,11 @@ export default function Header() {
                 onClick={() => setDrawerOpen(false)}
                 style={{
                   color: '#555',
-                  fontSize: '11px',
+                  fontSize: '10px',
                   letterSpacing: '0.05em',
+                  fontWeight: 300,
                   textDecoration: 'none',
-                  border: '0.5px solid #333',
+                  border: '0.5px solid #2a2a2a',
                   padding: '6px 12px',
                   display: 'inline-block',
                   width: 'fit-content',

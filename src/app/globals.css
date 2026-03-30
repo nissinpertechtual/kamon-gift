@@ -21,10 +21,26 @@
   --color-kamon-muted:  #888888;
 }
 
+/* ===== ベーススタイル ===== */
 body {
   background-color: #0a0a0a;
   color: #f0ede6;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+}
+
+h1, h2, h3 {
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: clamp(22px, 5vw, 36px);
+}
+
+h2 {
+  font-size: clamp(16px, 3vw, 22px);
 }
 
 /* ===== スプラッシュアニメーション ===== */
@@ -58,7 +74,7 @@ body {
 
 /* ===== Hero CTAボタン ===== */
 .hero-cta-buttons {
-  margin-top: 36px;
+  margin-top: 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,17 +92,20 @@ body {
   display: inline-block;
   background: #c9a84c;
   color: #0a0a0a;
-  padding: 14px 36px;
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  padding: 13px 44px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  font-weight: 300;
   text-decoration: none;
   border: none;
+  border-radius: 0;
+  cursor: pointer;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.3s ease;
 }
 
 .hero-btn-primary:hover {
-  opacity: 0.85;
+  opacity: 0.82;
 }
 
 .hero-btn-secondary {
@@ -94,16 +113,19 @@ body {
   background: transparent;
   color: #c9a84c;
   border: 0.5px solid #c9a84c;
-  padding: 14px 36px;
-  font-size: 12px;
-  letter-spacing: 0.2em;
+  padding: 13px 44px;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  font-weight: 300;
   text-decoration: none;
+  border-radius: 0;
+  cursor: pointer;
   font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
-  transition: background 0.2s ease, color 0.2s ease;
+  transition: background 0.3s ease;
 }
 
 .hero-btn-secondary:hover {
-  background: rgba(201, 168, 76, 0.08);
+  background: rgba(201, 168, 76, 0.07);
 }
 
 /* ===== スクロールインジケーター ===== */
@@ -148,8 +170,8 @@ body {
 .scene-card {
   border: 0.5px solid #2a2a2a;
   background: #1a1a1a;
-  padding: 28px 20px;
-  transition: border-color 0.3s ease;
+  padding: 36px 24px;
+  transition: border-color 0.4s ease;
 }
 
 .scene-card:hover {
@@ -169,11 +191,34 @@ body {
   }
 }
 
+/* 商品カード */
+.product-card {
+  border: 0.5px solid #2a2a2a;
+  background: #1a1a1a;
+  overflow: hidden;
+  transition: border-color 0.4s ease;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+.product-card:hover {
+  border-color: #c9a84c;
+}
+
+/* 画像ズームエフェクト */
+.product-image {
+  transition: transform 0.6s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.03);
+}
+
 /* ===== ReassuranceSection ステップグリッド ===== */
 .steps-grid {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 40px;
   align-items: center;
 }
 
@@ -197,6 +242,23 @@ body {
     display: flex;
     flex-shrink: 0;
     padding: 0 8px;
-    padding-top: 8px;
+    padding-top: 6px;
   }
+}
+
+/* ===== ナビリンクホバー ===== */
+.nav-link {
+  color: #f0ede6;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  font-weight: 300;
+  opacity: 0.85;
+  font-family: 'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #c9a84c;
+  opacity: 1;
 }

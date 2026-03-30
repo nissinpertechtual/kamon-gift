@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { SectionLabel } from '@/components/ui/SectionLabel';
 
 // ─── 定数（ここを編集） ──────────────────────────────────────────
 const STEPS = [
@@ -46,31 +47,15 @@ function useFadeIn() {
 
 export default function ReassuranceSection() {
   const { ref: sectionRef, visible: sectionVisible } = useFadeIn();
-  const { ref: pointsRef, visible: pointsVisible } = useFadeIn();
+  const { ref: pointsRef,  visible: pointsVisible  } = useFadeIn();
 
   return (
-    <section
-      style={{
-        padding: '80px 24px',
-        background: '#0d0d0d',
-      }}
-    >
+    <section style={{ padding: '120px 24px', background: '#0d0d0d' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
-        {/* セクションラベル */}
-        <p
-          style={{
-            fontSize: '9px',
-            letterSpacing: '0.3em',
-            color: '#c9a84c',
-            textAlign: 'center',
-            marginBottom: '48px',
-            fontFamily: 'Georgia, serif',
-          }}
-        >
-          HOW IT WORKS
-        </p>
 
-        {/* ステップ横並び */}
+        <SectionLabel en="HOW IT WORKS" ja="ご注文の流れ" />
+
+        {/* ステップ */}
         <div
           ref={sectionRef}
           className="steps-grid"
@@ -82,17 +67,14 @@ export default function ReassuranceSection() {
         >
           {STEPS.map((step, i) => (
             <>
-              <div
-                key={step.number}
-                style={{ textAlign: 'center' }}
-              >
-                {/* ステップ番号 */}
+              <div key={step.number} style={{ textAlign: 'center' }}>
                 <p
                   style={{
                     fontSize: '28px',
                     color: '#c9a84c',
-                    opacity: 0.6,
-                    margin: '0 0 12px',
+                    opacity: 0.5,
+                    margin: '0 0 16px',
+                    fontWeight: 300,
                     fontFamily: 'Georgia, serif',
                     letterSpacing: '0.05em',
                   }}
@@ -100,12 +82,12 @@ export default function ReassuranceSection() {
                   {step.number}
                 </p>
 
-                {/* タイトル */}
                 <p
                   style={{
                     fontSize: '13px',
                     letterSpacing: '0.08em',
-                    margin: '0 0 8px',
+                    fontWeight: 300,
+                    margin: '0 0 10px',
                     color: '#f0ede6',
                     fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
                   }}
@@ -113,13 +95,13 @@ export default function ReassuranceSection() {
                   {step.title}
                 </p>
 
-                {/* 本文 */}
                 <p
                   style={{
                     fontSize: '11px',
                     color: '#666',
-                    lineHeight: 1.9,
+                    lineHeight: 2.0,
                     margin: 0,
+                    fontWeight: 300,
                     whiteSpace: 'pre-line',
                     fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
                   }}
@@ -128,18 +110,11 @@ export default function ReassuranceSection() {
                 </p>
               </div>
 
-              {/* 矢印（PCのみ、最後の要素は不要） */}
               {i < STEPS.length - 1 && (
                 <div
                   key={`arrow-${i}`}
                   className="step-arrow"
-                  style={{
-                    color: '#333',
-                    fontSize: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
+                  style={{ color: '#333', fontSize: '18px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                 >
                   →
                 </div>
@@ -152,11 +127,11 @@ export default function ReassuranceSection() {
         <div
           ref={pointsRef}
           style={{
-            marginTop: '48px',
+            marginTop: '56px',
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            gap: '16px 32px',
+            gap: '16px 36px',
             opacity: pointsVisible ? 1 : 0,
             transition: 'opacity 0.8s ease 0.3s',
           }}
@@ -168,6 +143,7 @@ export default function ReassuranceSection() {
                 fontSize: '10px',
                 color: '#555',
                 letterSpacing: '0.05em',
+                fontWeight: 300,
                 margin: 0,
                 fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
               }}
