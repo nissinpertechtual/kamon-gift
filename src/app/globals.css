@@ -169,13 +169,19 @@ h2 {
 /* シーンカード */
 .scene-card {
   border: 0.5px solid #2a2a2a;
-  background: #1a1a1a;
-  padding: 36px 24px;
+  background: #111;
+  padding: 36px 28px 32px;
   transition: border-color 0.4s ease;
+  min-height: 280px;
 }
 
 .scene-card:hover {
   border-color: #c9a84c;
+}
+
+/* ホバーで背景画像を少し明るく */
+.scene-card:hover > div:first-child {
+  filter: brightness(0.28) saturate(0.5) !important;
 }
 
 /* ===== ProductGallery グリッド ===== */
