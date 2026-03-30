@@ -11,65 +11,93 @@ export default function HeroSection() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '120px 24px 80px',   /* 余白を広げる */
+        padding: '120px 24px 80px',
         position: 'relative',
         textAlign: 'center',
+        overflow: 'hidden',
       }}
     >
-      {/* 上部ラベル */}
-      <p
+      {/* 背景画像 — 暗めの和の雰囲気 */}
+      <div
+        aria-hidden="true"
         style={{
-          fontSize: '9px',
-          letterSpacing: '0.35em',
-          color: '#c9a84c',
-          marginBottom: '28px',
-          fontWeight: 300,
-          fontFamily: 'Georgia, serif',
+          position: 'absolute',
+          inset: 0,
+          backgroundImage: `url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1600&q=80&auto=format&fit=crop')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'brightness(0.22) saturate(0.6)',
+          zIndex: 0,
         }}
-      >
-        LASER ENGRAVED KAMON GIFTS
-      </p>
-
-      {/* メインコピー */}
-      <h1
+      />
+      {/* グラデーションオーバーレイ — 上下を暗く */}
+      <div
+        aria-hidden="true"
         style={{
-          fontSize: 'clamp(22px, 5vw, 36px)',
-          fontWeight: 300,
-          letterSpacing: '0.08em',
-          lineHeight: 1.7,
-          color: '#f0ede6',
-          margin: 0,
-          fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-          whiteSpace: 'pre-line',
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(to bottom, #0a0a0a 0%, transparent 20%, transparent 75%, #0a0a0a 100%)',
+          zIndex: 1,
         }}
-      >
-        {`あなたの家紋を、\n世界にひとつのギフトに。`}
-      </h1>
+      />
 
-      {/* サブコピー（間を広げる） */}
-      <p
-        style={{
-          fontSize: '12px',
-          letterSpacing: '0.1em',
-          lineHeight: 2.4,
-          color: '#888',
-          marginTop: '28px',          /* 修正: 16→28px */
-          fontWeight: 300,
-          fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-          whiteSpace: 'pre-line',
-        }}
-      >
-        {`金属・革・ガラスへのレーザー彫刻\n結婚式・内祝い・推し活のギフトに`}
-      </p>
+      {/* コンテンツ */}
+      <div style={{ position: 'relative', zIndex: 2 }}>
+        {/* 上部ラベル */}
+        <p
+          style={{
+            fontSize: '9px',
+            letterSpacing: '0.35em',
+            color: '#c9a84c',
+            marginBottom: '28px',
+            fontWeight: 300,
+            fontFamily: 'Georgia, serif',
+          }}
+        >
+          LASER ENGRAVED KAMON GIFTS
+        </p>
 
-      {/* CTAボタン（サブコピーとの間を広げる） */}
-      <div className="hero-cta-buttons" style={{ marginTop: '48px' }}>
-        <Link href="/products" className="hero-btn-primary">
-          商品を見る
-        </Link>
-        <Link href="/contact" className="hero-btn-secondary">
-          ギフトのご相談
-        </Link>
+        {/* メインコピー */}
+        <h1
+          style={{
+            fontSize: 'clamp(22px, 5vw, 36px)',
+            fontWeight: 300,
+            letterSpacing: '0.08em',
+            lineHeight: 1.7,
+            color: '#f0ede6',
+            margin: 0,
+            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            whiteSpace: 'pre-line',
+          }}
+        >
+          {`あなたの家紋を、\n世界にひとつのギフトに。`}
+        </h1>
+
+        {/* サブコピー */}
+        <p
+          style={{
+            fontSize: '12px',
+            letterSpacing: '0.1em',
+            lineHeight: 2.4,
+            color: '#aaa',
+            marginTop: '28px',
+            fontWeight: 300,
+            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            whiteSpace: 'pre-line',
+          }}
+        >
+          {`金属・革・ガラスへのレーザー彫刻\n結婚式・内祝い・推し活のギフトに`}
+        </p>
+
+        {/* CTAボタン */}
+        <div className="hero-cta-buttons" style={{ marginTop: '48px' }}>
+          <Link href="/products" className="hero-btn-primary">
+            商品を見る
+          </Link>
+          <Link href="/contact" className="hero-btn-secondary">
+            ギフトのご相談
+          </Link>
+        </div>
       </div>
 
       {/* スクロールインジケーター */}
@@ -83,6 +111,7 @@ export default function HeroSection() {
           flexDirection: 'column',
           alignItems: 'center',
           gap: '10px',
+          zIndex: 2,
         }}
       >
         <span

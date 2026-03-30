@@ -7,16 +7,12 @@ export default function Splash() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-    const shown = localStorage.getItem('splash_shown');
-    if (!shown) {
-      setVisible(true);
-      const timer = setTimeout(() => {
-        localStorage.setItem('splash_shown', 'true');
-        setVisible(false);
-      }, 2800);
-      return () => clearTimeout(timer);
-    }
+    // ページロード毎に毎回表示する
+    setVisible(true);
+    const timer = setTimeout(() => {
+      setVisible(false);
+    }, 2800);
+    return () => clearTimeout(timer);
   }, []);
 
   if (!visible) return null;
