@@ -1,0 +1,102 @@
+'use client';
+
+import Link from 'next/link';
+
+export default function HeroSection() {
+  return (
+    <section
+      style={{
+        minHeight: '100svh',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '80px 24px 60px',
+        position: 'relative',
+        textAlign: 'center',
+      }}
+    >
+      {/* 上部ラベル */}
+      <p
+        style={{
+          fontSize: '10px',
+          letterSpacing: '0.3em',
+          color: '#c9a84c',
+          marginBottom: '20px',
+          fontFamily: 'Georgia, serif',
+        }}
+      >
+        LASER ENGRAVED KAMON GIFTS
+      </p>
+
+      {/* メインコピー */}
+      <h1
+        style={{
+          fontSize: 'clamp(24px, 6vw, 40px)',
+          fontWeight: 400,
+          letterSpacing: '0.08em',
+          lineHeight: 1.7,
+          color: '#f0ede6',
+          margin: 0,
+          fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+          whiteSpace: 'pre-line',
+        }}
+      >
+        {`あなたの家紋を、\n世界にひとつのギフトに。`}
+      </h1>
+
+      {/* サブコピー */}
+      <p
+        style={{
+          fontSize: '12px',
+          letterSpacing: '0.1em',
+          lineHeight: 2,
+          color: '#888',
+          marginTop: '16px',
+          fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+          whiteSpace: 'pre-line',
+        }}
+      >
+        {`金属・革・ガラスへのレーザー彫刻\n結婚式・内祝い・推し活のギフトに`}
+      </p>
+
+      {/* CTAボタン */}
+      <div className="hero-cta-buttons">
+        <Link href="/products" className="hero-btn-primary">
+          商品を見る
+        </Link>
+        <Link href="/contact" className="hero-btn-secondary">
+          ギフトのご相談
+        </Link>
+      </div>
+
+      {/* スクロールインジケーター */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '32px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '8px',
+        }}
+      >
+        <span
+          style={{
+            fontSize: '9px',
+            letterSpacing: '0.3em',
+            color: '#555',
+            fontFamily: 'Georgia, serif',
+          }}
+        >
+          SCROLL
+        </span>
+        <div className="scroll-line-wrapper">
+          <div className="scroll-line-inner" />
+        </div>
+      </div>
+    </section>
+  );
+}
