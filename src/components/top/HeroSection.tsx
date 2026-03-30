@@ -23,7 +23,7 @@ export default function HeroSection() {
         style={{
           position: 'absolute',
           inset: 0,
-          backgroundImage: `url('https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=1600&q=80&auto=format&fit=crop')`,
+          backgroundImage: `url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80&auto=format&fit=crop')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.22) saturate(0.6)',

@@ -8,17 +8,17 @@ const STORY_CONTENT = [
   {
     heading: '家紋は、家の記憶。',
     body: `日本には、一万を超える家紋が存在します。\n武家から町人まで、それぞれの家が受け継いできた紋様。\nその家だけが持つ、かたちの記憶です。`,
-    // 古い家・和建築
-    imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=70&auto=format&fit=crop',
-    imageAlt: '古い日本家屋',
+    // 千鳥ヶ淵・夕暮れの桜
+    imageUrl: 'https://images.unsplash.com/photo-1557409518-691ebcd96038?w=900&q=70&auto=format&fit=crop',
+    imageAlt: '夕暮れの日本の風景',
     imagePosition: 'right' as const,
   },
   {
     heading: '0.1ミクロンの彫刻。',
     body: `フェムト秒レーザーは、1000兆分の1秒という\n極めて短いパルスで素材を加工します。\n熱を生まず、金属にも革にもガラスにも。\n家紋の繊細な線を、そのままの精度で刻みます。`,
-    // 職人・工芸
-    imageUrl: 'https://images.unsplash.com/photo-1566454825481-9c31b0e58f96?w=900&q=70&auto=format&fit=crop',
-    imageAlt: '職人の手仕事',
+    // 精密工具を扱う職人
+    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=70&auto=format&fit=crop',
+    imageAlt: '精密な職人の手仕事',
     imagePosition: 'left' as const,
   },
   {
