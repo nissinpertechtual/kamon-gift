@@ -149,7 +149,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
           {product.name}
         </p>
         <p style={{ fontSize: '10px', color: '#555', margin: '0 0 12px', fontFamily: 'Georgia, serif' }}>
-          {product.material} · ¥{product.price.toLocaleString()}
+          {product.material}{product.price != null ? ` · ¥${product.price.toLocaleString()}` : ' · お見積もり'}
         </p>
 
         {/* アクションボタン */}
