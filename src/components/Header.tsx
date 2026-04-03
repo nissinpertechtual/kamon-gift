@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import KamonBackground from './KamonBackground';
 
@@ -17,14 +18,29 @@ const KamonIcon = () => (
   </svg>
 );
 
-const navLinks = [
+const JA_NAV = [
   { label: '商品',      href: '/products' },
   { label: 'ストーリー', href: '/#story' },
   { label: 'コラム',    href: '/column' },
 ];
 
+const EN_NAV = [
+  { label: 'Products', href: '/en/products' },
+  { label: 'Story',    href: '/en#story' },
+  { label: 'Contact',  href: '/en/contact' },
+];
+
 export default function Header() {
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const pathname = usePathname();
+  const isEn = pathname.startsWith('/en');
+
+  const navLinks = isEn ? EN_NAV : JA_NAV;
+  const logoHref = isEn ? '/en' : '/';
+  const langHref = isEn ? '/' : '/en';
+  const langLabel = isEn ? 'JP' : 'EN';
+  const buyerLabel = isEn ? 'For Buyers →' : '法人・卸売の方はこちら →';
+  const buyerHref = '/buyer';
 
   return (
     <>
@@ -58,7 +74,7 @@ export default function Header() {
         >
           {/* ロゴ */}
           <Link
-            href="/"
+            href={logoHref}
             style={{
               display: 'flex',
               alignItems: 'center',
@@ -99,9 +115,9 @@ export default function Header() {
               </Link>
             ))}
 
-            {/* EN ボタン */}
+            {/* 言語切替ボタン */}
             <Link
-              href="/en"
+              href={langHref}
               style={{
                 color: '#c9a84c',
                 fontSize: '11px',
@@ -113,12 +129,12 @@ export default function Header() {
                 transition: 'background 0.3s ease',
               }}
             >
-              EN
+              {langLabel}
             </Link>
 
             {/* 法人・卸売（右端に視覚的に分離） */}
             <Link
-              href="/buyer"
+              href={buyerHref}
               style={{
                 color: '#555',
                 fontSize: '9px',
@@ -133,7 +149,7 @@ export default function Header() {
                 transition: 'color 0.3s ease',
               }}
             >
-              法人・卸売の方はこちら →
+              {buyerLabel}
             </Link>
           </nav>
 
@@ -213,7 +229,7 @@ export default function Header() {
               ))}
 
               <Link
-                href="/en"
+                href={langHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
                   color: '#c9a84c',
@@ -227,11 +243,11 @@ export default function Header() {
                   width: 'fit-content',
                 }}
               >
-                EN
+                {langLabel}
               </Link>
 
               <Link
-                href="/buyer"
+                href={buyerHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
                   color: '#555',
@@ -245,7 +261,7 @@ export default function Header() {
                   width: 'fit-content',
                 }}
               >
-                法人・卸売の方はこちら →
+                {buyerLabel}
               </Link>
             </nav>
           </div>

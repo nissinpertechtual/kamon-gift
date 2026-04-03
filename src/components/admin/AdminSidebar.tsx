@@ -7,6 +7,7 @@ const NAV_ITEMS = [
   { href: '/admin', label: 'ダッシュボード', exact: true },
   { href: '/admin/products', label: '商品管理', exact: false },
   { href: '/admin/inquiries', label: '問い合わせ', exact: false },
+  { href: '/admin/columns', label: 'コラム管理', exact: false },
 ];
 
 export default function AdminSidebar() {

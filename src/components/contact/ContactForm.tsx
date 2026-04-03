@@ -16,21 +16,50 @@ type FormData = {
   message: string;
 };
 
-const PURPOSES = [
-  '推し活・個人ギフト',
-  '結婚式・内祝い',
-  '海外の方へのお土産',
-  '法人・まとめ発注',
-  'その他',
-];
+const JA_PURPOSES = ['推し活・個人ギフト', '結婚式・内祝い', '海外の方へのお土産', '法人・まとめ発注', 'その他'];
+const EN_PURPOSES = ['Personal Gift', 'Wedding / Celebration', 'Souvenir for Overseas', 'Corporate / Wholesale', 'Other'];
 
-const BUDGETS = [
-  '〜5,000円',
-  '5,000〜10,000円',
-  '10,000〜30,000円',
-  '30,000円〜',
-  '未定・ご相談',
-];
+const JA_BUDGETS = ['〜5,000円', '5,000〜10,000円', '10,000〜30,000円', '30,000円〜', '未定・ご相談'];
+const EN_BUDGETS = ['Under ¥5,000', '¥5,000–¥10,000', '¥10,000–¥30,000', '¥30,000+', "Not sure / Let's discuss"];
+
+type LangText = {
+  namePlaceholder: string;
+  emailPlaceholder: string;
+  phonePlaceholder: string;
+  productPlaceholder: string;
+  kamonPlaceholder: string;
+  submitLabel: string;
+  sendingLabel: string;
+  successTitle: string;
+  successBody: string;
+  backHome: string;
+};
+
+const JA_TEXT: LangText = {
+  namePlaceholder: '山田 太郎',
+  emailPlaceholder: 'example@email.com',
+  phonePlaceholder: '090-0000-0000',
+  productPlaceholder: '家紋刻印 真鍮プレート など',
+  kamonPlaceholder: '例：丸に三つ柏、五七桐 など（不明でも可）',
+  submitLabel: 'お問い合わせを送信する',
+  sendingLabel: '送信中...',
+  successTitle: 'お問い合わせを受け付けました',
+  successBody: '自動返信メールをお送りしました。\n2〜3営業日以内に担当者よりご連絡いたします。',
+  backHome: 'トップページへ',
+};
+
+const EN_TEXT: LangText = {
+  namePlaceholder: 'Taro Yamada',
+  emailPlaceholder: 'example@email.com',
+  phonePlaceholder: '+81-90-0000-0000',
+  productPlaceholder: 'e.g. Brass Plate with Kamon',
+  kamonPlaceholder: 'e.g. Maru ni Mitsu Kashiwa (unknown is fine)',
+  submitLabel: 'Send Inquiry',
+  sendingLabel: 'Sending...',
+  successTitle: 'Thank you for your inquiry.',
+  successBody: "We've sent a confirmation email.\nOur team will be in touch within 2–3 business days.",
+  backHome: 'Back to Home',
+};
 
 const INPUT: React.CSSProperties = {
   width: '100%',
@@ -69,7 +98,14 @@ function blurGray(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | H
   e.currentTarget.style.borderColor = '#2a2a2a';
 }
 
-export function ContactForm() {
+type Props = { lang?: 'ja' | 'en' };
+
+export function ContactForm({ lang = 'ja' }: Props) {
+  const isEn = lang === 'en';
+  const PURPOSES = isEn ? EN_PURPOSES : JA_PURPOSES;
+  const BUDGETS = isEn ? EN_BUDGETS : JA_BUDGETS;
+  const TEXT = isEn ? EN_TEXT : JA_TEXT;
+
   const searchParams = useSearchParams();
   const presetProduct = searchParams.get('product') ?? '';
 
@@ -99,7 +135,7 @@ export function ContactForm() {
   async function handleSubmit() {
     setError('');
     if (!form.name || !form.email) {
-      setError('お名前とメールアドレスは必須です');
+      setError(isEn ? 'Name and email are required.' : 'お名前とメールアドレスは必須です');
       return;
     }
     setSubmitting(true);
@@ -171,7 +207,7 @@ export function ContactForm() {
             fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
           }}
         >
-          お問い合わせを受け付けました
+          {TEXT.successTitle}
         </h2>
         <p
           style={{
@@ -180,14 +216,13 @@ export function ContactForm() {
             lineHeight: 2.4,
             marginBottom: '40px',
             fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            whiteSpace: 'pre-line',
           }}
         >
-          自動返信メールをお送りしました。
-          <br />
-          2〜3営業日以内に担当者よりご連絡いたします。
+          {TEXT.successBody}
         </p>
         <Link
-          href="/"
+          href={isEn ? '/en' : '/'}
           style={{
             display: 'inline-block',
             border: '0.5px solid #c9a84c',
@@ -199,7 +234,7 @@ export function ContactForm() {
             fontFamily: 'Georgia, serif',
           }}
         >
-          トップページへ
+          {TEXT.backHome}
         </Link>
       </div>
     );
@@ -475,7 +510,7 @@ export function ContactForm() {
             e.currentTarget.style.opacity = '1';
           }}
         >
-          {submitting ? '送信中...' : 'お問い合わせを送信する'}
+          {submitting ? TEXT.sendingLabel : TEXT.submitLabel}
         </button>
         <p
           style={{
