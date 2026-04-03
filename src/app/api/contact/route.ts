@@ -66,8 +66,8 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (dbError) {
-      console.error('DB insert error:', dbError);
-      throw new Error('データベースへの保存に失敗しました');
+      console.error('DB insert error:', JSON.stringify(dbError));
+      throw new Error(`DB: ${dbError.message} (code: ${dbError.code})`);
     }
 
     const emailData = {
