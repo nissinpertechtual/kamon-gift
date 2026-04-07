@@ -6,8 +6,17 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "家紋の彫刻室",
-  description: "レーザー彫刻による家紋ギフト専門店",
+  title: '家紋の彫刻室 | レーザー彫刻による家紋ギフト専門店',
+  description: '金属・革・ガラスへのフェムト秒レーザー彫刻。結婚式・内祝い・推し活・訪日外国人向けギフトに。世界にひとつの家紋ギフトをお届けします。',
+  keywords: '家紋,レーザー彫刻,ギフト,推し活,結婚式,内祝い,訪日外国人,フェムト秒レーザー',
+  openGraph: {
+    title: '家紋の彫刻室',
+    description: 'レーザー彫刻による家紋ギフト専門店',
+    url: 'https://kamongift.com',
+    siteName: '家紋の彫刻室',
+    locale: 'ja_JP',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
