@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { MAX_UPLOAD_BYTES, MAX_UPLOAD_LABEL } from '@/lib/upload-limits';
+
+// Node.js ランタイム上で大きい multipart を扱う
+export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 // リクエスト時に初期化（ビルド時に環境変数がなくてもエラーにならないよう遅延）
 function getSupabase() {
@@ -20,6 +25,13 @@ export async function POST(req: NextRequest) {
 
     if (!productId || !file) {
       return NextResponse.json({ error: 'productId と file は必須です' }, { status: 400 });
+    }
+
+    if (file.size > MAX_UPLOAD_BYTES) {
+      return NextResponse.json(
+        { error: `ファイルサイズは${MAX_UPLOAD_LABEL}以下にしてください` },
+        { status: 413 }
+      );
     }
 
     const index = indexStr != null ? parseInt(indexStr, 10) : null;

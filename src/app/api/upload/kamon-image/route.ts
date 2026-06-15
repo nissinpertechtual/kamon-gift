@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { MAX_UPLOAD_BYTES, MAX_UPLOAD_LABEL } from '@/lib/upload-limits';
+
+export const runtime = 'nodejs';
+export const maxDuration = 60;
 
 function getSupabase() {
   return createClient(
@@ -17,10 +21,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'ファイルがありません' }, { status: 400 });
     }
 
-    // ファイルサイズ制限: 10MB
-    if (file.size > 10 * 1024 * 1024) {
+    // ファイルサイズ制限
+    if (file.size > MAX_UPLOAD_BYTES) {
       return NextResponse.json(
-        { error: 'ファイルサイズは10MB以下にしてください' },
+        { error: `ファイルサイズは${MAX_UPLOAD_LABEL}以下にしてください` },
         { status: 400 }
       );
     }
