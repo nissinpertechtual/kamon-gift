@@ -73,13 +73,13 @@ export default function AdminProductsNewPage() {
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: '#111',
-    border: '0.5px solid #2a2a2a',
-    color: '#f0ede6',
+    background: '#e7e0d2',
+    border: '0.5px solid #d3cab5',
+    color: '#2a2620',
     padding: '10px 12px',
     fontSize: '13px',
     fontWeight: 300,
-    fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+    fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
     outline: 'none',
     boxSizing: 'border-box',
   };
@@ -88,9 +88,9 @@ export default function AdminProductsNewPage() {
     display: 'block',
     fontSize: '9px',
     letterSpacing: '0.2em',
-    color: '#555',
+    color: '#857c6d',
     marginBottom: '8px',
-    fontFamily: 'Georgia, serif',
+    fontFamily: "'Cormorant Garamond', Georgia, serif",
   };
 
   return (
@@ -98,17 +98,17 @@ export default function AdminProductsNewPage() {
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '40px' }}>
         <button
           onClick={() => router.back()}
-          style={{ background: 'none', border: 'none', color: '#555', cursor: 'pointer', fontSize: '12px', fontFamily: 'Georgia, serif', padding: 0 }}
+          style={{ background: 'none', border: 'none', color: '#857c6d', cursor: 'pointer', fontSize: '12px', fontFamily: "'Cormorant Garamond', Georgia, serif", padding: 0 }}
         >
           ← 戻る
         </button>
-        <h1 style={{ fontSize: '18px', fontWeight: 300, letterSpacing: '0.1em', color: '#f0ede6', margin: 0, fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif" }}>
+        <h1 style={{ fontSize: '18px', fontWeight: 300, letterSpacing: '0.1em', color: '#2a2620', margin: 0, fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
           新規商品登録
         </h1>
       </div>
 
       {error && (
-        <div style={{ background: 'rgba(200,50,50,0.08)', border: '0.5px solid rgba(200,50,50,0.3)', color: '#f87171', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: 'Georgia, serif' }}>
+        <div style={{ background: 'rgba(163,40,43,0.08)', border: '0.5px solid rgba(163,40,43,0.3)', color: '#b3261e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {error}
         </div>
       )}
@@ -148,7 +148,7 @@ export default function AdminProductsNewPage() {
               placeholder="空欄 = お見積もり"
               style={inputStyle}
             />
-            <p style={{ fontSize: '10px', color: '#444', marginTop: '4px', fontFamily: 'Georgia, serif' }}>空欄にするとカスタム注文扱い</p>
+            <p style={{ fontSize: '10px', color: '#9b9384', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>空欄にするとカスタム注文扱い</p>
           </div>
           <div>
             <label style={labelStyle}>素材 *</label>
@@ -161,7 +161,7 @@ export default function AdminProductsNewPage() {
             <label style={labelStyle}>シーン</label>
             <select name="scene" value={form.scene} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
               {SCENE_OPTIONS.map((o) => (
-                <option key={o.value} value={o.value} style={{ background: '#111' }}>{o.label}</option>
+                <option key={o.value} value={o.value} style={{ background: '#e7e0d2' }}>{o.label}</option>
               ))}
             </select>
           </div>
@@ -173,12 +173,12 @@ export default function AdminProductsNewPage() {
 
         <div style={{ display: 'flex', gap: '24px' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#c9a84c', width: '14px', height: '14px' }} />
-            <span style={{ fontSize: '12px', color: '#888', fontFamily: 'Georgia, serif' }}>公開する</span>
+            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#a3282b', width: '14px', height: '14px' }} />
+            <span style={{ fontSize: '12px', color: '#6f675a', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開する</span>
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#c9a84c', width: '14px', height: '14px' }} />
-            <span style={{ fontSize: '12px', color: '#888', fontFamily: 'Georgia, serif' }}>有効（is_active）</span>
+            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#a3282b', width: '14px', height: '14px' }} />
+            <span style={{ fontSize: '12px', color: '#6f675a', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>有効（is_active）</span>
           </label>
         </div>
 
@@ -187,15 +187,15 @@ export default function AdminProductsNewPage() {
             type="submit"
             disabled={saving}
             style={{
-              background: saving ? '#555' : '#c9a84c',
-              color: '#0a0a0a',
+              background: saving ? '#857c6d' : '#a3282b',
+              color: '#f6f1e7',
               padding: '12px 40px',
               fontSize: '12px',
               letterSpacing: '0.15em',
               fontWeight: 300,
               border: 'none',
               cursor: saving ? 'not-allowed' : 'pointer',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
           >
             {saving ? '保存中...' : '作成する（次に画像を追加）'}
@@ -203,7 +203,7 @@ export default function AdminProductsNewPage() {
           <button
             type="button"
             onClick={() => router.back()}
-            style={{ background: 'transparent', color: '#555', padding: '12px 24px', fontSize: '12px', letterSpacing: '0.1em', border: '0.5px solid #2a2a2a', cursor: 'pointer', fontFamily: 'Georgia, serif' }}
+            style={{ background: 'transparent', color: '#857c6d', padding: '12px 24px', fontSize: '12px', letterSpacing: '0.1em', border: '0.5px solid #d3cab5', cursor: 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             キャンセル
           </button>

@@ -15,7 +15,7 @@ export default async function ProtectedAdminLayout({
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#0a0a0a', color: '#f0ede6' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', background: '#f4f0e7', color: '#2a2620' }}>
       <AdminSidebar />
       <main style={{ flex: 1, padding: '40px', overflowY: 'auto' }}>
         {children}

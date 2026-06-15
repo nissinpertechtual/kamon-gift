@@ -4,31 +4,31 @@ import { useState } from 'react';
 
 type Props = { images: string[]; name: string };
 
+const KamonPlaceholder = () => (
+  <div
+    style={{
+      width: '100%',
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    <svg width="60" height="60" viewBox="0 0 72 72" style={{ opacity: 0.1 }}>
+      <circle cx="36" cy="36" r="28" fill="none" stroke="#a3282b" strokeWidth="1" />
+      <circle cx="36" cy="36" r="14" fill="none" stroke="#a3282b" strokeWidth="0.8" />
+      <line x1="36" y1="8" x2="36" y2="64" stroke="#a3282b" strokeWidth="0.8" />
+      <line x1="8" y1="36" x2="64" y2="36" stroke="#a3282b" strokeWidth="0.8" />
+    </svg>
+  </div>
+);
+
 export function ImageSlider({ images, name }: Props) {
   const [current, setCurrent] = useState(0);
 
-  const KamonPlaceholder = () => (
-    <div
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <svg width="60" height="60" viewBox="0 0 72 72" style={{ opacity: 0.1 }}>
-        <circle cx="36" cy="36" r="28" fill="none" stroke="#c9a84c" strokeWidth="1" />
-        <circle cx="36" cy="36" r="14" fill="none" stroke="#c9a84c" strokeWidth="0.8" />
-        <line x1="36" y1="8" x2="36" y2="64" stroke="#c9a84c" strokeWidth="0.8" />
-        <line x1="8" y1="36" x2="64" y2="36" stroke="#c9a84c" strokeWidth="0.8" />
-      </svg>
-    </div>
-  );
-
   if (images.length === 0) {
     return (
-      <div style={{ aspectRatio: '1/1', background: '#111' }}>
+      <div style={{ aspectRatio: '1/1', background: '#e7e0d2' }}>
         <KamonPlaceholder />
       </div>
     );
@@ -40,7 +40,7 @@ export function ImageSlider({ images, name }: Props) {
       <div
         style={{
           aspectRatio: '1/1',
-          background: '#111',
+          background: '#e7e0d2',
           overflow: 'hidden',
           marginBottom: '12px',
           position: 'relative',
@@ -62,8 +62,8 @@ export function ImageSlider({ images, name }: Props) {
                 top: '50%',
                 transform: 'translateY(-50%)',
                 background: 'rgba(0,0,0,0.5)',
-                border: '0.5px solid #333',
-                color: '#888',
+                border: '0.5px solid #c6bca6',
+                color: '#6f675a',
                 width: '32px',
                 height: '32px',
                 cursor: 'pointer',
@@ -83,8 +83,8 @@ export function ImageSlider({ images, name }: Props) {
                 top: '50%',
                 transform: 'translateY(-50%)',
                 background: 'rgba(0,0,0,0.5)',
-                border: '0.5px solid #333',
-                color: '#888',
+                border: '0.5px solid #c6bca6',
+                color: '#6f675a',
                 width: '32px',
                 height: '32px',
                 cursor: 'pointer',
@@ -111,7 +111,7 @@ export function ImageSlider({ images, name }: Props) {
                 width: '56px',
                 height: '56px',
                 padding: 0,
-                border: `0.5px solid ${i === current ? '#c9a84c' : '#2a2a2a'}`,
+                border: `0.5px solid ${i === current ? '#a3282b' : '#d3cab5'}`,
                 background: 'none',
                 cursor: 'pointer',
                 overflow: 'hidden',

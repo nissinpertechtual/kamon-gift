@@ -63,12 +63,12 @@ const EN_TEXT: LangText = {
 
 const INPUT: React.CSSProperties = {
   width: '100%',
-  background: '#111',
-  border: '0.5px solid #2a2a2a',
-  color: '#f0ede6',
+  background: '#e7e0d2',
+  border: '0.5px solid #d3cab5',
+  color: '#2a2620',
   padding: '12px 16px',
   fontSize: '13px',
-  fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+  fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
   fontWeight: 300,
   outline: 'none',
   borderRadius: 0,
@@ -80,22 +80,22 @@ const LABEL: React.CSSProperties = {
   display: 'block',
   fontSize: '9px',
   letterSpacing: '0.2em',
-  color: '#555',
+  color: '#857c6d',
   marginBottom: '8px',
-  fontFamily: 'Georgia, serif',
+  fontFamily: "'Cormorant Garamond', Georgia, serif",
 };
 
 const FIELD: React.CSSProperties = { marginBottom: '28px' };
 
 const REQUIRED = (
-  <span style={{ color: '#c9a84c', marginLeft: '4px', fontSize: '10px' }}>*</span>
+  <span style={{ color: '#a3282b', marginLeft: '4px', fontSize: '10px' }}>*</span>
 );
 
 function focusGold(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-  e.currentTarget.style.borderColor = '#c9a84c';
+  e.currentTarget.style.borderColor = '#a3282b';
 }
 function blurGray(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-  e.currentTarget.style.borderColor = '#2a2a2a';
+  e.currentTarget.style.borderColor = '#d3cab5';
 }
 
 type Props = { lang?: 'ja' | 'en' };
@@ -182,18 +182,18 @@ export function ContactForm({ lang = 'ja' }: Props) {
           viewBox="0 0 72 72"
           style={{ marginBottom: '24px', opacity: 0.6 }}
         >
-          <circle cx="36" cy="36" r="30" fill="none" stroke="#c9a84c" strokeWidth="1" />
-          <circle cx="36" cy="36" r="16" fill="none" stroke="#c9a84c" strokeWidth="0.8" />
-          <line x1="36" y1="6" x2="36" y2="66" stroke="#c9a84c" strokeWidth="0.8" />
-          <line x1="6" y1="36" x2="66" y2="36" stroke="#c9a84c" strokeWidth="0.8" />
+          <circle cx="36" cy="36" r="30" fill="none" stroke="#a3282b" strokeWidth="1" />
+          <circle cx="36" cy="36" r="16" fill="none" stroke="#a3282b" strokeWidth="0.8" />
+          <line x1="36" y1="6" x2="36" y2="66" stroke="#a3282b" strokeWidth="0.8" />
+          <line x1="6" y1="36" x2="66" y2="36" stroke="#a3282b" strokeWidth="0.8" />
         </svg>
         <div
           style={{
             fontSize: '9px',
             letterSpacing: '0.3em',
-            color: '#c9a84c',
+            color: '#a3282b',
             marginBottom: '20px',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           SENT
@@ -204,7 +204,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
             fontWeight: 300,
             letterSpacing: '0.1em',
             marginBottom: '16px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           {TEXT.successTitle}
@@ -212,10 +212,10 @@ export function ContactForm({ lang = 'ja' }: Props) {
         <p
           style={{
             fontSize: '12px',
-            color: '#666',
+            color: '#766d5f',
             lineHeight: 2.4,
             marginBottom: '40px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             whiteSpace: 'pre-line',
           }}
         >
@@ -225,13 +225,13 @@ export function ContactForm({ lang = 'ja' }: Props) {
           href={isEn ? '/en' : '/'}
           style={{
             display: 'inline-block',
-            border: '0.5px solid #c9a84c',
-            color: '#c9a84c',
+            border: '0.5px solid #a3282b',
+            color: '#a3282b',
             padding: '12px 40px',
             fontSize: '10px',
             letterSpacing: '0.2em',
             textDecoration: 'none',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           {TEXT.backHome}
@@ -325,18 +325,18 @@ export function ContactForm({ lang = 'ja' }: Props) {
         <div
           onClick={() => fileInputRef.current?.click()}
           style={{
-            border: `0.5px dashed ${kamonImage ? '#c9a84c' : '#2a2a2a'}`,
+            border: `0.5px dashed ${kamonImage ? '#a3282b' : '#d3cab5'}`,
             padding: '16px',
             textAlign: 'center',
             cursor: 'pointer',
             transition: 'border-color 0.3s, background 0.3s',
-            background: kamonImage ? 'rgba(201,168,76,0.04)' : 'transparent',
+            background: kamonImage ? 'rgba(163,40,43,0.04)' : 'transparent',
           }}
           onMouseEnter={(e) =>
-            !kamonImage && (e.currentTarget.style.borderColor = '#444')
+            !kamonImage && (e.currentTarget.style.borderColor = '#9b9384')
           }
           onMouseLeave={(e) =>
-            !kamonImage && (e.currentTarget.style.borderColor = '#2a2a2a')
+            !kamonImage && (e.currentTarget.style.borderColor = '#d3cab5')
           }
         >
           <input
@@ -350,9 +350,9 @@ export function ContactForm({ lang = 'ja' }: Props) {
             <span
               style={{
                 fontSize: '11px',
-                color: '#c9a84c',
+                color: '#a3282b',
                 letterSpacing: '0.05em',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               }}
             >
               ✓ {kamonImage.name}
@@ -361,9 +361,9 @@ export function ContactForm({ lang = 'ja' }: Props) {
             <span
               style={{
                 fontSize: '10px',
-                color: '#444',
+                color: '#9b9384',
                 letterSpacing: '0.1em',
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
               家紋の画像があればアップロード（任意）
@@ -428,11 +428,11 @@ export function ContactForm({ lang = 'ja' }: Props) {
                 padding: '6px 14px',
                 fontSize: '10px',
                 letterSpacing: '0.05em',
-                border: `0.5px solid ${form.purpose === p ? '#c9a84c' : '#2a2a2a'}`,
-                color: form.purpose === p ? '#c9a84c' : '#555',
-                background: form.purpose === p ? 'rgba(201,168,76,0.06)' : 'transparent',
+                border: `0.5px solid ${form.purpose === p ? '#a3282b' : '#d3cab5'}`,
+                color: form.purpose === p ? '#a3282b' : '#857c6d',
+                background: form.purpose === p ? 'rgba(163,40,43,0.06)' : 'transparent',
                 cursor: 'pointer',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 fontWeight: 300,
                 transition: 'all 0.3s',
               }}
@@ -465,10 +465,10 @@ export function ContactForm({ lang = 'ja' }: Props) {
             border: '0.5px solid #c0392b',
             padding: '12px 16px',
             fontSize: '12px',
-            color: '#e05a5a',
+            color: '#b3261e',
             marginBottom: '20px',
             letterSpacing: '0.05em',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           {error}
@@ -481,7 +481,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
           style={{
             width: '1px',
             height: '40px',
-            background: '#c9a84c',
+            background: '#a3282b',
             opacity: 0.25,
             margin: '0 auto 24px',
           }}
@@ -493,13 +493,13 @@ export function ContactForm({ lang = 'ja' }: Props) {
           style={{
             width: '100%',
             padding: '16px',
-            background: submitting ? '#1a1a1a' : '#c9a84c',
-            color: submitting ? '#444' : '#0a0a0a',
+            background: submitting ? '#e4ded0' : '#a3282b',
+            color: submitting ? '#9b9384' : '#f4f0e7',
             border: 'none',
             fontSize: '12px',
             letterSpacing: '0.25em',
             cursor: submitting ? 'wait' : 'pointer',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             fontWeight: 300,
             transition: 'all 0.3s',
           }}
@@ -515,10 +515,10 @@ export function ContactForm({ lang = 'ja' }: Props) {
         <p
           style={{
             fontSize: '10px',
-            color: '#444',
+            color: '#9b9384',
             marginTop: '12px',
             letterSpacing: '0.05em',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           送信後、自動返信メールをお送りします

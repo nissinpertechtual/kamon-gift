@@ -19,7 +19,7 @@ export default async function ColumnDetailPage({ params }: Props) {
   if (!column) notFound();
 
   return (
-    <div style={{ position: 'relative', background: '#0a0a0a', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -34,13 +34,13 @@ export default async function ColumnDetailPage({ params }: Props) {
         <div
           style={{
             fontSize: '9px',
-            color: '#444',
+            color: '#9b9384',
             letterSpacing: '0.15em',
             marginBottom: '48px',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
-          <Link href="/column" style={{ color: '#555', textDecoration: 'none' }}>
+          <Link href="/column" style={{ color: '#857c6d', textDecoration: 'none' }}>
             コラム
           </Link>
           <span style={{ margin: '0 8px' }}>—</span>
@@ -52,9 +52,9 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             fontSize: '9px',
             letterSpacing: '0.2em',
-            color: '#555',
+            color: '#857c6d',
             marginBottom: '20px',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           {new Date(column.created_at).toLocaleDateString('ja-JP', {
@@ -71,9 +71,9 @@ export default async function ColumnDetailPage({ params }: Props) {
             fontWeight: 300,
             letterSpacing: '0.1em',
             lineHeight: 1.7,
-            color: '#f0ede6',
+            color: '#2a2620',
             marginBottom: '48px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           {column.title_ja}
@@ -95,7 +95,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             width: '40px',
             height: '0.5px',
-            background: '#c9a84c',
+            background: '#a3282b',
             opacity: 0.4,
             marginBottom: '48px',
           }}
@@ -106,11 +106,11 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             fontSize: '14px',
             lineHeight: 2.5,
-            color: '#888',
+            color: '#6f675a',
             letterSpacing: '0.05em',
             fontWeight: 300,
             whiteSpace: 'pre-wrap',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           {column.body_ja}
@@ -121,7 +121,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             marginTop: '80px',
             padding: '32px',
-            border: '0.5px solid #1e1e1e',
+            border: '0.5px solid #ddd6c6',
             textAlign: 'center',
           }}
         >
@@ -129,9 +129,9 @@ export default async function ColumnDetailPage({ params }: Props) {
             style={{
               fontSize: '9px',
               letterSpacing: '0.25em',
-              color: '#c9a84c',
+              color: '#a3282b',
               marginBottom: '16px',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
           >
             PRODUCTS
@@ -139,10 +139,10 @@ export default async function ColumnDetailPage({ params }: Props) {
           <p
             style={{
               fontSize: '12px',
-              color: '#666',
+              color: '#766d5f',
               lineHeight: 2,
               marginBottom: '24px',
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             }}
           >
             家紋をギフトに刻みませんか。
@@ -151,13 +151,13 @@ export default async function ColumnDetailPage({ params }: Props) {
             href="/products"
             style={{
               display: 'inline-block',
-              border: '0.5px solid #c9a84c',
-              color: '#c9a84c',
+              border: '0.5px solid #a3282b',
+              color: '#a3282b',
               padding: '11px 32px',
               fontSize: '11px',
               letterSpacing: '0.2em',
               textDecoration: 'none',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
           >
             商品を見る
@@ -170,10 +170,10 @@ export default async function ColumnDetailPage({ params }: Props) {
             href="/column"
             style={{
               fontSize: '10px',
-              color: '#555',
+              color: '#857c6d',
               letterSpacing: '0.2em',
               textDecoration: 'none',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
           >
             ← コラム一覧へ戻る

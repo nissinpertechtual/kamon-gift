@@ -7,7 +7,7 @@ export default function CheckoutCancel() {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        background: '#0a0a0a',
+        background: '#f4f0e7',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -20,9 +20,9 @@ export default function CheckoutCancel() {
           style={{
             fontSize: '9px',
             letterSpacing: '0.35em',
-            color: '#444',
+            color: '#9b9384',
             marginBottom: '24px',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           CANCELLED
@@ -34,8 +34,8 @@ export default function CheckoutCancel() {
             fontWeight: 300,
             letterSpacing: '0.1em',
             marginBottom: '16px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-            color: '#f0ede6',
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+            color: '#2a2620',
           }}
         >
           決済をキャンセルしました
@@ -44,10 +44,10 @@ export default function CheckoutCancel() {
         <p
           style={{
             fontSize: '12px',
-            color: '#555',
+            color: '#857c6d',
             lineHeight: 2,
             marginBottom: '40px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             fontWeight: 300,
           }}
         >
@@ -58,13 +58,13 @@ export default function CheckoutCancel() {
           href="/products"
           style={{
             display: 'inline-block',
-            border: '0.5px solid #333',
-            color: '#888',
+            border: '0.5px solid #c6bca6',
+            color: '#6f675a',
             padding: '12px 40px',
             fontSize: '10px',
             letterSpacing: '0.25em',
             textDecoration: 'none',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           商品一覧へ戻る

@@ -1,25 +1,19 @@
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/server';
 import { SectionLabel } from '@/components/ui/SectionLabel';
-import { ProductCard, type ProductItem } from './ProductCard';
-
-// ─── モックデータ（Supabase接続後に差し替え） ────────────────────
-const MOCK_PRODUCTS: ProductItem[] = [
-  { id: '1', name_ja: '家紋刻印 真鍮プレート',      material: '真鍮',    images: [], price: null },
-  { id: '2', name_ja: '家紋刻印 レザーキーホルダー',  material: '牛革',    images: [], price: null },
-  { id: '3', name_ja: '家紋刻印 アクリルスタンド',   material: 'アクリル', images: [], price: null },
-  { id: '4', name_ja: '家紋刻印 ガラスプレート',     material: 'ガラス',   images: [], price: null },
-  { id: '5', name_ja: '家紋刻印 名刺入れ（革）',    material: '牛革',    images: [], price: null },
-  { id: '6', name_ja: '家紋刻印 チャーム（金属）',   material: '真鍮',    images: [], price: null },
-];
-// ─────────────────────────────────────────────────────────────────
-
-// TODO: Supabase接続後にこの関数を書き換える
-async function fetchProducts(): Promise<ProductItem[]> {
-  return MOCK_PRODUCTS;
-}
+import { ProductCard } from '@/components/products/ProductCard';
+import type { Product } from '@/types/supabase';
 
 export default async function ProductGallery() {
-  const products = await fetchProducts();
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from('products')
+    .select('*')
+    .eq('is_published', true)
+    .order('sort_order', { ascending: true })
+    .limit(6);
+
+  const products = (data ?? []) as Product[];
 
   return (
     <section style={{ padding: '120px 24px' }}>
@@ -27,25 +21,40 @@ export default async function ProductGallery() {
 
         <SectionLabel en="PRODUCTS" ja="商品" />
 
-        <div className="product-grid">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        {products.length === 0 ? (
+          <div
+            style={{
+              textAlign: 'center',
+              color: '#9b9384',
+              fontSize: '13px',
+              padding: '40px 0 8px',
+              letterSpacing: '0.08em',
+              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+            }}
+          >
+            商品は準備中です
+          </div>
+        ) : (
+          <div className="product-grid">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
 
         <div style={{ textAlign: 'center', marginTop: '48px' }}>
           <Link
             href="/products"
             style={{
               display: 'inline-block',
-              border: '0.5px solid #c9a84c',
-              color: '#c9a84c',
+              border: '0.5px solid #a3282b',
+              color: '#a3282b',
               padding: '12px 44px',
               fontSize: '11px',
               letterSpacing: '0.2em',
               fontWeight: 300,
               textDecoration: 'none',
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               transition: 'background 0.3s ease',
             }}
           >

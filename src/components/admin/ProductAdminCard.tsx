@@ -85,13 +85,13 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
   return (
     <div
       style={{
-        background: '#111',
-        border: '0.5px solid #2a2a2a',
+        background: '#e7e0d2',
+        border: '0.5px solid #d3cab5',
         overflow: 'hidden',
       }}
     >
       {/* 画像エリア */}
-      <div style={{ position: 'relative', aspectRatio: '4/3', background: '#0d0d0d' }}>
+      <div style={{ position: 'relative', aspectRatio: '4/3', background: '#fbf9f3' }}>
         {primaryImage ? (
           <Image
             src={primaryImage}
@@ -110,7 +110,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               justifyContent: 'center',
             }}
           >
-            <p style={{ fontSize: '10px', color: '#333', fontFamily: 'Georgia, serif' }}>NO IMAGE</p>
+            <p style={{ fontSize: '10px', color: '#c6bca6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>NO IMAGE</p>
           </div>
         )}
 
@@ -122,10 +122,10 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               top: '8px',
               right: '8px',
               background: 'rgba(0,0,0,0.7)',
-              color: '#888',
+              color: '#6f675a',
               fontSize: '9px',
               padding: '3px 8px',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
               letterSpacing: '0.05em',
             }}
           >
@@ -139,16 +139,16 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
         <p
           style={{
             fontSize: '13px',
-            color: '#f0ede6',
+            color: '#2a2620',
             margin: '0 0 4px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             fontWeight: 300,
             letterSpacing: '0.06em',
           }}
         >
           {product.name}
         </p>
-        <p style={{ fontSize: '10px', color: '#555', margin: '0 0 12px', fontFamily: 'Georgia, serif' }}>
+        <p style={{ fontSize: '10px', color: '#857c6d', margin: '0 0 12px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {product.material}{product.price != null ? ` · ¥${product.price.toLocaleString()}` : ' · お見積もり'}
         </p>
 
@@ -161,15 +161,15 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               flex: 1,
               padding: '8px',
               background: 'transparent',
-              border: '0.5px solid #c9a84c',
-              color: generating ? '#555' : '#c9a84c',
+              border: '0.5px solid #a3282b',
+              color: generating ? '#857c6d' : '#a3282b',
               fontSize: '9px',
               letterSpacing: '0.12em',
               cursor: generating ? 'not-allowed' : 'pointer',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
               transition: 'background 0.2s ease',
             }}
-            onMouseEnter={(e) => !generating && (e.currentTarget.style.background = 'rgba(201,168,76,0.08)')}
+            onMouseEnter={(e) => !generating && (e.currentTarget.style.background = 'rgba(163,40,43,0.08)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
           >
             {generating ? '生成中...' : 'AI 生成'}
@@ -182,23 +182,23 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               flex: 1,
               padding: '8px',
               background: 'transparent',
-              border: '0.5px solid #2a2a2a',
-              color: uploading ? '#555' : '#888',
+              border: '0.5px solid #d3cab5',
+              color: uploading ? '#857c6d' : '#6f675a',
               fontSize: '9px',
               letterSpacing: '0.12em',
               cursor: uploading ? 'not-allowed' : 'pointer',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
               transition: 'border-color 0.2s ease, color 0.2s ease',
             }}
             onMouseEnter={(e) => {
               if (!uploading) {
-                e.currentTarget.style.borderColor = '#555';
-                e.currentTarget.style.color = '#f0ede6';
+                e.currentTarget.style.borderColor = '#857c6d';
+                e.currentTarget.style.color = '#2a2620';
               }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#2a2a2a';
-              e.currentTarget.style.color = '#888';
+              e.currentTarget.style.borderColor = '#d3cab5';
+              e.currentTarget.style.color = '#6f675a';
             }}
           >
             {uploading ? 'アップロード中...' : '写真を追加'}
@@ -234,9 +234,9 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
                     right: '-4px',
                     width: '16px',
                     height: '16px',
-                    background: '#333',
-                    border: '0.5px solid #555',
-                    color: '#888',
+                    background: '#c6bca6',
+                    border: '0.5px solid #857c6d',
+                    color: '#6f675a',
                     fontSize: '9px',
                     cursor: 'pointer',
                     display: 'flex',
@@ -259,8 +259,8 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
             style={{
               marginTop: '10px',
               fontSize: '10px',
-              color: message.startsWith('エラー') ? '#e05a5a' : '#c9a84c',
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+              color: message.startsWith('エラー') ? '#b3261e' : '#a3282b',
+              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               letterSpacing: '0.05em',
             }}
           >

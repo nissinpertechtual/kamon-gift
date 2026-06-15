@@ -133,13 +133,13 @@ export default function ProductEditForm({ product: initial }: { product: Product
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: '#111',
-    border: '0.5px solid #2a2a2a',
-    color: '#f0ede6',
+    background: '#e7e0d2',
+    border: '0.5px solid #d3cab5',
+    color: '#2a2620',
     padding: '10px 12px',
     fontSize: '13px',
     fontWeight: 300,
-    fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+    fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
     outline: 'none',
     boxSizing: 'border-box',
   };
@@ -148,9 +148,9 @@ export default function ProductEditForm({ product: initial }: { product: Product
     display: 'block',
     fontSize: '9px',
     letterSpacing: '0.2em',
-    color: '#555',
+    color: '#857c6d',
     marginBottom: '8px',
-    fontFamily: 'Georgia, serif',
+    fontFamily: "'Cormorant Garamond', Georgia, serif",
   };
 
   return (
@@ -160,18 +160,18 @@ export default function ProductEditForm({ product: initial }: { product: Product
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <button
             onClick={() => router.push('/admin/products')}
-            style={{ background: 'none', border: 'none', color: '#555', cursor: 'pointer', fontSize: '12px', fontFamily: 'Georgia, serif', padding: 0 }}
+            style={{ background: 'none', border: 'none', color: '#857c6d', cursor: 'pointer', fontSize: '12px', fontFamily: "'Cormorant Garamond', Georgia, serif", padding: 0 }}
           >
             ← 戻る
           </button>
-          <h1 style={{ fontSize: '18px', fontWeight: 300, letterSpacing: '0.1em', color: '#f0ede6', margin: 0, fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif" }}>
+          <h1 style={{ fontSize: '18px', fontWeight: 300, letterSpacing: '0.1em', color: '#2a2620', margin: 0, fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
             商品編集
           </h1>
         </div>
         <button
           onClick={handleDelete}
           disabled={deleting}
-          style={{ background: 'transparent', border: '0.5px solid rgba(200,50,50,0.4)', color: '#f87171', padding: '8px 16px', fontSize: '11px', cursor: deleting ? 'not-allowed' : 'pointer', fontFamily: 'Georgia, serif', opacity: deleting ? 0.5 : 1 }}
+          style={{ background: 'transparent', border: '0.5px solid rgba(163,40,43,0.4)', color: '#b3261e', padding: '8px 16px', fontSize: '11px', cursor: deleting ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif", opacity: deleting ? 0.5 : 1 }}
         >
           {deleting ? '削除中...' : '削除'}
         </button>
@@ -179,12 +179,12 @@ export default function ProductEditForm({ product: initial }: { product: Product
 
       {/* エラー・メッセージ */}
       {error && (
-        <div style={{ background: 'rgba(200,50,50,0.08)', border: '0.5px solid rgba(200,50,50,0.3)', color: '#f87171', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: 'Georgia, serif' }}>
+        <div style={{ background: 'rgba(163,40,43,0.08)', border: '0.5px solid rgba(163,40,43,0.3)', color: '#b3261e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {error}
         </div>
       )}
       {message && !error && (
-        <div style={{ background: 'rgba(201,168,76,0.06)', border: '0.5px solid rgba(201,168,76,0.3)', color: '#c9a84c', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: 'Georgia, serif' }}>
+        <div style={{ background: 'rgba(163,40,43,0.06)', border: '0.5px solid rgba(163,40,43,0.3)', color: '#a3282b', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {message}
         </div>
       )}
@@ -211,7 +211,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
           <div>
             <label style={labelStyle}>価格（円）</label>
             <input name="price" type="number" value={form.price} onChange={handleChange} placeholder="空欄 = お見積もり" style={inputStyle} />
-            <p style={{ fontSize: '10px', color: '#444', marginTop: '4px', fontFamily: 'Georgia, serif' }}>空欄にするとカスタム注文扱い</p>
+            <p style={{ fontSize: '10px', color: '#9b9384', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>空欄にするとカスタム注文扱い</p>
           </div>
           <div>
             <label style={labelStyle}>素材 *</label>
@@ -224,7 +224,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
             <label style={labelStyle}>シーン</label>
             <select name="scene" value={form.scene} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
               {SCENE_OPTIONS.map((o) => (
-                <option key={o.value} value={o.value} style={{ background: '#111' }}>{o.label}</option>
+                <option key={o.value} value={o.value} style={{ background: '#e7e0d2' }}>{o.label}</option>
               ))}
             </select>
           </div>
@@ -236,12 +236,12 @@ export default function ProductEditForm({ product: initial }: { product: Product
 
         <div style={{ display: 'flex', gap: '24px' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#c9a84c', width: '14px', height: '14px' }} />
-            <span style={{ fontSize: '12px', color: '#888', fontFamily: 'Georgia, serif' }}>公開する</span>
+            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#a3282b', width: '14px', height: '14px' }} />
+            <span style={{ fontSize: '12px', color: '#6f675a', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開する</span>
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#c9a84c', width: '14px', height: '14px' }} />
-            <span style={{ fontSize: '12px', color: '#888', fontFamily: 'Georgia, serif' }}>有効（is_active）</span>
+            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#a3282b', width: '14px', height: '14px' }} />
+            <span style={{ fontSize: '12px', color: '#6f675a', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>有効（is_active）</span>
           </label>
         </div>
 
@@ -249,14 +249,14 @@ export default function ProductEditForm({ product: initial }: { product: Product
           <button
             type="submit"
             disabled={saving}
-            style={{ background: saving ? '#555' : '#c9a84c', color: '#0a0a0a', padding: '12px 40px', fontSize: '12px', letterSpacing: '0.15em', fontWeight: 300, border: 'none', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: 'Georgia, serif' }}
+            style={{ background: saving ? '#857c6d' : '#a3282b', color: '#f6f1e7', padding: '12px 40px', fontSize: '12px', letterSpacing: '0.15em', fontWeight: 300, border: 'none', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             {saving ? '保存中...' : '保存する'}
           </button>
           <button
             type="button"
             onClick={() => router.push('/admin/products')}
-            style={{ background: 'transparent', color: '#555', padding: '12px 24px', fontSize: '12px', letterSpacing: '0.1em', border: '0.5px solid #2a2a2a', cursor: 'pointer', fontFamily: 'Georgia, serif' }}
+            style={{ background: 'transparent', color: '#857c6d', padding: '12px 24px', fontSize: '12px', letterSpacing: '0.1em', border: '0.5px solid #d3cab5', cursor: 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             キャンセル
           </button>
@@ -264,28 +264,28 @@ export default function ProductEditForm({ product: initial }: { product: Product
       </form>
 
       {/* 画像管理セクション */}
-      <div style={{ borderTop: '0.5px solid #1a1a1a', paddingTop: '40px' }}>
-        <p style={{ fontSize: '9px', letterSpacing: '0.2em', color: '#555', marginBottom: '20px', fontFamily: 'Georgia, serif' }}>
+      <div style={{ borderTop: '0.5px solid #e4ded0', paddingTop: '40px' }}>
+        <p style={{ fontSize: '9px', letterSpacing: '0.2em', color: '#857c6d', marginBottom: '20px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           IMAGES
         </p>
 
         {/* 画像一覧 */}
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', marginBottom: '20px' }}>
           {images.length === 0 && (
-            <p style={{ fontSize: '12px', color: '#333', fontFamily: 'Georgia, serif' }}>画像がありません</p>
+            <p style={{ fontSize: '12px', color: '#c6bca6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>画像がありません</p>
           )}
           {images.map((url, i) => (
             <div key={url} style={{ position: 'relative', width: '100px', height: '75px' }}>
               <img src={url} alt={`image-${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} />
               {i === 0 && (
-                <div style={{ position: 'absolute', bottom: 0, left: 0, background: 'rgba(201,168,76,0.8)', fontSize: '8px', color: '#0a0a0a', padding: '2px 6px', fontFamily: 'Georgia, serif' }}>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, background: 'rgba(163,40,43,0.8)', fontSize: '8px', color: '#f6f1e7', padding: '2px 6px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
                   メイン
                 </div>
               )}
               <button
                 onClick={() => handleDeleteImage(i)}
                 title="削除"
-                style={{ position: 'absolute', top: '-6px', right: '-6px', width: '18px', height: '18px', background: '#1a1a1a', border: '0.5px solid #555', color: '#888', fontSize: '10px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}
+                style={{ position: 'absolute', top: '-6px', right: '-6px', width: '18px', height: '18px', background: '#e4ded0', border: '0.5px solid #857c6d', color: '#6f675a', fontSize: '10px', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }}
               >
                 ×
               </button>
@@ -298,13 +298,13 @@ export default function ProductEditForm({ product: initial }: { product: Product
           <button
             onClick={() => fileInputRef.current?.click()}
             disabled={uploading}
-            style={{ background: 'transparent', border: '0.5px solid #2a2a2a', color: uploading ? '#555' : '#888', padding: '10px 24px', fontSize: '11px', letterSpacing: '0.1em', cursor: uploading ? 'not-allowed' : 'pointer', fontFamily: 'Georgia, serif' }}
+            style={{ background: 'transparent', border: '0.5px solid #d3cab5', color: uploading ? '#857c6d' : '#6f675a', padding: '10px 24px', fontSize: '11px', letterSpacing: '0.1em', cursor: uploading ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             {uploading ? 'アップロード中...' : '＋ 画像を追加'}
           </button>
           <input ref={fileInputRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleUpload} />
         </div>
-        <p style={{ fontSize: '10px', color: '#333', marginTop: '8px', fontFamily: 'Georgia, serif' }}>
+        <p style={{ fontSize: '10px', color: '#c6bca6', marginTop: '8px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           1枚目がメイン画像になります。複数枚追加できます。
         </p>
       </div>

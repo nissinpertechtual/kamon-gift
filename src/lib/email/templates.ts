@@ -19,16 +19,16 @@ export function customerAutoReply(data: InquiryData): string {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { background: #0a0a0a; color: #f0ede6; font-family: Georgia, 'Hiragino Mincho ProN', serif; margin: 0; padding: 0; }
+    body { background: #f4f0e7; color: #2a2620; font-family: Georgia, 'Zen Old Mincho', 'Hiragino Mincho ProN', serif; margin: 0; padding: 0; }
     .wrap { max-width: 560px; margin: 0 auto; padding: 48px 32px; }
-    .logo { font-size: 13px; letter-spacing: 0.2em; color: #c9a84c; margin-bottom: 40px; }
-    .divider { width: 40px; height: 1px; background: #c9a84c; opacity: 0.4; margin: 32px 0; }
-    h1 { font-size: 18px; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 16px; color: #f0ede6; }
-    p { font-size: 13px; line-height: 2.2; color: #888; letter-spacing: 0.05em; margin: 0 0 16px; }
+    .logo { font-size: 13px; letter-spacing: 0.2em; color: #a3282b; margin-bottom: 40px; }
+    .divider { width: 40px; height: 1px; background: #a3282b; opacity: 0.4; margin: 32px 0; }
+    h1 { font-size: 18px; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 16px; color: #2a2620; }
+    p { font-size: 13px; line-height: 2.2; color: #6f675a; letter-spacing: 0.05em; margin: 0 0 16px; }
     .table { width: 100%; border-collapse: collapse; margin: 24px 0; }
-    .table td { padding: 10px 0; border-bottom: 1px solid #1e1e1e; font-size: 12px; color: #888; }
-    .table td:first-child { color: #555; width: 120px; letter-spacing: 0.1em; }
-    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #1e1e1e; font-size: 10px; color: #444; letter-spacing: 0.1em; line-height: 2; }
+    .table td { padding: 10px 0; border-bottom: 1px solid #ddd6c6; font-size: 12px; color: #6f675a; }
+    .table td:first-child { color: #857c6d; width: 120px; letter-spacing: 0.1em; }
+    .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #ddd6c6; font-size: 10px; color: #9b9384; letter-spacing: 0.1em; line-height: 2; }
   </style>
 </head>
 <body>
@@ -41,7 +41,7 @@ export function customerAutoReply(data: InquiryData): string {
       内容を確認のうえ、担当者より2〜3営業日以内にご連絡いたします。
     </p>
     <div class="divider"></div>
-    <p style="font-size:11px; color:#555; letter-spacing:0.1em;">お問い合わせ内容</p>
+    <p style="font-size:11px; color:#857c6d; letter-spacing:0.1em;">お問い合わせ内容</p>
     <table class="table">
       ${data.productName ? `<tr><td>商品</td><td>${data.productName}</td></tr>` : ''}
       ${data.kamonName ? `<tr><td>家紋名</td><td>${data.kamonName}</td></tr>` : ''}
@@ -76,15 +76,15 @@ export function adminNotification(data: InquiryData): string {
 <head>
   <meta charset="UTF-8">
   <style>
-    body { font-family: -apple-system, sans-serif; color: #333; margin: 0; padding: 0; background: #fff; }
+    body { font-family: -apple-system, sans-serif; color: #c6bca6; margin: 0; padding: 0; background: #fff; }
     .wrap { max-width: 560px; margin: 0 auto; padding: 32px; }
-    h1 { font-size: 16px; border-bottom: 2px solid #c9a84c; padding-bottom: 8px; margin-bottom: 24px; }
+    h1 { font-size: 16px; border-bottom: 2px solid #a3282b; padding-bottom: 8px; margin-bottom: 24px; }
     .table { width: 100%; border-collapse: collapse; }
     .table tr:nth-child(even) { background: #f9f9f9; }
     .table td { padding: 10px 12px; border: 1px solid #eee; font-size: 13px; }
-    .table td:first-child { font-weight: bold; width: 120px; color: #666; }
-    .badge { display: inline-block; background: #c9a84c; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 2px; margin-left: 8px; }
-    .link-btn { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #c9a84c; color: #fff; text-decoration: none; font-size: 12px; border-radius: 2px; }
+    .table td:first-child { font-weight: bold; width: 120px; color: #766d5f; }
+    .badge { display: inline-block; background: #a3282b; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 2px; margin-left: 8px; }
+    .link-btn { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #a3282b; color: #fff; text-decoration: none; font-size: 12px; border-radius: 2px; }
   </style>
 </head>
 <body>

@@ -6,7 +6,7 @@ import { EN } from '@/lib/i18n/translations';
 
 export default function EnContactPage() {
   return (
-    <div style={{ position: 'relative', background: '#0a0a0a', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -21,14 +21,14 @@ export default function EnContactPage() {
         <p
           style={{
             fontSize: '12px',
-            color: '#666',
+            color: '#766d5f',
             lineHeight: 2.6,
             letterSpacing: '0.04em',
             textAlign: 'center',
             marginBottom: '64px',
             fontWeight: 300,
             whiteSpace: 'pre-line',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           {EN.contact.description}

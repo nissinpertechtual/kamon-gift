@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     <div
       style={{
         minHeight: '100vh',
-        background: '#0a0a0a',
+        background: '#f4f0e7',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -54,9 +54,9 @@ export default function AdminLoginPage() {
             style={{
               fontSize: '9px',
               letterSpacing: '0.35em',
-              color: '#c9a84c',
+              color: '#a3282b',
               margin: '0 0 12px',
-              fontFamily: 'Georgia, serif',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
           >
             KAMON GIFT
@@ -65,9 +65,9 @@ export default function AdminLoginPage() {
             style={{
               fontSize: '13px',
               letterSpacing: '0.1em',
-              color: '#555',
+              color: '#857c6d',
               margin: 0,
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               fontWeight: 300,
             }}
           >
@@ -83,9 +83,9 @@ export default function AdminLoginPage() {
                 display: 'block',
                 fontSize: '10px',
                 letterSpacing: '0.1em',
-                color: '#666',
+                color: '#766d5f',
                 marginBottom: '8px',
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
               EMAIL
@@ -98,18 +98,18 @@ export default function AdminLoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 14px',
-                background: '#111',
-                border: '0.5px solid #2a2a2a',
-                color: '#f0ede6',
+                background: '#e7e0d2',
+                border: '0.5px solid #d3cab5',
+                color: '#2a2620',
                 fontSize: '13px',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 fontWeight: 300,
                 outline: 'none',
                 boxSizing: 'border-box',
                 letterSpacing: '0.05em',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#c9a84c')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#2a2a2a')}
+              onFocus={(e) => (e.currentTarget.style.borderColor = '#a3282b')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = '#d3cab5')}
             />
           </div>
 
@@ -119,9 +119,9 @@ export default function AdminLoginPage() {
                 display: 'block',
                 fontSize: '10px',
                 letterSpacing: '0.1em',
-                color: '#666',
+                color: '#766d5f',
                 marginBottom: '8px',
-                fontFamily: 'Georgia, serif',
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
               PASSWORD
@@ -134,18 +134,18 @@ export default function AdminLoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 14px',
-                background: '#111',
-                border: '0.5px solid #2a2a2a',
-                color: '#f0ede6',
+                background: '#e7e0d2',
+                border: '0.5px solid #d3cab5',
+                color: '#2a2620',
                 fontSize: '13px',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 fontWeight: 300,
                 outline: 'none',
                 boxSizing: 'border-box',
                 letterSpacing: '0.05em',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#c9a84c')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#2a2a2a')}
+              onFocus={(e) => (e.currentTarget.style.borderColor = '#a3282b')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = '#d3cab5')}
             />
           </div>
 
@@ -153,10 +153,10 @@ export default function AdminLoginPage() {
             <p
               style={{
                 fontSize: '11px',
-                color: '#e05a5a',
+                color: '#b3261e',
                 margin: 0,
                 letterSpacing: '0.05em',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               }}
             >
               {error}
@@ -169,14 +169,14 @@ export default function AdminLoginPage() {
             style={{
               marginTop: '8px',
               padding: '14px',
-              background: loading ? '#555' : '#c9a84c',
-              color: '#0a0a0a',
+              background: loading ? '#857c6d' : '#a3282b',
+              color: '#f6f1e7',
               fontSize: '11px',
               letterSpacing: '0.25em',
               fontWeight: 300,
               border: 'none',
               cursor: loading ? 'not-allowed' : 'pointer',
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               transition: 'opacity 0.3s ease',
             }}
           >

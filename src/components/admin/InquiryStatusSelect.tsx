@@ -11,9 +11,9 @@ const STATUS_OPTIONS: { value: Inquiry['status']; label: string }[] = [
 ];
 
 const STATUS_COLORS: Record<Inquiry['status'], string> = {
-  new: '#c9a84c',
-  in_progress: '#6ea8fe',
-  done: '#444',
+  new: '#a3282b',
+  in_progress: '#2f6ad0',
+  done: '#9b9384',
 };
 
 export default function InquiryStatusSelect({
@@ -44,14 +44,14 @@ export default function InquiryStatusSelect({
       onChange={handleChange}
       disabled={saving}
       style={{
-        background: '#1a1a1a',
+        background: '#e4ded0',
         border: `0.5px solid ${STATUS_COLORS[status]}`,
         color: STATUS_COLORS[status],
         fontSize: '9px',
         letterSpacing: '0.08em',
         padding: '4px 10px',
         cursor: saving ? 'not-allowed' : 'pointer',
-        fontFamily: 'Georgia, serif',
+        fontFamily: "'Cormorant Garamond', Georgia, serif",
         outline: 'none',
         appearance: 'none',
         WebkitAppearance: 'none',

@@ -4,18 +4,14 @@ import { createClient } from '@/lib/supabase/server';
 import { ImageSlider } from '@/components/products/ImageSlider';
 import { StickyContactBar } from '@/components/products/StickyContactBar';
 import KamonBackground from '@/components/KamonBackground';
+import { EN } from '@/lib/i18n/translations';
 import type { Product } from '@/types/supabase';
 
-const MATERIAL_LABEL: Record<string, string> = {
-  metal: '金属（真鍮・ステンレス）',
-  leather: '本革',
-  glass: 'クリスタルガラス',
-  acrylic: 'アクリル',
-};
+type ProductEn = Product & { name_en?: string | null; description_en?: string | null };
 
 type Props = { params: Promise<{ id: string }> };
 
-export default async function ProductDetailPage({ params }: Props) {
+export default async function EnProductDetailPage({ params }: Props) {
   const { id } = await params;
   const supabase = await createClient();
 
@@ -28,15 +24,19 @@ export default async function ProductDetailPage({ params }: Props) {
 
   if (!product) notFound();
 
-  const p = product as Product;
+  const p = product as ProductEn;
+  const name = p.name_en || p.name_ja;
+  const description = p.description_en || p.description_ja;
   const hasPrice = p.price !== null;
+  const materialLabel =
+    EN.products.materialLabels[p.material as keyof typeof EN.products.materialLabels] ?? p.material;
 
   return (
     <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
       <KamonBackground />
 
-      {/* スマホ固定お問い合わせバー */}
-      <StickyContactBar productName={p.name_ja} />
+      {/* Mobile sticky contact bar */}
+      <StickyContactBar productName={name} lang="en" />
 
       <div
         style={{
@@ -55,12 +55,12 @@ export default async function ProductDetailPage({ params }: Props) {
             alignItems: 'start',
           }}
         >
-          {/* 左: 画像スライダー */}
-          <ImageSlider images={p.images ?? []} name={p.name_ja} />
+          {/* Image */}
+          <ImageSlider images={p.images ?? []} name={name} />
 
-          {/* 右: 商品情報 */}
+          {/* Info */}
           <div>
-            {/* パンくず */}
+            {/* Breadcrumb */}
             <div
               style={{
                 fontSize: '9px',
@@ -70,29 +70,29 @@ export default async function ProductDetailPage({ params }: Props) {
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
-              <Link href="/products" style={{ color: '#857c6d', textDecoration: 'none' }}>
-                商品一覧
+              <Link href="/en/products" style={{ color: '#857c6d', textDecoration: 'none' }}>
+                PRODUCTS
               </Link>
               <span style={{ margin: '0 8px' }}>—</span>
-              <span>{p.name_ja}</span>
+              <span>{name}</span>
             </div>
 
-            {/* 商品名 */}
+            {/* Name */}
             <h1
               style={{
                 fontSize: '22px',
                 fontWeight: 300,
-                letterSpacing: '0.1em',
+                letterSpacing: '0.08em',
                 lineHeight: 1.7,
                 color: '#2a2620',
                 marginBottom: '20px',
-                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
-              {p.name_ja}
+              {name}
             </h1>
 
-            {/* 素材バッジ */}
+            {/* Material badge */}
             <div
               style={{
                 display: 'inline-block',
@@ -105,10 +105,10 @@ export default async function ProductDetailPage({ params }: Props) {
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
-              {MATERIAL_LABEL[p.material] ?? p.material}
+              {materialLabel}
             </div>
 
-            {/* 区切り線 */}
+            {/* Divider */}
             <div
               style={{
                 width: '40px',
@@ -119,24 +119,24 @@ export default async function ProductDetailPage({ params }: Props) {
               }}
             />
 
-            {/* 説明文 */}
-            {p.description_ja && (
+            {/* Description */}
+            {description && (
               <p
                 style={{
                   fontSize: '13px',
                   lineHeight: 2.2,
                   color: '#6f675a',
-                  letterSpacing: '0.05em',
+                  letterSpacing: '0.04em',
                   marginBottom: '36px',
                   fontWeight: 300,
-                  fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
-                {p.description_ja}
+                {description}
               </p>
             )}
 
-            {/* 価格 */}
+            {/* Price (reference) */}
             <div style={{ marginBottom: '28px' }}>
               <div
                 style={{
@@ -147,7 +147,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
-                参考価格
+                REFERENCE PRICE
               </div>
               {hasPrice ? (
                 <div>
@@ -163,39 +163,27 @@ export default async function ProductDetailPage({ params }: Props) {
                     ¥{p.price!.toLocaleString()}〜
                   </span>
                   <span style={{ fontSize: '11px', color: '#857c6d', marginLeft: '6px' }}>
-                    （税込・参考価格）
+                    (tax incl.)
                   </span>
                 </div>
               ) : (
-                <div>
-                  <div
-                    style={{
-                      fontSize: '16px',
-                      color: '#a3282b',
-                      fontWeight: 300,
-                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-                    }}
-                  >
-                    お見積もり
-                  </div>
-                  <div
-                    style={{
-                      fontSize: '10px',
-                      color: '#857c6d',
-                      marginTop: '6px',
-                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-                    }}
-                  >
-                    家紋・仕様によって異なります。お気軽にご相談ください。
-                  </div>
+                <div
+                  style={{
+                    fontSize: '16px',
+                    color: '#a3282b',
+                    fontWeight: 300,
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  {EN.products.estimateLabel}
                 </div>
               )}
             </div>
 
-            {/* CTAボタン — お問い合わせ・お見積もり（EC無し） */}
+            {/* CTA — contact / quote */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', marginBottom: '36px' }}>
               <Link
-                href={`/contact?product=${encodeURIComponent(p.name_ja)}`}
+                href={`/en/contact?product=${encodeURIComponent(name)}`}
                 style={{
                   display: 'block',
                   width: '100%',
@@ -207,37 +195,32 @@ export default async function ProductDetailPage({ params }: Props) {
                   textAlign: 'center',
                   textDecoration: 'none',
                   fontWeight: 300,
-                  fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                   boxSizing: 'border-box',
                 }}
               >
-                この商品を相談・お見積もりする
+                Inquire / Request a Quote
               </Link>
             </div>
 
-            {/* 安心ポイント */}
-            <div
-              style={{
-                padding: '20px',
-                border: '0.5px solid #ddd6c6',
-              }}
-            >
+            {/* Reassurance */}
+            <div style={{ padding: '20px', border: '0.5px solid #ddd6c6' }}>
               {[
-                '注文確定後に制作を開始します',
-                '納期の目安：約2〜3週間',
-                'カスタム品は担当者が丁寧に対応',
+                'Production begins after your order is confirmed',
+                'Typical lead time: about 2–3 weeks',
+                'Custom orders are handled personally by our team',
               ].map((point) => (
                 <div
                   key={point}
                   style={{
                     fontSize: '10px',
                     color: '#857c6d',
-                    letterSpacing: '0.05em',
+                    letterSpacing: '0.04em',
                     padding: '8px 0',
                     borderBottom: '0.5px solid #e4ded0',
                     display: 'flex',
                     gap: '10px',
-                    fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
                   }}
                 >
                   <span style={{ color: '#a3282b', flexShrink: 0 }}>✓</span>

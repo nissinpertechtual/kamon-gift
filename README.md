@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 家紋の彫刻室 (kamon-gift)
 
-## Getting Started
+レーザー彫刻による家紋ギフト専門店のWebサイト。金属・革・ガラスへのフェムト秒レーザー彫刻を、結婚式・内祝い・推し活・訪日外国人向けギフトとして紹介します。
 
-First, run the development server:
+## 技術スタック
+
+- **Next.js 16** (App Router / Turbopack)
+- **React 19**
+- **Supabase** — 商品・コラム・問い合わせのデータ保存
+- **Resend** — お問い合わせの自動返信／社内通知メール
+- **Netlify** — ホスティング（`@netlify/plugin-nextjs`）
+
+## 主なページ
+
+| パス | 内容 |
+| --- | --- |
+| `/` | トップ（ヒーロー・ストーリー・シーン別・商品・流れ・CTA） |
+| `/products`, `/products/[id]` | 商品一覧・商品詳細 |
+| `/contact` | お問い合わせ・お見積もりフォーム |
+| `/column`, `/column/[slug]` | コラム |
+| `/faq` | よくある質問 |
+| `/buyer` | 法人・卸売向け |
+| `/legal` | 特定商取引法に基づく表記 |
+| `/en/*` | 英語版 |
+| `/admin/*` | 管理画面（商品・コラム・問い合わせ管理） |
+
+## EC（オンライン決済）について
+
+現状、ECサイト機能（Stripeによるオンライン決済）は**無効**です。商品ページの価格は「参考価格」として表示し、購入はすべてお問い合わせ・お見積もりフォームに集約しています。
+
+Stripe決済関連のコード（`src/app/api/checkout`、`src/app/checkout/*`、`BuyButton`、`StickyBuyBar`）はサイト上の導線を外したうえで温存してあり、将来ECを再開する際に再利用できます。
+
+## セットアップ
 
 ```bash
+npm install
+cp .env.local.example .env.local   # 各種キーを設定
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000) を開きます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 環境変数
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+`.env.local.example` を参照してください。Supabase・Resend は必須、Stripe・Gemini はオプション（EC／AI画像生成を使う場合のみ）。
 
-## Learn More
+## スクリプト
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` — 開発サーバー
+- `npm run build` — 本番ビルド
+- `npm run start` — 本番サーバー
+- `npm run lint` — ESLint

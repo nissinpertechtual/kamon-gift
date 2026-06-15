@@ -23,8 +23,8 @@ export default async function AdminColumnsPage() {
             fontSize: '18px',
             fontWeight: 300,
             letterSpacing: '0.1em',
-            color: '#f0ede6',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            color: '#2a2620',
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             margin: 0,
           }}
         >
@@ -33,14 +33,14 @@ export default async function AdminColumnsPage() {
         <Link
           href="/admin/columns/new"
           style={{
-            background: '#c9a84c',
-            color: '#0a0a0a',
+            background: '#a3282b',
+            color: '#f6f1e7',
             padding: '8px 24px',
             fontSize: '12px',
             letterSpacing: '0.1em',
             textDecoration: 'none',
             fontWeight: 300,
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           ＋ 新規作成
@@ -51,24 +51,24 @@ export default async function AdminColumnsPage() {
         <div
           style={{
             textAlign: 'center',
-            color: '#444',
+            color: '#9b9384',
             fontSize: '13px',
             padding: '80px 0',
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           コラムがありません
         </div>
       ) : (
-        <div style={{ border: '0.5px solid #2a2a2a' }}>
+        <div style={{ border: '0.5px solid #d3cab5' }}>
           {/* ヘッダー行 */}
           <div
             style={{
               display: 'grid',
               gridTemplateColumns: '1fr 180px 100px 120px 80px',
               padding: '10px 16px',
-              borderBottom: '0.5px solid #2a2a2a',
-              background: '#111',
+              borderBottom: '0.5px solid #d3cab5',
+              background: '#e7e0d2',
             }}
           >
             {['タイトル', 'スラッグ', '公開状態', '公開日', '操作'].map((h) => (
@@ -77,8 +77,8 @@ export default async function AdminColumnsPage() {
                 style={{
                   fontSize: '9px',
                   letterSpacing: '0.15em',
-                  color: '#555',
-                  fontFamily: 'Georgia, serif',
+                  color: '#857c6d',
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
                 {h}
@@ -93,7 +93,7 @@ export default async function AdminColumnsPage() {
                 display: 'grid',
                 gridTemplateColumns: '1fr 180px 100px 120px 80px',
                 padding: '14px 16px',
-                borderBottom: i < columns.length - 1 ? '0.5px solid #1a1a1a' : 'none',
+                borderBottom: i < columns.length - 1 ? '0.5px solid #e4ded0' : 'none',
                 alignItems: 'center',
               }}
             >
@@ -101,8 +101,8 @@ export default async function AdminColumnsPage() {
                 style={{
                   fontSize: '13px',
                   fontWeight: 300,
-                  color: '#f0ede6',
-                  fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                  color: '#2a2620',
+                  fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
@@ -114,8 +114,8 @@ export default async function AdminColumnsPage() {
               <span
                 style={{
                   fontSize: '11px',
-                  color: '#666',
-                  fontFamily: 'Georgia, serif',
+                  color: '#766d5f',
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
@@ -127,8 +127,8 @@ export default async function AdminColumnsPage() {
               <span
                 style={{
                   fontSize: '10px',
-                  color: col.is_published ? '#c9a84c' : '#444',
-                  fontFamily: 'Georgia, serif',
+                  color: col.is_published ? '#a3282b' : '#9b9384',
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
                 {col.is_published ? '公開中' : '下書き'}
@@ -136,8 +136,8 @@ export default async function AdminColumnsPage() {
               <span
                 style={{
                   fontSize: '11px',
-                  color: '#555',
-                  fontFamily: 'Georgia, serif',
+                  color: '#857c6d',
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
                 {col.published_at
@@ -148,9 +148,9 @@ export default async function AdminColumnsPage() {
                 href={`/admin/columns/${col.id}`}
                 style={{
                   fontSize: '11px',
-                  color: '#c9a84c',
+                  color: '#a3282b',
                   textDecoration: 'none',
-                  fontFamily: 'Georgia, serif',
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
                   letterSpacing: '0.05em',
                 }}
               >

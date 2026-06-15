@@ -2,52 +2,37 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import { EN } from '@/lib/i18n/translations';
 import type { Product } from '@/types/supabase';
 
-const MATERIAL_LABEL: Record<string, string> = {
-  metal: '金属',
-  leather: '革',
-  glass: 'ガラス',
-  acrylic: 'アクリル',
-};
+type ProductEn = Product & { name_en?: string | null };
 
-export function ProductCard({ product }: { product: Product }) {
-  const mainImage = product.images?.[0] ?? null;
+export function EnProductCard({ product }: { product: ProductEn }) {
   const [hovered, setHovered] = useState(false);
+  const name = product.name_en || product.name_ja;
+  const mainImage = product.images?.[0] ?? null;
+  const materialLabel =
+    EN.products.materialLabels[product.material as keyof typeof EN.products.materialLabels] ??
+    product.material;
 
   return (
-    <Link href={`/products/${product.id}`} style={{ textDecoration: 'none', display: 'block' }}>
+    <Link href={`/en/products/${product.id}`} style={{ textDecoration: 'none' }}>
       <div
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{
           border: `0.5px solid ${hovered ? '#a3282b' : '#d3cab5'}`,
-          overflow: 'hidden',
-          transition: 'border-color 0.4s ease',
-          cursor: 'pointer',
+          transition: 'border-color 0.4s',
           background: '#fbf9f3',
         }}
       >
-        {/* 画像 */}
-        <div
-          style={{
-            aspectRatio: '4/3',
-            background: '#e7e0d2',
-            overflow: 'hidden',
-            position: 'relative',
-          }}
-        >
+        <div style={{ aspectRatio: '4/3', background: '#e7e0d2', overflow: 'hidden' }}>
           {mainImage ? (
+            // eslint-disable-next-line @next/next/no-img-element
             <img
               src={mainImage}
-              alt={product.name_ja}
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                transition: 'transform 0.6s ease',
-                transform: hovered ? 'scale(1.04)' : 'scale(1)',
-              }}
+              alt={name}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
           ) : (
             <div
@@ -59,36 +44,32 @@ export function ProductCard({ product }: { product: Product }) {
                 justifyContent: 'center',
               }}
             >
-              <svg width="40" height="40" viewBox="0 0 72 72" style={{ opacity: 0.12 }}>
+              <svg width="40" height="40" viewBox="0 0 72 72" style={{ opacity: 0.15 }}>
                 <circle cx="36" cy="36" r="28" fill="none" stroke="#a3282b" strokeWidth="1" />
-                <circle cx="36" cy="36" r="14" fill="none" stroke="#a3282b" strokeWidth="0.8" />
                 <line x1="36" y1="8" x2="36" y2="64" stroke="#a3282b" strokeWidth="0.8" />
                 <line x1="8" y1="36" x2="64" y2="36" stroke="#a3282b" strokeWidth="0.8" />
               </svg>
             </div>
           )}
         </div>
-
-        {/* テキスト */}
-        <div style={{ padding: '16px 4px 4px' }}>
+        <div style={{ padding: '16px 4px' }}>
           <div
             style={{
               fontSize: '12px',
-              letterSpacing: '0.08em',
               fontWeight: 300,
               color: '#2a2620',
               paddingBottom: '10px',
               borderBottom: '0.5px solid #ddd6c6',
-              fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              letterSpacing: '0.06em',
             }}
           >
-            {product.name_ja}
+            {name}
           </div>
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'center',
               marginTop: '8px',
               paddingBottom: '12px',
             }}
@@ -101,7 +82,7 @@ export function ProductCard({ product }: { product: Product }) {
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
-              {MATERIAL_LABEL[product.material] ?? product.material}
+              {materialLabel}
             </span>
             <span
               style={{
@@ -113,7 +94,7 @@ export function ProductCard({ product }: { product: Product }) {
             >
               {product.price != null
                 ? `¥${product.price.toLocaleString()}〜`
-                : 'お見積もり'}
+                : EN.products.estimateLabel}
             </span>
           </div>
         </div>

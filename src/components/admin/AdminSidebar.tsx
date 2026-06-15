@@ -23,8 +23,8 @@ export default function AdminSidebar() {
       style={{
         width: '200px',
         minHeight: '100vh',
-        background: '#111',
-        borderRight: '0.5px solid #2a2a2a',
+        background: '#e7e0d2',
+        borderRight: '0.5px solid #d3cab5',
         display: 'flex',
         flexDirection: 'column',
         padding: '32px 0',
@@ -35,7 +35,7 @@ export default function AdminSidebar() {
       <div
         style={{
           padding: '0 24px 32px',
-          borderBottom: '0.5px solid #2a2a2a',
+          borderBottom: '0.5px solid #d3cab5',
           marginBottom: '24px',
         }}
       >
@@ -43,9 +43,9 @@ export default function AdminSidebar() {
           style={{
             fontSize: '9px',
             letterSpacing: '0.25em',
-            color: '#c9a84c',
+            color: '#a3282b',
             margin: 0,
-            fontFamily: 'Georgia, serif',
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           KAMON ADMIN
@@ -67,12 +67,12 @@ export default function AdminSidebar() {
                 padding: '10px 12px',
                 fontSize: '12px',
                 letterSpacing: '0.06em',
-                color: isActive ? '#c9a84c' : '#888',
+                color: isActive ? '#a3282b' : '#6f675a',
                 textDecoration: 'none',
                 fontWeight: 300,
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-                background: isActive ? 'rgba(201,168,76,0.06)' : 'transparent',
-                borderLeft: isActive ? '2px solid #c9a84c' : '2px solid transparent',
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                background: isActive ? 'rgba(163,40,43,0.06)' : 'transparent',
+                borderLeft: isActive ? '2px solid #a3282b' : '2px solid transparent',
                 transition: 'color 0.2s ease, background 0.2s ease',
               }}
             >
@@ -83,7 +83,7 @@ export default function AdminSidebar() {
       </nav>
 
       {/* ログアウト */}
-      <div style={{ padding: '24px 12px 0', borderTop: '0.5px solid #1a1a1a' }}>
+      <div style={{ padding: '24px 12px 0', borderTop: '0.5px solid #e4ded0' }}>
         <button
           onClick={handleLogout}
           style={{
@@ -91,17 +91,17 @@ export default function AdminSidebar() {
             padding: '10px 12px',
             fontSize: '11px',
             letterSpacing: '0.08em',
-            color: '#555',
+            color: '#857c6d',
             background: 'transparent',
             border: 'none',
             cursor: 'pointer',
             textAlign: 'left',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             fontWeight: 300,
             transition: 'color 0.2s ease',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#f0ede6')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#555')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#2a2620')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#857c6d')}
         >
           ログアウト
         </button>

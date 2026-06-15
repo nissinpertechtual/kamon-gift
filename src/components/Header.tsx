@@ -3,20 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import KamonBackground from './KamonBackground';
-
-const KamonIcon = () => (
-  <svg width="28" height="28" viewBox="0 0 72 72" aria-hidden="true" style={{ flexShrink: 0 }}>
-    <circle cx="36" cy="36" r="30" fill="none" stroke="#c9a84c" strokeWidth="1.2" />
-    <circle cx="36" cy="36" r="18" fill="none" stroke="#c9a84c" strokeWidth="1" />
-    <circle cx="36" cy="36" r="8"  fill="none" stroke="#c9a84c" strokeWidth="0.8" />
-    <line x1="36" y1="6"  x2="36" y2="66" stroke="#c9a84c" strokeWidth="0.8" />
-    <line x1="6"  y1="36" x2="66" y2="36" stroke="#c9a84c" strokeWidth="0.8" />
-    <line x1="15" y1="15" x2="57" y2="57" stroke="#c9a84c" strokeWidth="0.6" />
-    <line x1="57" y1="15" x2="15" y2="57" stroke="#c9a84c" strokeWidth="0.6" />
-  </svg>
-);
+import Logo from './Logo';
+import { SITE } from '@/lib/site';
 
 const JA_NAV = [
   { label: '商品',      href: '/products' },
@@ -27,6 +17,7 @@ const JA_NAV = [
 const EN_NAV = [
   { label: 'Products', href: '/en/products' },
   { label: 'Story',    href: '/en#story' },
+  { label: 'FAQ',      href: '/en/faq' },
   { label: 'Contact',  href: '/en/contact' },
 ];
 
@@ -49,8 +40,8 @@ export default function Header() {
           position: 'sticky',
           top: 0,
           zIndex: 40,
-          backgroundColor: '#0a0a0a',
-          borderBottom: '0.5px solid rgba(201,168,76,0.25)',
+          backgroundColor: '#f4f0e7',
+          borderBottom: '0.5px solid rgba(163,40,43,0.25)',
           overflow: 'hidden',
         }}
       >
@@ -82,14 +73,14 @@ export default function Header() {
               textDecoration: 'none',
             }}
           >
-            <KamonIcon />
+            <Logo size={44} color="#2a2620" />
             <span
               style={{
-                color: '#c9a84c',
+                color: '#2a2620',
                 fontSize: '15px',
-                letterSpacing: '0.2em',  /* 修正: 0.15→0.2em */
-                fontWeight: 300,          /* 追加 */
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                letterSpacing: '0.22em',
+                fontWeight: 500,
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif",
               }}
             >
               家紋の彫刻室
@@ -115,16 +106,67 @@ export default function Header() {
               </Link>
             ))}
 
+            {/* 電話 */}
+            <a
+              href={SITE.telHref}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                color: '#a3282b',
+                textDecoration: 'none',
+                whiteSpace: 'nowrap',
+              }}
+              aria-label={`お電話：${SITE.tel}`}
+            >
+              <Phone size={14} />
+              <span
+                style={{
+                  fontSize: '15px',
+                  letterSpacing: '0.04em',
+                  fontWeight: 500,
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                }}
+              >
+                {SITE.tel}
+              </span>
+            </a>
+
+            {/* LINE（URL設定時のみ表示） */}
+            {SITE.lineUrl && (
+              <a
+                href={SITE.lineUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                  color: '#f7f1e6',
+                  background: '#06c755',
+                  textDecoration: 'none',
+                  padding: '5px 12px',
+                  fontSize: '11px',
+                  letterSpacing: '0.08em',
+                  whiteSpace: 'nowrap',
+                }}
+                aria-label="LINEで相談"
+              >
+                <MessageCircle size={13} />
+                LINE
+              </a>
+            )}
+
             {/* 言語切替ボタン */}
             <Link
               href={langHref}
               style={{
-                color: '#c9a84c',
+                color: '#a3282b',
                 fontSize: '11px',
                 letterSpacing: '0.15em',
                 fontWeight: 300,
                 textDecoration: 'none',
-                border: '0.5px solid #c9a84c',
+                border: '0.5px solid #a3282b',
                 padding: '4px 12px',
                 transition: 'background 0.3s ease',
               }}
@@ -136,12 +178,12 @@ export default function Header() {
             <Link
               href={buyerHref}
               style={{
-                color: '#555',
+                color: '#857c6d',
                 fontSize: '9px',
                 letterSpacing: '0.05em',
                 fontWeight: 300,
                 textDecoration: 'none',
-                border: '0.5px solid #333',
+                border: '0.5px solid #c6bca6',
                 padding: '4px 10px',
                 whiteSpace: 'nowrap',
                 paddingLeft: '32px',    /* 修正: 右端に寄せ */
@@ -161,7 +203,7 @@ export default function Header() {
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              color: '#c9a84c',
+              color: '#a3282b',
               padding: '4px',
             }}
             aria-label="メニューを開く"
@@ -192,8 +234,8 @@ export default function Header() {
               bottom: 0,
               zIndex: 50,
               width: '260px',
-              backgroundColor: '#0a0a0a',
-              borderLeft: '0.5px solid rgba(201,168,76,0.2)',
+              backgroundColor: '#f4f0e7',
+              borderLeft: '0.5px solid rgba(163,40,43,0.2)',
               padding: '28px 24px',
               display: 'flex',
               flexDirection: 'column',
@@ -202,7 +244,7 @@ export default function Header() {
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '40px' }}>
               <button
                 onClick={() => setDrawerOpen(false)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#c9a84c', padding: '4px' }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#a3282b', padding: '4px' }}
                 aria-label="メニューを閉じる"
               >
                 <X size={20} />
@@ -216,28 +258,69 @@ export default function Header() {
                   href={link.href}
                   onClick={() => setDrawerOpen(false)}
                   style={{
-                    color: '#f0ede6',
+                    color: '#2a2620',
                     fontSize: '14px',
                     letterSpacing: '0.12em',
                     fontWeight: 300,
                     textDecoration: 'none',
-                    fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                    fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   }}
                 >
                   {link.label}
                 </Link>
               ))}
 
+              {/* 電話 */}
+              <a
+                href={SITE.telHref}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: '#a3282b',
+                  textDecoration: 'none',
+                }}
+              >
+                <Phone size={16} />
+                <span style={{ fontSize: '17px', fontWeight: 500, fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                  {SITE.tel}
+                </span>
+              </a>
+
+              {SITE.lineUrl && (
+                <a
+                  href={SITE.lineUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setDrawerOpen(false)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    color: '#f7f1e6',
+                    background: '#06c755',
+                    textDecoration: 'none',
+                    padding: '8px 16px',
+                    fontSize: '12px',
+                    letterSpacing: '0.08em',
+                    width: 'fit-content',
+                  }}
+                >
+                  <MessageCircle size={15} />
+                  LINEで相談
+                </a>
+              )}
+
               <Link
                 href={langHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
-                  color: '#c9a84c',
+                  color: '#a3282b',
                   fontSize: '12px',
                   letterSpacing: '0.1em',
                   fontWeight: 300,
                   textDecoration: 'none',
-                  border: '0.5px solid #c9a84c',
+                  border: '0.5px solid #a3282b',
                   padding: '6px 14px',
                   display: 'inline-block',
                   width: 'fit-content',
@@ -250,12 +333,12 @@ export default function Header() {
                 href={buyerHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
-                  color: '#555',
+                  color: '#857c6d',
                   fontSize: '10px',
                   letterSpacing: '0.05em',
                   fontWeight: 300,
                   textDecoration: 'none',
-                  border: '0.5px solid #2a2a2a',
+                  border: '0.5px solid #d3cab5',
                   padding: '6px 12px',
                   display: 'inline-block',
                   width: 'fit-content',

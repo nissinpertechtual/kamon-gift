@@ -8,7 +8,7 @@ import FinalCTA from '@/components/top/FinalCTA';
 
 export default function HomePage() {
   return (
-    <div style={{ position: 'relative', background: '#0a0a0a' }}>
+    <div style={{ position: 'relative', background: '#f4f0e7' }}>
       <KamonBackground />
       <HeroSection />
       <StorySection />

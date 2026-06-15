@@ -5,7 +5,7 @@ import KamonBackground from '@/components/KamonBackground';
 
 export default function ContactPage() {
   return (
-    <div style={{ position: 'relative', background: '#0a0a0a', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -20,13 +20,13 @@ export default function ContactPage() {
         <p
           style={{
             fontSize: '12px',
-            color: '#666',
+            color: '#766d5f',
             lineHeight: 2.6,
             letterSpacing: '0.05em',
             textAlign: 'center',
             marginBottom: '64px',
             fontWeight: 300,
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           家紋名が分からない方も、まずはお気軽にご相談ください。

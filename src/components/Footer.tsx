@@ -1,34 +1,36 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import Logo from './Logo';
+import { SITE } from '@/lib/site';
+import { EN } from '@/lib/i18n/translations';
 
-const KamonIconSmall = () => (
-  <svg width="22" height="22" viewBox="0 0 72 72" aria-hidden="true" style={{ flexShrink: 0 }}>
-    <circle cx="36" cy="36" r="30" fill="none" stroke="#c9a84c" strokeWidth="1.2" />
-    <circle cx="36" cy="36" r="18" fill="none" stroke="#c9a84c" strokeWidth="1" />
-    <circle cx="36" cy="36" r="8"  fill="none" stroke="#c9a84c" strokeWidth="0.8" />
-    <line x1="36" y1="6"  x2="36" y2="66" stroke="#c9a84c" strokeWidth="0.8" />
-    <line x1="6"  y1="36" x2="66" y2="36" stroke="#c9a84c" strokeWidth="0.8" />
-    <line x1="15" y1="15" x2="57" y2="57" stroke="#c9a84c" strokeWidth="0.6" />
-    <line x1="57" y1="15" x2="15" y2="57" stroke="#c9a84c" strokeWidth="0.6" />
-  </svg>
-);
+const MINCHO = "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif";
+const SERIF = "'Cormorant Garamond', Georgia, serif";
 
-const footerLinks = [
-  { label: '商品',                     href: '/products' },
-  { label: 'ストーリー',               href: '/#story' },
-  { label: 'コラム',                   href: '/column' },
-  { label: 'よくある質問',             href: '/faq' },
+const JA_LINKS = [
+  { label: '商品', href: '/products' },
+  { label: 'ストーリー', href: '/#story' },
+  { label: 'コラム', href: '/column' },
+  { label: 'よくある質問', href: '/faq' },
   { label: '特定商取引法に基づく表記', href: '/legal' },
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  const isEn = pathname.startsWith('/en');
+
+  const links = isEn ? EN.footer.links : JA_LINKS;
+  const font = isEn ? SERIF : MINCHO;
+  const tagline = isEn ? EN.footer.tagline : 'レーザー彫刻による\n家紋ギフト専門店';
+  const contactLabel = isEn ? EN.footer.contactLabel : 'お電話・お問い合わせ';
+  const lineLabel = isEn ? 'Chat on LINE' : 'LINEで相談';
+  const ctaLabel = isEn ? EN.footer.cta : 'ご注文・お問い合わせ';
+  const ctaHref = isEn ? '/en/contact' : '/contact';
+
   return (
-    <footer
-      style={{
-        backgroundColor: '#0a0a0a',
-        borderTop: '0.5px solid #1e1e1e',
-        padding: '32px 24px',
-      }}
-    >
+    <footer style={{ backgroundColor: '#f4f0e7', borderTop: '0.5px solid #ddd6c6', padding: '32px 24px' }}>
       <div
         style={{
           maxWidth: '1200px',
@@ -41,107 +43,64 @@ export default function Footer() {
         {/* 左：ロゴ + キャッチ */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <KamonIconSmall />
-            <span
-              style={{
-                color: '#c9a84c',
-                fontSize: '13px',
-                letterSpacing: '0.15em',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-              }}
-            >
+            <Logo size={38} color="#2a2620" />
+            <span style={{ color: '#2a2620', fontSize: '13px', letterSpacing: '0.18em', fontWeight: 500, fontFamily: MINCHO }}>
               家紋の彫刻室
             </span>
           </div>
-          <p
-            style={{
-              color: '#555',
-              fontSize: '11px',
-              letterSpacing: '0.05em',
-              margin: 0,
-              lineHeight: '1.8',
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-            }}
-          >
-            レーザー彫刻による
-            <br />家紋ギフト専門店
+          <p style={{ color: '#857c6d', fontSize: '11px', letterSpacing: '0.05em', margin: 0, lineHeight: 1.8, whiteSpace: 'pre-line', fontFamily: font, fontStyle: isEn ? 'italic' : 'normal' }}>
+            {tagline}
           </p>
         </div>
 
         {/* 中：リンク */}
-        <nav
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '12px',
-          }}
-        >
-          {footerLinks.map((link) => (
+        <nav style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              style={{
-                color: '#666',
-                fontSize: '11px',
-                letterSpacing: '0.05em',
-                textDecoration: 'none',
-                fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-              }}
+              style={{ color: '#766d5f', fontSize: '11px', letterSpacing: '0.05em', textDecoration: 'none', fontFamily: font }}
             >
               {link.label}
             </Link>
           ))}
         </nav>
 
-        {/* 右：問い合わせボタン */}
+        {/* 右：連絡先 */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
-          <p
-            style={{
-              color: '#555',
-              fontSize: '11px',
-              letterSpacing: '0.05em',
-              margin: 0,
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-            }}
-          >
-            SNS・お問い合わせ
+          <p style={{ color: '#857c6d', fontSize: '11px', letterSpacing: '0.05em', margin: 0, fontFamily: font }}>
+            {contactLabel}
           </p>
+
+          <a href={SITE.telHref} style={{ textDecoration: 'none' }}>
+            <span style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.04em', color: '#a3282b', fontFamily: SERIF }}>
+              {SITE.tel}
+            </span>
+          </a>
+
+          {SITE.lineUrl && (
+            <a
+              href={SITE.lineUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ display: 'inline-block', color: '#f7f1e6', background: '#06c755', fontSize: '11px', letterSpacing: '0.1em', textDecoration: 'none', padding: '9px 20px' }}
+            >
+              {lineLabel}
+            </a>
+          )}
+
           <Link
-            href="/contact"
-            style={{
-              display: 'inline-block',
-              color: '#c9a84c',
-              fontSize: '11px',
-              letterSpacing: '0.15em',
-              textDecoration: 'none',
-              border: '0.5px solid #c9a84c',
-              padding: '10px 20px',
-              fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
-            }}
+            href={ctaHref}
+            style={{ display: 'inline-block', color: '#a3282b', fontSize: '11px', letterSpacing: '0.15em', textDecoration: 'none', border: '0.5px solid #a3282b', padding: '10px 20px', fontFamily: font }}
           >
-            ご注文・お問い合わせ
+            {ctaLabel}
           </Link>
         </div>
       </div>
 
       {/* コピーライト */}
-      <div
-        style={{
-          borderTop: '0.5px solid #1e1e1e',
-          marginTop: '24px',
-          paddingTop: '16px',
-          textAlign: 'center',
-        }}
-      >
-        <p
-          style={{
-            color: '#444',
-            fontSize: '10px',
-            letterSpacing: '0.05em',
-            margin: 0,
-            fontFamily: 'Georgia, serif',
-          }}
-        >
+      <div style={{ borderTop: '0.5px solid #ddd6c6', marginTop: '24px', paddingTop: '16px', textAlign: 'center' }}>
+        <p style={{ color: '#9b9384', fontSize: '10px', letterSpacing: '0.05em', margin: 0, fontFamily: SERIF }}>
           © Nisshin Partectual Co., Ltd.
         </p>
       </div>

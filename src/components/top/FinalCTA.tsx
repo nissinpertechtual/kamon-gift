@@ -12,18 +12,18 @@ const FinalKamonBg = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style={{ position: 'absolute', inset: 0 }}>
       <defs>
         <pattern id="kamon-final-a" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-          <circle cx="30" cy="30" r="12" fill="none" stroke="#c9a84c" strokeWidth="0.8" />
-          <circle cx="30" cy="30" r="7"  fill="none" stroke="#c9a84c" strokeWidth="0.6" />
-          <circle cx="30" cy="30" r="3"  fill="none" stroke="#c9a84c" strokeWidth="0.5" />
-          <line x1="30" y1="18" x2="30" y2="42" stroke="#c9a84c" strokeWidth="0.5" />
-          <line x1="18" y1="30" x2="42" y2="30" stroke="#c9a84c" strokeWidth="0.5" />
+          <circle cx="30" cy="30" r="12" fill="none" stroke="#a3282b" strokeWidth="0.8" />
+          <circle cx="30" cy="30" r="7"  fill="none" stroke="#a3282b" strokeWidth="0.6" />
+          <circle cx="30" cy="30" r="3"  fill="none" stroke="#a3282b" strokeWidth="0.5" />
+          <line x1="30" y1="18" x2="30" y2="42" stroke="#a3282b" strokeWidth="0.5" />
+          <line x1="18" y1="30" x2="42" y2="30" stroke="#a3282b" strokeWidth="0.5" />
         </pattern>
         <pattern id="kamon-final-b" x="30" y="30" width="60" height="60" patternUnits="userSpaceOnUse">
-          <circle cx="30" cy="30" r="12" fill="none" stroke="#c9a84c" strokeWidth="0.8" />
-          <circle cx="30" cy="30" r="7"  fill="none" stroke="#c9a84c" strokeWidth="0.6" />
-          <circle cx="30" cy="30" r="3"  fill="none" stroke="#c9a84c" strokeWidth="0.5" />
-          <line x1="30" y1="18" x2="30" y2="42" stroke="#c9a84c" strokeWidth="0.5" />
-          <line x1="18" y1="30" x2="42" y2="30" stroke="#c9a84c" strokeWidth="0.5" />
+          <circle cx="30" cy="30" r="12" fill="none" stroke="#a3282b" strokeWidth="0.8" />
+          <circle cx="30" cy="30" r="7"  fill="none" stroke="#a3282b" strokeWidth="0.6" />
+          <circle cx="30" cy="30" r="3"  fill="none" stroke="#a3282b" strokeWidth="0.5" />
+          <line x1="30" y1="18" x2="30" y2="42" stroke="#a3282b" strokeWidth="0.5" />
+          <line x1="18" y1="30" x2="42" y2="30" stroke="#a3282b" strokeWidth="0.5" />
         </pattern>
       </defs>
       {/* 修正: opacity 0.08 → 0.06 */}
@@ -55,7 +55,7 @@ export default function FinalCTA() {
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: '#0a0a0a',
+        background: '#f4f0e7',
       }}
     >
       <FinalKamonBg />
@@ -75,7 +75,7 @@ export default function FinalCTA() {
           style={{
             width: '1px',
             height: '48px',
-            background: '#c9a84c',
+            background: '#a3282b',
             opacity: 0.4,
             margin: '0 auto 48px',
           }}
@@ -88,9 +88,9 @@ export default function FinalCTA() {
             fontWeight: 300,
             letterSpacing: '0.1em',
             lineHeight: 1.6,
-            color: '#f0ede6',
+            color: '#2a2620',
             marginBottom: '16px',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           はじめてのご注文も、お気軽にどうぞ。
@@ -100,11 +100,11 @@ export default function FinalCTA() {
         <p
           style={{
             fontSize: '12px',
-            color: '#666',
+            color: '#766d5f',
             marginBottom: '48px',
             fontWeight: 300,
             letterSpacing: '0.06em',
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
         >
           家紋が分からない方も、まずはご相談ください。
@@ -115,8 +115,8 @@ export default function FinalCTA() {
           href="/contact"
           style={{
             display: 'inline-block',
-            background: '#c9a84c',
-            color: '#0a0a0a',
+            background: '#a3282b',
+            color: '#f6f1e7',
             padding: '18px 52px',
             fontSize: '13px',
             letterSpacing: '0.2em',
@@ -124,7 +124,7 @@ export default function FinalCTA() {
             textDecoration: 'none',
             border: 'none',
             borderRadius: 0,
-            fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+            fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             transition: 'opacity 0.3s ease',
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.82')}

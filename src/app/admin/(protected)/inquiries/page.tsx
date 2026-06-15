@@ -16,16 +16,16 @@ export default async function AdminInquiriesPage() {
           fontSize: '18px',
           fontWeight: 300,
           letterSpacing: '0.1em',
-          color: '#f0ede6',
+          color: '#2a2620',
           marginBottom: '40px',
-          fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+          fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
         }}
       >
         問い合わせ管理
       </h1>
 
       {error && (
-        <p style={{ fontSize: '12px', color: '#e05a5a', marginBottom: '24px' }}>
+        <p style={{ fontSize: '12px', color: '#b3261e', marginBottom: '24px' }}>
           データの取得に失敗しました: {error.message}
         </p>
       )}
@@ -35,10 +35,10 @@ export default async function AdminInquiriesPage() {
           style={{
             padding: '60px',
             textAlign: 'center',
-            border: '0.5px solid #1a1a1a',
+            border: '0.5px solid #e4ded0',
           }}
         >
-          <p style={{ fontSize: '13px', color: '#444', fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif" }}>
+          <p style={{ fontSize: '13px', color: '#9b9384', fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
             問い合わせはまだありません。
           </p>
         </div>
@@ -48,9 +48,9 @@ export default async function AdminInquiriesPage() {
             <div
               key={inq.id}
               style={{
-                background: '#111',
+                background: '#e7e0d2',
                 padding: '24px',
-                borderLeft: inq.status === 'new' ? '2px solid #c9a84c' : '2px solid transparent',
+                borderLeft: inq.status === 'new' ? '2px solid #a3282b' : '2px solid transparent',
               }}
             >
               {/* ヘッダー行 */}
@@ -68,9 +68,9 @@ export default async function AdminInquiriesPage() {
                   <p
                     style={{
                       fontSize: '14px',
-                      color: '#f0ede6',
+                      color: '#2a2620',
                       margin: '0 0 4px',
-                      fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                       fontWeight: 300,
                       letterSpacing: '0.06em',
                     }}
@@ -80,9 +80,9 @@ export default async function AdminInquiriesPage() {
                   <p
                     style={{
                       fontSize: '11px',
-                      color: '#555',
+                      color: '#857c6d',
                       margin: 0,
-                      fontFamily: 'Georgia, serif',
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
                       letterSpacing: '0.04em',
                     }}
                   >
@@ -95,9 +95,9 @@ export default async function AdminInquiriesPage() {
                   <p
                     style={{
                       fontSize: '10px',
-                      color: '#333',
+                      color: '#c6bca6',
                       margin: 0,
-                      fontFamily: 'Georgia, serif',
+                      fontFamily: "'Cormorant Garamond', Georgia, serif",
                       whiteSpace: 'nowrap',
                     }}
                   >
@@ -116,14 +116,14 @@ export default async function AdminInquiriesPage() {
               <p
                 style={{
                   fontSize: '12px',
-                  color: '#666',
+                  color: '#766d5f',
                   margin: 0,
                   lineHeight: 1.9,
-                  fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+                  fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   fontWeight: 300,
                   letterSpacing: '0.04em',
                   whiteSpace: 'pre-wrap',
-                  borderTop: '0.5px solid #1a1a1a',
+                  borderTop: '0.5px solid #e4ded0',
                   paddingTop: '12px',
                 }}
               >

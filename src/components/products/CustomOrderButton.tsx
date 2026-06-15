@@ -12,19 +12,19 @@ export function CustomOrderButton({ productName }: Props) {
         width: '100%',
         padding: '14px',
         background: 'transparent',
-        color: '#c9a84c',
-        border: '0.5px solid #c9a84c',
+        color: '#a3282b',
+        border: '0.5px solid #a3282b',
         fontSize: '12px',
         letterSpacing: '0.25em',
         textAlign: 'center',
         textDecoration: 'none',
         fontWeight: 300,
-        fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+        fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
         transition: 'all 0.3s ease',
         boxSizing: 'border-box',
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.background = 'rgba(201,168,76,0.06)';
+        (e.currentTarget as HTMLElement).style.background = 'rgba(163,40,43,0.06)';
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.background = 'transparent';

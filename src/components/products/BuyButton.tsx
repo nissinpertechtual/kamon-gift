@@ -38,13 +38,13 @@ export function BuyButton({ productId, productName, price }: Props) {
       style={{
         width: '100%',
         padding: '15px',
-        background: loading ? '#1a1a1a' : '#c9a84c',
-        color: loading ? '#444' : '#0a0a0a',
+        background: loading ? '#e4ded0' : '#a3282b',
+        color: loading ? '#9b9384' : '#f4f0e7',
         border: 'none',
         fontSize: '12px',
         letterSpacing: '0.25em',
         cursor: loading ? 'wait' : 'pointer',
-        fontFamily: "'Hiragino Mincho ProN', 'Yu Mincho', Georgia, serif",
+        fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
         fontWeight: 300,
         transition: 'all 0.3s ease',
       }}
