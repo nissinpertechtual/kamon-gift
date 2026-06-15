@@ -170,7 +170,7 @@ export default function AdminLoginPage() {
               marginTop: '8px',
               padding: '14px',
               background: loading ? '#828990' : '#efece4',
-              color: '#f6f1e7',
+              color: '#0b0b0c',
               fontSize: '11px',
               letterSpacing: '0.25em',
               fontWeight: 300,

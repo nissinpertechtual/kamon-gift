@@ -253,7 +253,7 @@ export default function AdminColumnsNewPage() {
             disabled={saving}
             style={{
               background: saving ? '#828990' : '#efece4',
-              color: '#f6f1e7',
+              color: '#0b0b0c',
               padding: '12px 40px',
               fontSize: '12px',
               letterSpacing: '0.15em',

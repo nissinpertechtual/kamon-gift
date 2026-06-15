@@ -249,7 +249,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
           <button
             type="submit"
             disabled={saving}
-            style={{ background: saving ? '#828990' : '#efece4', color: '#f6f1e7', padding: '12px 40px', fontSize: '12px', letterSpacing: '0.15em', fontWeight: 300, border: 'none', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            style={{ background: saving ? '#828990' : '#efece4', color: '#0b0b0c', padding: '12px 40px', fontSize: '12px', letterSpacing: '0.15em', fontWeight: 300, border: 'none', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             {saving ? '保存中...' : '保存する'}
           </button>
@@ -278,7 +278,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
             <div key={url} style={{ position: 'relative', width: '100px', height: '75px' }}>
               <img src={url} alt={`image-${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} />
               {i === 0 && (
-                <div style={{ position: 'absolute', bottom: 0, left: 0, background: 'rgba(239,236,228,0.8)', fontSize: '8px', color: '#f6f1e7', padding: '2px 6px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, background: 'rgba(239,236,228,0.8)', fontSize: '8px', color: '#0b0b0c', padding: '2px 6px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
                   メイン
                 </div>
               )}

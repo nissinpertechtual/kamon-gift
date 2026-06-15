@@ -98,11 +98,16 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* コピーライト */}
-      <div style={{ borderTop: '0.5px solid #23272c', marginTop: '24px', paddingTop: '16px', textAlign: 'center' }}>
-        <p style={{ color: '#5d636a', fontSize: '10px', letterSpacing: '0.05em', margin: 0, fontFamily: SERIF }}>
+      {/* コピーライト（クリックで社内ログイン） */}
+      <div style={{ borderTop: '0.5px solid #232320', marginTop: '24px', paddingTop: '16px', textAlign: 'center' }}>
+        <Link
+          href="/admin/login"
+          title={isEn ? 'Staff login' : '社内ログイン'}
+          aria-label={isEn ? 'Staff login' : '社内ログイン'}
+          style={{ color: '#5d636a', fontSize: '10px', letterSpacing: '0.05em', textDecoration: 'none', fontFamily: SERIF, transition: 'color 0.3s ease' }}
+        >
           © Nisshin Partectual Co., Ltd.
-        </p>
+        </Link>
       </div>
     </footer>
   );
