@@ -12,8 +12,8 @@ export function CustomOrderButton({ productName }: Props) {
         width: '100%',
         padding: '14px',
         background: 'transparent',
-        color: '#a3282b',
-        border: '0.5px solid #a3282b',
+        color: '#e23b2e',
+        border: '0.5px solid #e23b2e',
         fontSize: '12px',
         letterSpacing: '0.25em',
         textAlign: 'center',
@@ -24,7 +24,7 @@ export function CustomOrderButton({ productName }: Props) {
         boxSizing: 'border-box',
       }}
       onMouseEnter={(e) => {
-        (e.currentTarget as HTMLElement).style.background = 'rgba(163,40,43,0.06)';
+        (e.currentTarget as HTMLElement).style.background = 'rgba(226,59,46,0.06)';
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.background = 'transparent';

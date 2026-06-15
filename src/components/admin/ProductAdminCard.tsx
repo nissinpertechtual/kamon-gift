@@ -85,13 +85,13 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
   return (
     <div
       style={{
-        background: '#e7e0d2',
-        border: '0.5px solid #d3cab5',
+        background: '#15181b',
+        border: '0.5px solid #2a2f35',
         overflow: 'hidden',
       }}
     >
       {/* 画像エリア */}
-      <div style={{ position: 'relative', aspectRatio: '4/3', background: '#fbf9f3' }}>
+      <div style={{ position: 'relative', aspectRatio: '4/3', background: '#101417' }}>
         {primaryImage ? (
           <Image
             src={primaryImage}
@@ -110,7 +110,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               justifyContent: 'center',
             }}
           >
-            <p style={{ fontSize: '10px', color: '#c6bca6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>NO IMAGE</p>
+            <p style={{ fontSize: '10px', color: '#2c3137', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>NO IMAGE</p>
           </div>
         )}
 
@@ -122,7 +122,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               top: '8px',
               right: '8px',
               background: 'rgba(0,0,0,0.7)',
-              color: '#6f675a',
+              color: '#9aa0a6',
               fontSize: '9px',
               padding: '3px 8px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -139,7 +139,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
         <p
           style={{
             fontSize: '13px',
-            color: '#2a2620',
+            color: '#e9e7e1',
             margin: '0 0 4px',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             fontWeight: 300,
@@ -148,7 +148,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
         >
           {product.name}
         </p>
-        <p style={{ fontSize: '10px', color: '#857c6d', margin: '0 0 12px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+        <p style={{ fontSize: '10px', color: '#828990', margin: '0 0 12px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {product.material}{product.price != null ? ` · ¥${product.price.toLocaleString()}` : ' · お見積もり'}
         </p>
 
@@ -161,15 +161,15 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               flex: 1,
               padding: '8px',
               background: 'transparent',
-              border: '0.5px solid #a3282b',
-              color: generating ? '#857c6d' : '#a3282b',
+              border: '0.5px solid #e23b2e',
+              color: generating ? '#828990' : '#e23b2e',
               fontSize: '9px',
               letterSpacing: '0.12em',
               cursor: generating ? 'not-allowed' : 'pointer',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               transition: 'background 0.2s ease',
             }}
-            onMouseEnter={(e) => !generating && (e.currentTarget.style.background = 'rgba(163,40,43,0.08)')}
+            onMouseEnter={(e) => !generating && (e.currentTarget.style.background = 'rgba(226,59,46,0.08)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
           >
             {generating ? '生成中...' : 'AI 生成'}
@@ -182,8 +182,8 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               flex: 1,
               padding: '8px',
               background: 'transparent',
-              border: '0.5px solid #d3cab5',
-              color: uploading ? '#857c6d' : '#6f675a',
+              border: '0.5px solid #2a2f35',
+              color: uploading ? '#828990' : '#9aa0a6',
               fontSize: '9px',
               letterSpacing: '0.12em',
               cursor: uploading ? 'not-allowed' : 'pointer',
@@ -192,13 +192,13 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
             }}
             onMouseEnter={(e) => {
               if (!uploading) {
-                e.currentTarget.style.borderColor = '#857c6d';
-                e.currentTarget.style.color = '#2a2620';
+                e.currentTarget.style.borderColor = '#828990';
+                e.currentTarget.style.color = '#e9e7e1';
               }
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = '#d3cab5';
-              e.currentTarget.style.color = '#6f675a';
+              e.currentTarget.style.borderColor = '#2a2f35';
+              e.currentTarget.style.color = '#9aa0a6';
             }}
           >
             {uploading ? 'アップロード中...' : '写真を追加'}
@@ -234,9 +234,9 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
                     right: '-4px',
                     width: '16px',
                     height: '16px',
-                    background: '#c6bca6',
-                    border: '0.5px solid #857c6d',
-                    color: '#6f675a',
+                    background: '#2c3137',
+                    border: '0.5px solid #828990',
+                    color: '#9aa0a6',
                     fontSize: '9px',
                     cursor: 'pointer',
                     display: 'flex',
@@ -259,7 +259,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
             style={{
               marginTop: '10px',
               fontSize: '10px',
-              color: message.startsWith('エラー') ? '#b3261e' : '#a3282b',
+              color: message.startsWith('エラー') ? '#ff6b5e' : '#e23b2e',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               letterSpacing: '0.05em',
             }}

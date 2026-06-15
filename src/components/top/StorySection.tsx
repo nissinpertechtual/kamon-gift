@@ -91,7 +91,7 @@ function StoryBlock({
               fontWeight: 300,
               letterSpacing: '0.1em',
               lineHeight: 1.6,
-              color: '#2a2620',
+              color: '#e9e7e1',
               marginBottom: '20px',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             }}
@@ -102,7 +102,7 @@ function StoryBlock({
             style={{
               fontSize: '13px',
               lineHeight: 2.4,
-              color: '#6f675a',
+              color: '#9aa0a6',
               letterSpacing: '0.05em',
               fontWeight: 300,
               margin: 0,
@@ -131,7 +131,7 @@ function StoryBlock({
               backgroundImage: `url(${imageUrl})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              filter: 'brightness(0.82) saturate(0.88)',
+              filter: 'brightness(0.56) saturate(0.8)',
               zIndex: 0,
             }}
             aria-label={imageAlt}
@@ -143,8 +143,8 @@ function StoryBlock({
               position: 'absolute',
               inset: 0,
               background: imagePosition === 'right'
-                ? 'linear-gradient(to right, #f4f0e7 0%, transparent 40%)'
-                : 'linear-gradient(to left, #f4f0e7 0%, transparent 40%)',
+                ? 'linear-gradient(to right, #0b0c0e 0%, transparent 40%)'
+                : 'linear-gradient(to left, #0b0c0e 0%, transparent 40%)',
               zIndex: 1,
             }}
           />
@@ -167,7 +167,7 @@ function GoldDivider() {
         transition: 'opacity 0.8s ease',
       }}
     >
-      <div style={{ width: '40px', height: '0.5px', background: '#a3282b', opacity: 0.4 }} />
+      <div style={{ width: '40px', height: '0.5px', background: '#e23b2e', opacity: 0.4 }} />
     </div>
   );
 }

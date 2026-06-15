@@ -16,7 +16,7 @@ export default async function AdminInquiriesPage() {
           fontSize: '18px',
           fontWeight: 300,
           letterSpacing: '0.1em',
-          color: '#2a2620',
+          color: '#e9e7e1',
           marginBottom: '40px',
           fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
         }}
@@ -25,7 +25,7 @@ export default async function AdminInquiriesPage() {
       </h1>
 
       {error && (
-        <p style={{ fontSize: '12px', color: '#b3261e', marginBottom: '24px' }}>
+        <p style={{ fontSize: '12px', color: '#ff6b5e', marginBottom: '24px' }}>
           データの取得に失敗しました: {error.message}
         </p>
       )}
@@ -35,10 +35,10 @@ export default async function AdminInquiriesPage() {
           style={{
             padding: '60px',
             textAlign: 'center',
-            border: '0.5px solid #e4ded0',
+            border: '0.5px solid #1b1f23',
           }}
         >
-          <p style={{ fontSize: '13px', color: '#9b9384', fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
+          <p style={{ fontSize: '13px', color: '#5d636a', fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
             問い合わせはまだありません。
           </p>
         </div>
@@ -48,9 +48,9 @@ export default async function AdminInquiriesPage() {
             <div
               key={inq.id}
               style={{
-                background: '#e7e0d2',
+                background: '#15181b',
                 padding: '24px',
-                borderLeft: inq.status === 'new' ? '2px solid #a3282b' : '2px solid transparent',
+                borderLeft: inq.status === 'new' ? '2px solid #e23b2e' : '2px solid transparent',
               }}
             >
               {/* ヘッダー行 */}
@@ -68,7 +68,7 @@ export default async function AdminInquiriesPage() {
                   <p
                     style={{
                       fontSize: '14px',
-                      color: '#2a2620',
+                      color: '#e9e7e1',
                       margin: '0 0 4px',
                       fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                       fontWeight: 300,
@@ -80,7 +80,7 @@ export default async function AdminInquiriesPage() {
                   <p
                     style={{
                       fontSize: '11px',
-                      color: '#857c6d',
+                      color: '#828990',
                       margin: 0,
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
                       letterSpacing: '0.04em',
@@ -95,7 +95,7 @@ export default async function AdminInquiriesPage() {
                   <p
                     style={{
                       fontSize: '10px',
-                      color: '#c6bca6',
+                      color: '#2c3137',
                       margin: 0,
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
                       whiteSpace: 'nowrap',
@@ -116,14 +116,14 @@ export default async function AdminInquiriesPage() {
               <p
                 style={{
                   fontSize: '12px',
-                  color: '#766d5f',
+                  color: '#8b9298',
                   margin: 0,
                   lineHeight: 1.9,
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   fontWeight: 300,
                   letterSpacing: '0.04em',
                   whiteSpace: 'pre-wrap',
-                  borderTop: '0.5px solid #e4ded0',
+                  borderTop: '0.5px solid #1b1f23',
                   paddingTop: '12px',
                 }}
               >

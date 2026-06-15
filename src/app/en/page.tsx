@@ -19,7 +19,7 @@ export default async function EnTopPage() {
   const products = (data ?? []) as (Product & { name_en?: string | null })[];
 
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e' }}>
       <KamonBackground />
 
       {/* ───── Hero (KV) ───── */}
@@ -54,7 +54,7 @@ export default async function EnTopPage() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(to bottom, rgba(26,22,18,0.5) 0%, rgba(26,22,18,0.2) 30%, rgba(26,22,18,0.35) 70%, rgba(244,240,231,0.96) 100%)',
+              'linear-gradient(to bottom, rgba(11,12,14,0.55) 0%, rgba(11,12,14,0.25) 30%, rgba(11,12,14,0.4) 70%, rgba(11,12,14,0.98) 100%)',
             zIndex: 1,
           }}
         />
@@ -123,7 +123,7 @@ export default async function EnTopPage() {
           <div className="hero-cta-buttons">
             <Link
               href="/en/products"
-              style={{ display: 'inline-block', background: '#a3282b', color: '#f7f1e6', padding: '16px 48px', fontSize: '12px', letterSpacing: '0.22em', fontWeight: 500, textDecoration: 'none', border: '0.5px solid #a3282b', fontFamily: SERIF }}
+              style={{ display: 'inline-block', background: '#e23b2e', color: '#f7f1e6', padding: '16px 48px', fontSize: '12px', letterSpacing: '0.22em', fontWeight: 500, textDecoration: 'none', border: '0.5px solid #e23b2e', fontFamily: SERIF }}
             >
               {EN.hero.ctaShop}
             </Link>
@@ -152,20 +152,20 @@ export default async function EnTopPage() {
           <SectionLabel en={EN.story.label} />
           {[EN.story.block1, EN.story.block2, EN.story.block3].map((block, i) => (
             <div key={i}>
-              <h2 style={{ fontSize: 'clamp(20px, 3.4vw, 28px)', fontWeight: 500, letterSpacing: '0.03em', lineHeight: 1.5, color: '#2a2620', marginBottom: '18px', fontFamily: SERIF }}>
+              <h2 style={{ fontSize: 'clamp(20px, 3.4vw, 28px)', fontWeight: 500, letterSpacing: '0.03em', lineHeight: 1.5, color: '#e9e7e1', marginBottom: '18px', fontFamily: SERIF }}>
                 {block.heading}
               </h2>
-              <p style={{ fontSize: '14px', lineHeight: 2.3, color: '#6f675a', letterSpacing: '0.02em', whiteSpace: 'pre-line', fontFamily: SERIF, fontStyle: 'italic' }}>
+              <p style={{ fontSize: '14px', lineHeight: 2.3, color: '#9aa0a6', letterSpacing: '0.02em', whiteSpace: 'pre-line', fontFamily: SERIF, fontStyle: 'italic' }}>
                 {block.body}
               </p>
-              {i < 2 && <div style={{ width: '40px', height: '0.5px', background: 'rgba(163,40,43,0.4)', margin: '56px auto' }} />}
+              {i < 2 && <div style={{ width: '40px', height: '0.5px', background: 'rgba(226,59,46,0.4)', margin: '56px auto' }} />}
             </div>
           ))}
         </div>
       </section>
 
       {/* ───── Scenes ───── */}
-      <section style={{ padding: '120px 24px', background: '#ece6da', position: 'relative', zIndex: 1 }}>
+      <section style={{ padding: '120px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <SectionLabel en={EN.scenes.label} />
           <div className="scene-grid">
@@ -197,16 +197,16 @@ export default async function EnTopPage() {
           <div style={{ display: 'flex', gap: '32px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {EN.flow.steps.map((step) => (
               <div key={step.number} style={{ textAlign: 'center', maxWidth: '230px', flex: '1 1 200px' }}>
-                <div style={{ fontSize: '30px', color: '#a3282b', opacity: 0.55, fontFamily: SERIF }}>{step.number}</div>
-                <div style={{ fontSize: '15px', letterSpacing: '0.04em', margin: '12px 0 10px', color: '#2a2620', fontWeight: 500, fontFamily: SERIF }}>{step.title}</div>
-                <div style={{ fontSize: '12.5px', color: '#6f675a', lineHeight: 2, whiteSpace: 'pre-line', fontFamily: SERIF, fontStyle: 'italic' }}>{step.body}</div>
+                <div style={{ fontSize: '30px', color: '#e23b2e', opacity: 0.55, fontFamily: SERIF }}>{step.number}</div>
+                <div style={{ fontSize: '15px', letterSpacing: '0.04em', margin: '12px 0 10px', color: '#e9e7e1', fontWeight: 500, fontFamily: SERIF }}>{step.title}</div>
+                <div style={{ fontSize: '12.5px', color: '#9aa0a6', lineHeight: 2, whiteSpace: 'pre-line', fontFamily: SERIF, fontStyle: 'italic' }}>{step.body}</div>
               </div>
             ))}
           </div>
           <div style={{ marginTop: '52px', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '12px 36px' }}>
             {EN.flow.points.map((p) => (
-              <p key={p} style={{ fontSize: '12px', color: '#857c6d', margin: 0, fontFamily: SERIF, fontStyle: 'italic' }}>
-                <span style={{ color: '#a3282b', marginRight: '7px' }}>✓</span>{p}
+              <p key={p} style={{ fontSize: '12px', color: '#828990', margin: 0, fontFamily: SERIF, fontStyle: 'italic' }}>
+                <span style={{ color: '#e23b2e', marginRight: '7px' }}>✓</span>{p}
               </p>
             ))}
           </div>
@@ -214,11 +214,11 @@ export default async function EnTopPage() {
       </section>
 
       {/* ───── Products ───── */}
-      <section style={{ padding: '110px 24px', background: '#ece6da', position: 'relative', zIndex: 1 }}>
+      <section style={{ padding: '110px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <SectionLabel en={EN.products.label} />
           {products.length === 0 ? (
-            <div style={{ textAlign: 'center', color: '#9b9384', fontSize: '14px', padding: '40px 0', fontFamily: SERIF, fontStyle: 'italic' }}>
+            <div style={{ textAlign: 'center', color: '#5d636a', fontSize: '14px', padding: '40px 0', fontFamily: SERIF, fontStyle: 'italic' }}>
               {EN.products.empty}
             </div>
           ) : (
@@ -229,7 +229,7 @@ export default async function EnTopPage() {
             </div>
           )}
           <div style={{ textAlign: 'center', marginTop: '48px' }}>
-            <Link href="/en/products" style={{ display: 'inline-block', border: '0.5px solid #a3282b', color: '#a3282b', padding: '13px 44px', fontSize: '12px', letterSpacing: '0.16em', textDecoration: 'none', fontFamily: SERIF, fontStyle: 'italic' }}>
+            <Link href="/en/products" style={{ display: 'inline-block', border: '0.5px solid #e23b2e', color: '#e23b2e', padding: '13px 44px', fontSize: '12px', letterSpacing: '0.16em', textDecoration: 'none', fontFamily: SERIF, fontStyle: 'italic' }}>
               {EN.products.viewAll}
             </Link>
           </div>
@@ -239,13 +239,13 @@ export default async function EnTopPage() {
       {/* ───── Final CTA ───── */}
       <section style={{ padding: '120px 24px', textAlign: 'center', position: 'relative', zIndex: 1 }}>
         <div className="rule-v" style={{ marginBottom: '40px' }} />
-        <h2 style={{ fontSize: 'clamp(20px, 3.4vw, 28px)', fontWeight: 500, letterSpacing: '0.03em', marginBottom: '14px', color: '#2a2620', fontFamily: SERIF }}>
+        <h2 style={{ fontSize: 'clamp(20px, 3.4vw, 28px)', fontWeight: 500, letterSpacing: '0.03em', marginBottom: '14px', color: '#e9e7e1', fontFamily: SERIF }}>
           {EN.finalCta.heading}
         </h2>
-        <p style={{ fontSize: '13px', color: '#6f675a', marginBottom: '40px', fontFamily: SERIF, fontStyle: 'italic' }}>
+        <p style={{ fontSize: '13px', color: '#9aa0a6', marginBottom: '40px', fontFamily: SERIF, fontStyle: 'italic' }}>
           {EN.finalCta.sub}
         </p>
-        <Link href="/en/contact" style={{ background: '#a3282b', color: '#f7f1e6', padding: '16px 50px', fontSize: '13px', letterSpacing: '0.18em', textDecoration: 'none', display: 'inline-block', fontWeight: 500, fontFamily: SERIF }}>
+        <Link href="/en/contact" style={{ background: '#e23b2e', color: '#f7f1e6', padding: '16px 50px', fontSize: '13px', letterSpacing: '0.18em', textDecoration: 'none', display: 'inline-block', fontWeight: 500, fontFamily: SERIF }}>
           {EN.finalCta.button}
         </Link>
       </section>

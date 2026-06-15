@@ -19,7 +19,7 @@ export default async function ColumnDetailPage({ params }: Props) {
   if (!column) notFound();
 
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -34,13 +34,13 @@ export default async function ColumnDetailPage({ params }: Props) {
         <div
           style={{
             fontSize: '9px',
-            color: '#9b9384',
+            color: '#5d636a',
             letterSpacing: '0.15em',
             marginBottom: '48px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
-          <Link href="/column" style={{ color: '#857c6d', textDecoration: 'none' }}>
+          <Link href="/column" style={{ color: '#828990', textDecoration: 'none' }}>
             コラム
           </Link>
           <span style={{ margin: '0 8px' }}>—</span>
@@ -52,7 +52,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             fontSize: '9px',
             letterSpacing: '0.2em',
-            color: '#857c6d',
+            color: '#828990',
             marginBottom: '20px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -71,7 +71,7 @@ export default async function ColumnDetailPage({ params }: Props) {
             fontWeight: 300,
             letterSpacing: '0.1em',
             lineHeight: 1.7,
-            color: '#2a2620',
+            color: '#e9e7e1',
             marginBottom: '48px',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
           }}
@@ -95,7 +95,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             width: '40px',
             height: '0.5px',
-            background: '#a3282b',
+            background: '#e23b2e',
             opacity: 0.4,
             marginBottom: '48px',
           }}
@@ -106,7 +106,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             fontSize: '14px',
             lineHeight: 2.5,
-            color: '#6f675a',
+            color: '#9aa0a6',
             letterSpacing: '0.05em',
             fontWeight: 300,
             whiteSpace: 'pre-wrap',
@@ -121,7 +121,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             marginTop: '80px',
             padding: '32px',
-            border: '0.5px solid #ddd6c6',
+            border: '0.5px solid #23272c',
             textAlign: 'center',
           }}
         >
@@ -129,7 +129,7 @@ export default async function ColumnDetailPage({ params }: Props) {
             style={{
               fontSize: '9px',
               letterSpacing: '0.25em',
-              color: '#a3282b',
+              color: '#e23b2e',
               marginBottom: '16px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
@@ -139,7 +139,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           <p
             style={{
               fontSize: '12px',
-              color: '#766d5f',
+              color: '#8b9298',
               lineHeight: 2,
               marginBottom: '24px',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -151,8 +151,8 @@ export default async function ColumnDetailPage({ params }: Props) {
             href="/products"
             style={{
               display: 'inline-block',
-              border: '0.5px solid #a3282b',
-              color: '#a3282b',
+              border: '0.5px solid #e23b2e',
+              color: '#e23b2e',
               padding: '11px 32px',
               fontSize: '11px',
               letterSpacing: '0.2em',
@@ -170,7 +170,7 @@ export default async function ColumnDetailPage({ params }: Props) {
             href="/column"
             style={{
               fontSize: '10px',
-              color: '#857c6d',
+              color: '#828990',
               letterSpacing: '0.2em',
               textDecoration: 'none',
               fontFamily: "'Cormorant Garamond', Georgia, serif",

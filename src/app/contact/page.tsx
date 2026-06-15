@@ -5,7 +5,7 @@ import KamonBackground from '@/components/KamonBackground';
 
 export default function ContactPage() {
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -20,7 +20,7 @@ export default function ContactPage() {
         <p
           style={{
             fontSize: '12px',
-            color: '#766d5f',
+            color: '#8b9298',
             lineHeight: 2.6,
             letterSpacing: '0.05em',
             textAlign: 'center',

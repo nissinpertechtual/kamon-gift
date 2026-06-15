@@ -34,7 +34,7 @@ export default async function AdminDashboardPage() {
           fontSize: '18px',
           fontWeight: 300,
           letterSpacing: '0.1em',
-          color: '#2a2620',
+          color: '#e9e7e1',
           marginBottom: '40px',
           fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
         }}
@@ -55,8 +55,8 @@ export default async function AdminDashboardPage() {
           <div
             key={stat.label}
             style={{
-              background: '#e7e0d2',
-              border: `0.5px solid ${stat.highlight ? '#a3282b' : '#d3cab5'}`,
+              background: '#15181b',
+              border: `0.5px solid ${stat.highlight ? '#e23b2e' : '#2a2f35'}`,
               padding: '24px',
             }}
           >
@@ -64,7 +64,7 @@ export default async function AdminDashboardPage() {
               style={{
                 fontSize: '10px',
                 letterSpacing: '0.1em',
-                color: '#857c6d',
+                color: '#828990',
                 margin: '0 0 12px',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
@@ -75,14 +75,14 @@ export default async function AdminDashboardPage() {
               style={{
                 fontSize: '32px',
                 fontWeight: 300,
-                color: stat.highlight ? '#a3282b' : '#2a2620',
+                color: stat.highlight ? '#e23b2e' : '#e9e7e1',
                 margin: 0,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 letterSpacing: '0.05em',
               }}
             >
               {stat.value}
-              <span style={{ fontSize: '12px', marginLeft: '4px', color: '#857c6d' }}>{stat.unit}</span>
+              <span style={{ fontSize: '12px', marginLeft: '4px', color: '#828990' }}>{stat.unit}</span>
             </p>
           </div>
         ))}
@@ -94,7 +94,7 @@ export default async function AdminDashboardPage() {
           style={{
             fontSize: '12px',
             letterSpacing: '0.15em',
-            color: '#857c6d',
+            color: '#828990',
             marginBottom: '20px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontWeight: 300,
@@ -104,7 +104,7 @@ export default async function AdminDashboardPage() {
         </h2>
 
         {!recentInquiries || recentInquiries.length === 0 ? (
-          <p style={{ fontSize: '12px', color: '#9b9384', fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
+          <p style={{ fontSize: '12px', color: '#5d636a', fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif" }}>
             問い合わせはまだありません。
           </p>
         ) : (
@@ -113,7 +113,7 @@ export default async function AdminDashboardPage() {
               <div
                 key={inq.id}
                 style={{
-                  background: '#e7e0d2',
+                  background: '#15181b',
                   padding: '16px 20px',
                   display: 'grid',
                   gridTemplateColumns: '1fr auto auto',
@@ -125,7 +125,7 @@ export default async function AdminDashboardPage() {
                   <p
                     style={{
                       fontSize: '13px',
-                      color: '#2a2620',
+                      color: '#e9e7e1',
                       margin: '0 0 4px',
                       fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                       fontWeight: 300,
@@ -136,7 +136,7 @@ export default async function AdminDashboardPage() {
                   <p
                     style={{
                       fontSize: '11px',
-                      color: '#857c6d',
+                      color: '#828990',
                       margin: 0,
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
                     }}
@@ -148,7 +148,7 @@ export default async function AdminDashboardPage() {
                 <p
                   style={{
                     fontSize: '10px',
-                    color: '#9b9384',
+                    color: '#5d636a',
                     margin: 0,
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                     whiteSpace: 'nowrap',
@@ -167,9 +167,9 @@ export default async function AdminDashboardPage() {
 
 function StatusBadge({ status }: { status: Inquiry['status'] }) {
   const map = {
-    new: { label: '新規', color: '#a3282b', bg: 'rgba(163,40,43,0.1)' },
-    in_progress: { label: '対応中', color: '#2f6ad0', bg: 'rgba(110,168,254,0.1)' },
-    done: { label: '完了', color: '#9b9384', bg: 'transparent' },
+    new: { label: '新規', color: '#e23b2e', bg: 'rgba(226,59,46,0.1)' },
+    in_progress: { label: '対応中', color: '#6aa0ff', bg: 'rgba(110,168,254,0.1)' },
+    done: { label: '完了', color: '#5d636a', bg: 'transparent' },
   };
   const s = map[status] ?? map.new;
   return (

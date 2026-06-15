@@ -30,7 +30,7 @@ export default function Footer() {
   const ctaHref = isEn ? '/en/contact' : '/contact';
 
   return (
-    <footer style={{ backgroundColor: '#f4f0e7', borderTop: '0.5px solid #ddd6c6', padding: '32px 24px' }}>
+    <footer style={{ backgroundColor: '#0b0c0e', borderTop: '0.5px solid #23272c', padding: '32px 24px' }}>
       <div
         style={{
           maxWidth: '1200px',
@@ -43,12 +43,12 @@ export default function Footer() {
         {/* 左：ロゴ + キャッチ */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <Logo size={38} color="#2a2620" />
-            <span style={{ color: '#2a2620', fontSize: '13px', letterSpacing: '0.18em', fontWeight: 500, fontFamily: MINCHO }}>
+            <Logo size={38} color="#e9e7e1" />
+            <span style={{ color: '#e9e7e1', fontSize: '13px', letterSpacing: '0.18em', fontWeight: 500, fontFamily: MINCHO }}>
               家紋の彫刻室
             </span>
           </div>
-          <p style={{ color: '#857c6d', fontSize: '11px', letterSpacing: '0.05em', margin: 0, lineHeight: 1.8, whiteSpace: 'pre-line', fontFamily: font, fontStyle: isEn ? 'italic' : 'normal' }}>
+          <p style={{ color: '#828990', fontSize: '11px', letterSpacing: '0.05em', margin: 0, lineHeight: 1.8, whiteSpace: 'pre-line', fontFamily: font, fontStyle: isEn ? 'italic' : 'normal' }}>
             {tagline}
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function Footer() {
             <Link
               key={link.href}
               href={link.href}
-              style={{ color: '#766d5f', fontSize: '11px', letterSpacing: '0.05em', textDecoration: 'none', fontFamily: font }}
+              style={{ color: '#8b9298', fontSize: '11px', letterSpacing: '0.05em', textDecoration: 'none', fontFamily: font }}
             >
               {link.label}
             </Link>
@@ -68,12 +68,12 @@ export default function Footer() {
 
         {/* 右：連絡先 */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'flex-start' }}>
-          <p style={{ color: '#857c6d', fontSize: '11px', letterSpacing: '0.05em', margin: 0, fontFamily: font }}>
+          <p style={{ color: '#828990', fontSize: '11px', letterSpacing: '0.05em', margin: 0, fontFamily: font }}>
             {contactLabel}
           </p>
 
           <a href={SITE.telHref} style={{ textDecoration: 'none' }}>
-            <span style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.04em', color: '#a3282b', fontFamily: SERIF }}>
+            <span style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.04em', color: '#e23b2e', fontFamily: SERIF }}>
               {SITE.tel}
             </span>
           </a>
@@ -91,7 +91,7 @@ export default function Footer() {
 
           <Link
             href={ctaHref}
-            style={{ display: 'inline-block', color: '#a3282b', fontSize: '11px', letterSpacing: '0.15em', textDecoration: 'none', border: '0.5px solid #a3282b', padding: '10px 20px', fontFamily: font }}
+            style={{ display: 'inline-block', color: '#e23b2e', fontSize: '11px', letterSpacing: '0.15em', textDecoration: 'none', border: '0.5px solid #e23b2e', padding: '10px 20px', fontFamily: font }}
           >
             {ctaLabel}
           </Link>
@@ -99,8 +99,8 @@ export default function Footer() {
       </div>
 
       {/* コピーライト */}
-      <div style={{ borderTop: '0.5px solid #ddd6c6', marginTop: '24px', paddingTop: '16px', textAlign: 'center' }}>
-        <p style={{ color: '#9b9384', fontSize: '10px', letterSpacing: '0.05em', margin: 0, fontFamily: SERIF }}>
+      <div style={{ borderTop: '0.5px solid #23272c', marginTop: '24px', paddingTop: '16px', textAlign: 'center' }}>
+        <p style={{ color: '#5d636a', fontSize: '10px', letterSpacing: '0.05em', margin: 0, fontFamily: SERIF }}>
           © Nisshin Partectual Co., Ltd.
         </p>
       </div>

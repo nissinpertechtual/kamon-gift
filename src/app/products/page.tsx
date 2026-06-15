@@ -29,8 +29,8 @@ const filterLinkStyle = (isActive: boolean, gold = false) => ({
   fontSize: gold ? '10px' : '9px',
   letterSpacing: '0.1em',
   padding: gold ? '6px 16px' : '4px 12px',
-  border: `0.5px solid ${isActive ? (gold ? '#a3282b' : '#6f675a') : gold ? '#c6bca6' : '#d3cab5'}`,
-  color: isActive ? (gold ? '#a3282b' : '#5f5749') : gold ? '#766d5f' : '#9b9384',
+  border: `0.5px solid ${isActive ? (gold ? '#e23b2e' : '#9aa0a6') : gold ? '#2c3137' : '#2a2f35'}`,
+  color: isActive ? (gold ? '#e23b2e' : '#5d636a') : gold ? '#8b9298' : '#5d636a',
   textDecoration: 'none',
   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
   fontWeight: 300 as const,
@@ -54,7 +54,7 @@ export default async function ProductsPage({ searchParams }: Props) {
   const { data: products, error } = await query;
 
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -117,7 +117,7 @@ export default async function ProductsPage({ searchParams }: Props) {
 
         {/* エラー表示 */}
         {error && (
-          <p style={{ textAlign: 'center', color: '#b3261e', fontSize: '12px', marginBottom: '32px' }}>
+          <p style={{ textAlign: 'center', color: '#ff6b5e', fontSize: '12px', marginBottom: '32px' }}>
             商品の取得に失敗しました。
           </p>
         )}
@@ -127,7 +127,7 @@ export default async function ProductsPage({ searchParams }: Props) {
           <div
             style={{
               textAlign: 'center',
-              color: '#9b9384',
+              color: '#5d636a',
               fontSize: '13px',
               padding: '80px 0',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",

@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     <div
       style={{
         minHeight: '100vh',
-        background: '#f4f0e7',
+        background: '#0b0c0e',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
             style={{
               fontSize: '9px',
               letterSpacing: '0.35em',
-              color: '#a3282b',
+              color: '#e23b2e',
               margin: '0 0 12px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
@@ -65,7 +65,7 @@ export default function AdminLoginPage() {
             style={{
               fontSize: '13px',
               letterSpacing: '0.1em',
-              color: '#857c6d',
+              color: '#828990',
               margin: 0,
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               fontWeight: 300,
@@ -83,7 +83,7 @@ export default function AdminLoginPage() {
                 display: 'block',
                 fontSize: '10px',
                 letterSpacing: '0.1em',
-                color: '#766d5f',
+                color: '#8b9298',
                 marginBottom: '8px',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
@@ -98,9 +98,9 @@ export default function AdminLoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 14px',
-                background: '#e7e0d2',
-                border: '0.5px solid #d3cab5',
-                color: '#2a2620',
+                background: '#15181b',
+                border: '0.5px solid #2a2f35',
+                color: '#e9e7e1',
                 fontSize: '13px',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 fontWeight: 300,
@@ -108,8 +108,8 @@ export default function AdminLoginPage() {
                 boxSizing: 'border-box',
                 letterSpacing: '0.05em',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#a3282b')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#d3cab5')}
+              onFocus={(e) => (e.currentTarget.style.borderColor = '#e23b2e')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = '#2a2f35')}
             />
           </div>
 
@@ -119,7 +119,7 @@ export default function AdminLoginPage() {
                 display: 'block',
                 fontSize: '10px',
                 letterSpacing: '0.1em',
-                color: '#766d5f',
+                color: '#8b9298',
                 marginBottom: '8px',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
@@ -134,9 +134,9 @@ export default function AdminLoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 14px',
-                background: '#e7e0d2',
-                border: '0.5px solid #d3cab5',
-                color: '#2a2620',
+                background: '#15181b',
+                border: '0.5px solid #2a2f35',
+                color: '#e9e7e1',
                 fontSize: '13px',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 fontWeight: 300,
@@ -144,8 +144,8 @@ export default function AdminLoginPage() {
                 boxSizing: 'border-box',
                 letterSpacing: '0.05em',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#a3282b')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#d3cab5')}
+              onFocus={(e) => (e.currentTarget.style.borderColor = '#e23b2e')}
+              onBlur={(e) => (e.currentTarget.style.borderColor = '#2a2f35')}
             />
           </div>
 
@@ -153,7 +153,7 @@ export default function AdminLoginPage() {
             <p
               style={{
                 fontSize: '11px',
-                color: '#b3261e',
+                color: '#ff6b5e',
                 margin: 0,
                 letterSpacing: '0.05em',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -169,7 +169,7 @@ export default function AdminLoginPage() {
             style={{
               marginTop: '8px',
               padding: '14px',
-              background: loading ? '#857c6d' : '#a3282b',
+              background: loading ? '#828990' : '#e23b2e',
               color: '#f6f1e7',
               fontSize: '11px',
               letterSpacing: '0.25em',

@@ -7,7 +7,7 @@ export default function CheckoutCancel() {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        background: '#f4f0e7',
+        background: '#0b0c0e',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -20,7 +20,7 @@ export default function CheckoutCancel() {
           style={{
             fontSize: '9px',
             letterSpacing: '0.35em',
-            color: '#9b9384',
+            color: '#5d636a',
             marginBottom: '24px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -35,7 +35,7 @@ export default function CheckoutCancel() {
             letterSpacing: '0.1em',
             marginBottom: '16px',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-            color: '#2a2620',
+            color: '#e9e7e1',
           }}
         >
           決済をキャンセルしました
@@ -44,7 +44,7 @@ export default function CheckoutCancel() {
         <p
           style={{
             fontSize: '12px',
-            color: '#857c6d',
+            color: '#828990',
             lineHeight: 2,
             marginBottom: '40px',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -58,8 +58,8 @@ export default function CheckoutCancel() {
           href="/products"
           style={{
             display: 'inline-block',
-            border: '0.5px solid #c6bca6',
-            color: '#6f675a',
+            border: '0.5px solid #2c3137',
+            color: '#9aa0a6',
             padding: '12px 40px',
             fontSize: '10px',
             letterSpacing: '0.25em',

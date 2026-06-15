@@ -17,7 +17,7 @@ const items = [
 
 export default function LegalPage() {
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -34,7 +34,7 @@ export default function LegalPage() {
             style={{
               fontSize: '9px',
               letterSpacing: '0.35em',
-              color: '#a3282b',
+              color: '#e23b2e',
               marginBottom: '16px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
@@ -46,7 +46,7 @@ export default function LegalPage() {
               fontSize: 'clamp(22px, 4vw, 30px)',
               fontWeight: 300,
               letterSpacing: '0.1em',
-              color: '#2a2620',
+              color: '#e9e7e1',
               margin: 0,
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             }}
@@ -56,24 +56,24 @@ export default function LegalPage() {
         </div>
 
         {/* テーブル */}
-        <div style={{ border: '0.5px solid #ddd6c6' }}>
+        <div style={{ border: '0.5px solid #23272c' }}>
           {items.map((item, i) => (
             <div
               key={item.label}
               style={{
                 display: 'grid',
                 gridTemplateColumns: '180px 1fr',
-                borderBottom: i < items.length - 1 ? '0.5px solid #e4ded0' : 'none',
+                borderBottom: i < items.length - 1 ? '0.5px solid #1b1f23' : 'none',
               }}
             >
               <div
                 style={{
                   padding: '20px 24px',
-                  background: '#fbf9f3',
-                  borderRight: '0.5px solid #e4ded0',
+                  background: '#101417',
+                  borderRight: '0.5px solid #1b1f23',
                   fontSize: '11px',
                   letterSpacing: '0.08em',
-                  color: '#766d5f',
+                  color: '#8b9298',
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   fontWeight: 300,
                   display: 'flex',
@@ -87,7 +87,7 @@ export default function LegalPage() {
                   padding: '20px 28px',
                   fontSize: '13px',
                   letterSpacing: '0.06em',
-                  color: '#4a443a',
+                  color: '#c7c9cc',
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   fontWeight: 300,
                   lineHeight: 1.8,
@@ -105,7 +105,7 @@ export default function LegalPage() {
             href="/"
             style={{
               fontSize: '10px',
-              color: '#857c6d',
+              color: '#828990',
               letterSpacing: '0.2em',
               textDecoration: 'none',
               fontFamily: "'Cormorant Garamond', Georgia, serif",

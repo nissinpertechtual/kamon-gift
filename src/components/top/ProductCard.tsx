@@ -6,13 +6,13 @@ import Image from 'next/image';
 
 const KamonPlaceholder = () => (
   <svg width="48" height="48" viewBox="0 0 72 72" fill="none" aria-hidden="true" style={{ opacity: 0.25 }}>
-    <circle cx="36" cy="36" r="30" stroke="#a3282b" strokeWidth="1.2" />
-    <circle cx="36" cy="36" r="18" stroke="#a3282b" strokeWidth="1" />
-    <circle cx="36" cy="36" r="8"  stroke="#a3282b" strokeWidth="0.8" />
-    <line x1="36" y1="6"  x2="36" y2="66" stroke="#a3282b" strokeWidth="0.8" />
-    <line x1="6"  y1="36" x2="66" y2="36" stroke="#a3282b" strokeWidth="0.8" />
-    <line x1="15" y1="15" x2="57" y2="57" stroke="#a3282b" strokeWidth="0.6" />
-    <line x1="57" y1="15" x2="15" y2="57" stroke="#a3282b" strokeWidth="0.6" />
+    <circle cx="36" cy="36" r="30" stroke="#e23b2e" strokeWidth="1.2" />
+    <circle cx="36" cy="36" r="18" stroke="#e23b2e" strokeWidth="1" />
+    <circle cx="36" cy="36" r="8"  stroke="#e23b2e" strokeWidth="0.8" />
+    <line x1="36" y1="6"  x2="36" y2="66" stroke="#e23b2e" strokeWidth="0.8" />
+    <line x1="6"  y1="36" x2="66" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
+    <line x1="15" y1="15" x2="57" y2="57" stroke="#e23b2e" strokeWidth="0.6" />
+    <line x1="57" y1="15" x2="15" y2="57" stroke="#e23b2e" strokeWidth="0.6" />
   </svg>
 );
 
@@ -83,7 +83,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
           <div
             style={{
               aspectRatio: '4/3',
-              background: '#e7e0d2',
+              background: '#15181b',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -107,8 +107,8 @@ export function ProductCard({ product }: { product: ProductItem }) {
                     top: '8px',
                     left: '8px',
                     background: 'rgba(10,10,10,0.75)',
-                    border: '0.5px solid #a3282b',
-                    color: '#a3282b',
+                    border: '0.5px solid #e23b2e',
+                    color: '#e23b2e',
                     fontSize: '9px',
                     letterSpacing: '0.15em',
                     padding: '3px 8px',
@@ -138,10 +138,10 @@ export function ProductCard({ product }: { product: ProductItem }) {
                 fontSize: '12px',
                 letterSpacing: '0.08em',
                 fontWeight: 300,
-                color: '#2a2620',
+                color: '#e9e7e1',
                 margin: '0 0 8px',
                 paddingBottom: '8px',
-                borderBottom: '0.5px solid #ddd6c6',
+                borderBottom: '0.5px solid #23272c',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               }}
             >
@@ -150,7 +150,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
             <p
               style={{
                 fontSize: '11px',
-                color: '#a3282b',
+                color: '#e23b2e',
                 margin: '8px 0 0',
                 fontWeight: 300,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -170,7 +170,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
           <p
             style={{
               fontSize: '10px',
-              color: '#b3261e',
+              color: '#ff6b5e',
               marginBottom: '4px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               letterSpacing: '0.04em',
@@ -186,8 +186,8 @@ export function ProductCard({ product }: { product: ProductItem }) {
             display: 'block',
             width: '100%',
             background: 'transparent',
-            border: '0.5px solid #c6bca6',
-            color: loading ? '#9b9384' : '#6f675a',
+            border: '0.5px solid #2c3137',
+            color: loading ? '#5d636a' : '#9aa0a6',
             padding: '8px',
             fontSize: '10px',
             letterSpacing: '0.15em',
@@ -198,13 +198,13 @@ export function ProductCard({ product }: { product: ProductItem }) {
           }}
           onMouseEnter={(e) => {
             if (!loading) {
-              e.currentTarget.style.borderColor = '#a3282b';
-              e.currentTarget.style.color = '#a3282b';
+              e.currentTarget.style.borderColor = '#e23b2e';
+              e.currentTarget.style.color = '#e23b2e';
             }
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.borderColor = '#c6bca6';
-            e.currentTarget.style.color = loading ? '#9b9384' : '#6f675a';
+            e.currentTarget.style.borderColor = '#2c3137';
+            e.currentTarget.style.color = loading ? '#5d636a' : '#9aa0a6';
           }}
         >
           {loading ? '生成中…' : 'AI 画像を生成'}

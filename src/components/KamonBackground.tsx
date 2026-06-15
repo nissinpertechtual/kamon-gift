@@ -31,15 +31,15 @@ export default function KamonBackground() {
             patternUnits="userSpaceOnUse"
           >
             {/* 外円 */}
-            <circle cx="30" cy="30" r="12" fill="none" stroke="#b3a78f" strokeWidth="0.8" />
+            <circle cx="30" cy="30" r="12" fill="none" stroke="#33383e" strokeWidth="0.8" />
             {/* 中円 */}
-            <circle cx="30" cy="30" r="7" fill="none" stroke="#b3a78f" strokeWidth="0.6" />
+            <circle cx="30" cy="30" r="7" fill="none" stroke="#33383e" strokeWidth="0.6" />
             {/* 内円 */}
-            <circle cx="30" cy="30" r="3" fill="none" stroke="#b3a78f" strokeWidth="0.5" />
+            <circle cx="30" cy="30" r="3" fill="none" stroke="#33383e" strokeWidth="0.5" />
             {/* 十字線（縦） */}
-            <line x1="30" y1="18" x2="30" y2="42" stroke="#b3a78f" strokeWidth="0.5" />
+            <line x1="30" y1="18" x2="30" y2="42" stroke="#33383e" strokeWidth="0.5" />
             {/* 十字線（横） */}
-            <line x1="18" y1="30" x2="42" y2="30" stroke="#b3a78f" strokeWidth="0.5" />
+            <line x1="18" y1="30" x2="42" y2="30" stroke="#33383e" strokeWidth="0.5" />
           </pattern>
 
           {/* 千鳥用 — 30px オフセット */}
@@ -52,15 +52,15 @@ export default function KamonBackground() {
             patternUnits="userSpaceOnUse"
           >
             {/* 外円 */}
-            <circle cx="30" cy="30" r="12" fill="none" stroke="#b3a78f" strokeWidth="0.8" />
+            <circle cx="30" cy="30" r="12" fill="none" stroke="#33383e" strokeWidth="0.8" />
             {/* 中円 */}
-            <circle cx="30" cy="30" r="7" fill="none" stroke="#b3a78f" strokeWidth="0.6" />
+            <circle cx="30" cy="30" r="7" fill="none" stroke="#33383e" strokeWidth="0.6" />
             {/* 内円 */}
-            <circle cx="30" cy="30" r="3" fill="none" stroke="#b3a78f" strokeWidth="0.5" />
+            <circle cx="30" cy="30" r="3" fill="none" stroke="#33383e" strokeWidth="0.5" />
             {/* 十字線（縦） */}
-            <line x1="30" y1="18" x2="30" y2="42" stroke="#b3a78f" strokeWidth="0.5" />
+            <line x1="30" y1="18" x2="30" y2="42" stroke="#33383e" strokeWidth="0.5" />
             {/* 十字線（横） */}
-            <line x1="18" y1="30" x2="42" y2="30" stroke="#b3a78f" strokeWidth="0.5" />
+            <line x1="18" y1="30" x2="42" y2="30" stroke="#33383e" strokeWidth="0.5" />
           </pattern>
         </defs>
 

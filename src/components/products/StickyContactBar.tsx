@@ -24,8 +24,8 @@ export function StickyContactBar({ productName, lang = 'ja' }: Props) {
           left: 0,
           right: 0,
           zIndex: 50,
-          background: '#f4f0e7',
-          borderTop: '0.5px solid #d3cab5',
+          background: '#0b0c0e',
+          borderTop: '0.5px solid #2a2f35',
           padding: '12px 16px',
         }}
       >
@@ -36,7 +36,7 @@ export function StickyContactBar({ productName, lang = 'ja' }: Props) {
             alignItems: 'center',
             justifyContent: 'center',
             padding: '13px 8px',
-            background: '#a3282b',
+            background: '#e23b2e',
             color: '#f6f1e7',
             fontSize: '11px',
             letterSpacing: '0.12em',

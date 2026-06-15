@@ -15,8 +15,8 @@ export default function OpengraphImage() {
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#f4f0e7',
-          color: '#2a2620',
+          background: '#0b0c0e',
+          color: '#e9e7e1',
         }}
       >
         {/* 落款（角印）モチーフ */}
@@ -25,16 +25,16 @@ export default function OpengraphImage() {
             display: 'flex',
             width: 168,
             height: 168,
-            border: '8px solid #2a2620',
+            border: '8px solid #e9e7e1',
             borderRadius: 16,
             position: 'relative',
             alignItems: 'center',
             justifyContent: 'center',
           }}
         >
-          <div style={{ position: 'absolute', top: 22, bottom: 22, width: 6, background: '#2a2620' }} />
-          <div style={{ position: 'absolute', top: 8, width: 14, height: 14, borderRadius: 14, background: '#a3282b' }} />
-          <div style={{ position: 'absolute', bottom: 8, width: 14, height: 14, borderRadius: 14, background: '#a3282b' }} />
+          <div style={{ position: 'absolute', top: 22, bottom: 22, width: 6, background: '#e9e7e1' }} />
+          <div style={{ position: 'absolute', top: 8, width: 14, height: 14, borderRadius: 14, background: '#e23b2e' }} />
+          <div style={{ position: 'absolute', bottom: 8, width: 14, height: 14, borderRadius: 14, background: '#e23b2e' }} />
         </div>
 
         <div
@@ -42,13 +42,13 @@ export default function OpengraphImage() {
             marginTop: 54,
             fontSize: 38,
             letterSpacing: 10,
-            color: '#a3282b',
+            color: '#e23b2e',
             display: 'flex',
           }}
         >
           KAMON ENGRAVING STUDIO
         </div>
-        <div style={{ marginTop: 20, fontSize: 24, letterSpacing: 4, color: '#6f675a', display: 'flex' }}>
+        <div style={{ marginTop: 20, fontSize: 24, letterSpacing: 4, color: '#9aa0a6', display: 'flex' }}>
           Laser-engraved family-crest gifts
         </div>
       </div>

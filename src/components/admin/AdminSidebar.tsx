@@ -23,8 +23,8 @@ export default function AdminSidebar() {
       style={{
         width: '200px',
         minHeight: '100vh',
-        background: '#e7e0d2',
-        borderRight: '0.5px solid #d3cab5',
+        background: '#15181b',
+        borderRight: '0.5px solid #2a2f35',
         display: 'flex',
         flexDirection: 'column',
         padding: '32px 0',
@@ -35,7 +35,7 @@ export default function AdminSidebar() {
       <div
         style={{
           padding: '0 24px 32px',
-          borderBottom: '0.5px solid #d3cab5',
+          borderBottom: '0.5px solid #2a2f35',
           marginBottom: '24px',
         }}
       >
@@ -43,7 +43,7 @@ export default function AdminSidebar() {
           style={{
             fontSize: '9px',
             letterSpacing: '0.25em',
-            color: '#a3282b',
+            color: '#e23b2e',
             margin: 0,
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -67,12 +67,12 @@ export default function AdminSidebar() {
                 padding: '10px 12px',
                 fontSize: '12px',
                 letterSpacing: '0.06em',
-                color: isActive ? '#a3282b' : '#6f675a',
+                color: isActive ? '#e23b2e' : '#9aa0a6',
                 textDecoration: 'none',
                 fontWeight: 300,
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-                background: isActive ? 'rgba(163,40,43,0.06)' : 'transparent',
-                borderLeft: isActive ? '2px solid #a3282b' : '2px solid transparent',
+                background: isActive ? 'rgba(226,59,46,0.06)' : 'transparent',
+                borderLeft: isActive ? '2px solid #e23b2e' : '2px solid transparent',
                 transition: 'color 0.2s ease, background 0.2s ease',
               }}
             >
@@ -83,7 +83,7 @@ export default function AdminSidebar() {
       </nav>
 
       {/* ログアウト */}
-      <div style={{ padding: '24px 12px 0', borderTop: '0.5px solid #e4ded0' }}>
+      <div style={{ padding: '24px 12px 0', borderTop: '0.5px solid #1b1f23' }}>
         <button
           onClick={handleLogout}
           style={{
@@ -91,7 +91,7 @@ export default function AdminSidebar() {
             padding: '10px 12px',
             fontSize: '11px',
             letterSpacing: '0.08em',
-            color: '#857c6d',
+            color: '#828990',
             background: 'transparent',
             border: 'none',
             cursor: 'pointer',
@@ -100,8 +100,8 @@ export default function AdminSidebar() {
             fontWeight: 300,
             transition: 'color 0.2s ease',
           }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = '#2a2620')}
-          onMouseLeave={(e) => (e.currentTarget.style.color = '#857c6d')}
+          onMouseEnter={(e) => (e.currentTarget.style.color = '#e9e7e1')}
+          onMouseLeave={(e) => (e.currentTarget.style.color = '#828990')}
         >
           ログアウト
         </button>

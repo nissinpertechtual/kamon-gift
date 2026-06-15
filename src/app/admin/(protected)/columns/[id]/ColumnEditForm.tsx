@@ -90,9 +90,9 @@ export default function ColumnEditForm({ column }: { column: Column }) {
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: '#e7e0d2',
-    border: '0.5px solid #d3cab5',
-    color: '#2a2620',
+    background: '#15181b',
+    border: '0.5px solid #2a2f35',
+    color: '#e9e7e1',
     padding: '10px 12px',
     fontSize: '13px',
     fontWeight: 300,
@@ -105,7 +105,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
     display: 'block',
     fontSize: '9px',
     letterSpacing: '0.2em',
-    color: '#857c6d',
+    color: '#828990',
     marginBottom: '8px',
     fontFamily: "'Cormorant Garamond', Georgia, serif",
   };
@@ -119,7 +119,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
             style={{
               background: 'none',
               border: 'none',
-              color: '#857c6d',
+              color: '#828990',
               cursor: 'pointer',
               fontSize: '12px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -134,7 +134,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
               fontSize: '18px',
               fontWeight: 300,
               letterSpacing: '0.1em',
-              color: '#2a2620',
+              color: '#e9e7e1',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               margin: 0,
             }}
@@ -147,8 +147,8 @@ export default function ColumnEditForm({ column }: { column: Column }) {
           disabled={deleting}
           style={{
             background: 'transparent',
-            border: '0.5px solid rgba(163,40,43,0.4)',
-            color: '#b3261e',
+            border: '0.5px solid rgba(226,59,46,0.4)',
+            color: '#ff6b5e',
             padding: '8px 16px',
             fontSize: '11px',
             cursor: deleting ? 'not-allowed' : 'pointer',
@@ -164,9 +164,9 @@ export default function ColumnEditForm({ column }: { column: Column }) {
       {error && (
         <div
           style={{
-            background: 'rgba(163,40,43,0.08)',
-            border: '0.5px solid rgba(163,40,43,0.3)',
-            color: '#b3261e',
+            background: 'rgba(226,59,46,0.08)',
+            border: '0.5px solid rgba(226,59,46,0.3)',
+            color: '#ff6b5e',
             padding: '12px 16px',
             fontSize: '12px',
             marginBottom: '24px',
@@ -186,7 +186,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
         <div>
           <label style={labelStyle}>SLUG *</label>
           <input name="slug" value={form.slug} onChange={handleChange} required style={inputStyle} />
-          <p style={{ fontSize: '10px', color: '#9b9384', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+          <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
             URL: /column/{form.slug}
           </p>
         </div>
@@ -223,7 +223,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
             rows={20}
             style={{ ...inputStyle, resize: 'vertical', lineHeight: 1.8 }}
           />
-          <p style={{ fontSize: '10px', color: '#9b9384', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+          <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
             Markdownが使用できます
           </p>
         </div>
@@ -246,9 +246,9 @@ export default function ColumnEditForm({ column }: { column: Column }) {
                 type="checkbox"
                 checked={form.is_published}
                 onChange={handleChange}
-                style={{ accentColor: '#a3282b', width: '14px', height: '14px' }}
+                style={{ accentColor: '#e23b2e', width: '14px', height: '14px' }}
               />
-              <span style={{ fontSize: '12px', color: '#6f675a', fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: '0.06em' }}>
+              <span style={{ fontSize: '12px', color: '#9aa0a6', fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: '0.06em' }}>
                 公開する
               </span>
             </label>
@@ -260,7 +260,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
             type="submit"
             disabled={saving}
             style={{
-              background: saving ? '#857c6d' : '#a3282b',
+              background: saving ? '#828990' : '#e23b2e',
               color: '#f6f1e7',
               padding: '12px 40px',
               fontSize: '12px',
@@ -279,12 +279,12 @@ export default function ColumnEditForm({ column }: { column: Column }) {
             onClick={() => router.back()}
             style={{
               background: 'transparent',
-              color: '#857c6d',
+              color: '#828990',
               padding: '12px 24px',
               fontSize: '12px',
               letterSpacing: '0.1em',
               fontWeight: 300,
-              border: '0.5px solid #d3cab5',
+              border: '0.5px solid #2a2f35',
               cursor: 'pointer',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}

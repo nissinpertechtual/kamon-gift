@@ -35,53 +35,44 @@ export function SectionLabel({ en, ja }: SectionLabelProps) {
         transition: 'opacity 0.8s ease, transform 0.8s ease',
       }}
     >
-      {/* ラベルを線で挟む */}
+      {/* eyebrow — DUAL WAVELENGTH の信号ドット ＋ 等幅ラベル */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '18px',
+          gap: '10px',
           justifyContent: 'center',
-          marginBottom: ja ? '16px' : 0,
+          marginBottom: ja ? '14px' : 0,
         }}
       >
-        <div
-          style={{
-            width: '44px',
-            height: '0.5px',
-            background: 'linear-gradient(to right, transparent, rgba(163,40,43,0.55))',
-          }}
-        />
+        <span className="sig-dots" aria-hidden="true">
+          <i className="ir" />
+          <i className="gr" />
+        </span>
         <span
+          className="mono"
           style={{
-            fontSize: '9px',
-            letterSpacing: '0.4em',
-            color: '#a3282b',
-            fontWeight: 400,
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            paddingLeft: '0.4em',
+            fontSize: '10px',
+            letterSpacing: '0.34em',
+            color: '#9aa0a6',
+            fontWeight: 500,
+            textTransform: 'uppercase',
+            paddingLeft: '0.34em',
           }}
         >
           {en}
         </span>
-        <div
-          style={{
-            width: '44px',
-            height: '0.5px',
-            background: 'linear-gradient(to left, transparent, rgba(163,40,43,0.55))',
-          }}
-        />
       </div>
 
       {/* 日本語サブラベル */}
       {ja && (
         <div
           style={{
-            fontSize: '17px',
-            letterSpacing: '0.18em',
-            color: '#2a2620',
+            fontSize: '20px',
+            letterSpacing: '0.16em',
+            color: '#e9e7e1',
             fontWeight: 500,
-            fontFamily: "var(--font-mincho)",
+            fontFamily: 'var(--font-mincho)',
           }}
         >
           {ja}

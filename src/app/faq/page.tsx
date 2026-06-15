@@ -41,7 +41,7 @@ const FAQS = [
 
 export default function FaqPage() {
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -54,13 +54,13 @@ export default function FaqPage() {
       >
         <SectionLabel en="FAQ" ja="よくある質問" />
 
-        <div style={{ border: '0.5px solid #ddd6c6' }}>
+        <div style={{ border: '0.5px solid #23272c' }}>
           {FAQS.map((item, i) => (
             <div
               key={item.q}
               style={{
                 padding: '28px 24px',
-                borderBottom: i < FAQS.length - 1 ? '0.5px solid #e4ded0' : 'none',
+                borderBottom: i < FAQS.length - 1 ? '0.5px solid #1b1f23' : 'none',
               }}
             >
               <div
@@ -73,7 +73,7 @@ export default function FaqPage() {
               >
                 <span
                   style={{
-                    color: '#a3282b',
+                    color: '#e23b2e',
                     fontSize: '13px',
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                     flexShrink: 0,
@@ -87,7 +87,7 @@ export default function FaqPage() {
                     fontWeight: 300,
                     letterSpacing: '0.06em',
                     lineHeight: 1.7,
-                    color: '#2a2620',
+                    color: '#e9e7e1',
                     margin: 0,
                     fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   }}
@@ -98,7 +98,7 @@ export default function FaqPage() {
               <div style={{ display: 'flex', gap: '12px', alignItems: 'baseline' }}>
                 <span
                   style={{
-                    color: '#857c6d',
+                    color: '#828990',
                     fontSize: '13px',
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                     flexShrink: 0,
@@ -110,7 +110,7 @@ export default function FaqPage() {
                   style={{
                     fontSize: '12px',
                     lineHeight: 2.2,
-                    color: '#6f675a',
+                    color: '#9aa0a6',
                     letterSpacing: '0.04em',
                     margin: 0,
                     fontWeight: 300,
@@ -129,7 +129,7 @@ export default function FaqPage() {
           <p
             style={{
               fontSize: '12px',
-              color: '#766d5f',
+              color: '#8b9298',
               marginBottom: '28px',
               fontWeight: 300,
               letterSpacing: '0.05em',
@@ -142,7 +142,7 @@ export default function FaqPage() {
             href="/contact"
             style={{
               display: 'inline-block',
-              background: '#a3282b',
+              background: '#e23b2e',
               color: '#f6f1e7',
               padding: '14px 44px',
               fontSize: '12px',

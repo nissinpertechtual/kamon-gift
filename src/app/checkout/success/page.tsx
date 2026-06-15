@@ -7,7 +7,7 @@ export default function CheckoutSuccess() {
       style={{
         position: 'relative',
         minHeight: '100vh',
-        background: '#f4f0e7',
+        background: '#0b0c0e',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -23,17 +23,17 @@ export default function CheckoutSuccess() {
           viewBox="0 0 72 72"
           style={{ marginBottom: '32px', opacity: 0.55 }}
         >
-          <circle cx="36" cy="36" r="30" fill="none" stroke="#a3282b" strokeWidth="1" />
-          <circle cx="36" cy="36" r="16" fill="none" stroke="#a3282b" strokeWidth="0.8" />
-          <line x1="36" y1="6" x2="36" y2="66" stroke="#a3282b" strokeWidth="0.8" />
-          <line x1="6" y1="36" x2="66" y2="36" stroke="#a3282b" strokeWidth="0.8" />
+          <circle cx="36" cy="36" r="30" fill="none" stroke="#e23b2e" strokeWidth="1" />
+          <circle cx="36" cy="36" r="16" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
+          <line x1="36" y1="6" x2="36" y2="66" stroke="#e23b2e" strokeWidth="0.8" />
+          <line x1="6" y1="36" x2="66" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
         </svg>
 
         <div
           style={{
             fontSize: '9px',
             letterSpacing: '0.35em',
-            color: '#a3282b',
+            color: '#e23b2e',
             marginBottom: '24px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -48,7 +48,7 @@ export default function CheckoutSuccess() {
             letterSpacing: '0.1em',
             marginBottom: '20px',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-            color: '#2a2620',
+            color: '#e9e7e1',
           }}
         >
           ご注文ありがとうございます
@@ -57,7 +57,7 @@ export default function CheckoutSuccess() {
         <p
           style={{
             fontSize: '12px',
-            color: '#766d5f',
+            color: '#8b9298',
             lineHeight: 2.4,
             letterSpacing: '0.05em',
             marginBottom: '48px',
@@ -77,7 +77,7 @@ export default function CheckoutSuccess() {
           style={{
             width: '1px',
             height: '40px',
-            background: '#a3282b',
+            background: '#e23b2e',
             opacity: 0.25,
             margin: '0 auto 32px',
           }}
@@ -87,8 +87,8 @@ export default function CheckoutSuccess() {
           href="/"
           style={{
             display: 'inline-block',
-            border: '0.5px solid #a3282b',
-            color: '#a3282b',
+            border: '0.5px solid #e23b2e',
+            color: '#e23b2e',
             padding: '12px 40px',
             fontSize: '10px',
             letterSpacing: '0.25em',

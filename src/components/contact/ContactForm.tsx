@@ -63,9 +63,9 @@ const EN_TEXT: LangText = {
 
 const INPUT: React.CSSProperties = {
   width: '100%',
-  background: '#e7e0d2',
-  border: '0.5px solid #d3cab5',
-  color: '#2a2620',
+  background: '#15181b',
+  border: '0.5px solid #2a2f35',
+  color: '#e9e7e1',
   padding: '12px 16px',
   fontSize: '13px',
   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -80,7 +80,7 @@ const LABEL: React.CSSProperties = {
   display: 'block',
   fontSize: '9px',
   letterSpacing: '0.2em',
-  color: '#857c6d',
+  color: '#828990',
   marginBottom: '8px',
   fontFamily: "'Cormorant Garamond', Georgia, serif",
 };
@@ -88,14 +88,14 @@ const LABEL: React.CSSProperties = {
 const FIELD: React.CSSProperties = { marginBottom: '28px' };
 
 const REQUIRED = (
-  <span style={{ color: '#a3282b', marginLeft: '4px', fontSize: '10px' }}>*</span>
+  <span style={{ color: '#e23b2e', marginLeft: '4px', fontSize: '10px' }}>*</span>
 );
 
 function focusGold(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-  e.currentTarget.style.borderColor = '#a3282b';
+  e.currentTarget.style.borderColor = '#e23b2e';
 }
 function blurGray(e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) {
-  e.currentTarget.style.borderColor = '#d3cab5';
+  e.currentTarget.style.borderColor = '#2a2f35';
 }
 
 type Props = { lang?: 'ja' | 'en' };
@@ -182,16 +182,16 @@ export function ContactForm({ lang = 'ja' }: Props) {
           viewBox="0 0 72 72"
           style={{ marginBottom: '24px', opacity: 0.6 }}
         >
-          <circle cx="36" cy="36" r="30" fill="none" stroke="#a3282b" strokeWidth="1" />
-          <circle cx="36" cy="36" r="16" fill="none" stroke="#a3282b" strokeWidth="0.8" />
-          <line x1="36" y1="6" x2="36" y2="66" stroke="#a3282b" strokeWidth="0.8" />
-          <line x1="6" y1="36" x2="66" y2="36" stroke="#a3282b" strokeWidth="0.8" />
+          <circle cx="36" cy="36" r="30" fill="none" stroke="#e23b2e" strokeWidth="1" />
+          <circle cx="36" cy="36" r="16" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
+          <line x1="36" y1="6" x2="36" y2="66" stroke="#e23b2e" strokeWidth="0.8" />
+          <line x1="6" y1="36" x2="66" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
         </svg>
         <div
           style={{
             fontSize: '9px',
             letterSpacing: '0.3em',
-            color: '#a3282b',
+            color: '#e23b2e',
             marginBottom: '20px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -212,7 +212,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
         <p
           style={{
             fontSize: '12px',
-            color: '#766d5f',
+            color: '#8b9298',
             lineHeight: 2.4,
             marginBottom: '40px',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -225,8 +225,8 @@ export function ContactForm({ lang = 'ja' }: Props) {
           href={isEn ? '/en' : '/'}
           style={{
             display: 'inline-block',
-            border: '0.5px solid #a3282b',
-            color: '#a3282b',
+            border: '0.5px solid #e23b2e',
+            color: '#e23b2e',
             padding: '12px 40px',
             fontSize: '10px',
             letterSpacing: '0.2em',
@@ -325,18 +325,18 @@ export function ContactForm({ lang = 'ja' }: Props) {
         <div
           onClick={() => fileInputRef.current?.click()}
           style={{
-            border: `0.5px dashed ${kamonImage ? '#a3282b' : '#d3cab5'}`,
+            border: `0.5px dashed ${kamonImage ? '#e23b2e' : '#2a2f35'}`,
             padding: '16px',
             textAlign: 'center',
             cursor: 'pointer',
             transition: 'border-color 0.3s, background 0.3s',
-            background: kamonImage ? 'rgba(163,40,43,0.04)' : 'transparent',
+            background: kamonImage ? 'rgba(226,59,46,0.04)' : 'transparent',
           }}
           onMouseEnter={(e) =>
-            !kamonImage && (e.currentTarget.style.borderColor = '#9b9384')
+            !kamonImage && (e.currentTarget.style.borderColor = '#5d636a')
           }
           onMouseLeave={(e) =>
-            !kamonImage && (e.currentTarget.style.borderColor = '#d3cab5')
+            !kamonImage && (e.currentTarget.style.borderColor = '#2a2f35')
           }
         >
           <input
@@ -350,7 +350,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
             <span
               style={{
                 fontSize: '11px',
-                color: '#a3282b',
+                color: '#e23b2e',
                 letterSpacing: '0.05em',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               }}
@@ -361,7 +361,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
             <span
               style={{
                 fontSize: '10px',
-                color: '#9b9384',
+                color: '#5d636a',
                 letterSpacing: '0.1em',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
@@ -428,9 +428,9 @@ export function ContactForm({ lang = 'ja' }: Props) {
                 padding: '6px 14px',
                 fontSize: '10px',
                 letterSpacing: '0.05em',
-                border: `0.5px solid ${form.purpose === p ? '#a3282b' : '#d3cab5'}`,
-                color: form.purpose === p ? '#a3282b' : '#857c6d',
-                background: form.purpose === p ? 'rgba(163,40,43,0.06)' : 'transparent',
+                border: `0.5px solid ${form.purpose === p ? '#e23b2e' : '#2a2f35'}`,
+                color: form.purpose === p ? '#e23b2e' : '#828990',
+                background: form.purpose === p ? 'rgba(226,59,46,0.06)' : 'transparent',
                 cursor: 'pointer',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 fontWeight: 300,
@@ -462,10 +462,10 @@ export function ContactForm({ lang = 'ja' }: Props) {
       {error && (
         <div
           style={{
-            border: '0.5px solid #c0392b',
+            border: '0.5px solid #ff6b5e',
             padding: '12px 16px',
             fontSize: '12px',
-            color: '#b3261e',
+            color: '#ff6b5e',
             marginBottom: '20px',
             letterSpacing: '0.05em',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -481,7 +481,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
           style={{
             width: '1px',
             height: '40px',
-            background: '#a3282b',
+            background: '#e23b2e',
             opacity: 0.25,
             margin: '0 auto 24px',
           }}
@@ -493,8 +493,8 @@ export function ContactForm({ lang = 'ja' }: Props) {
           style={{
             width: '100%',
             padding: '16px',
-            background: submitting ? '#e4ded0' : '#a3282b',
-            color: submitting ? '#9b9384' : '#f4f0e7',
+            background: submitting ? '#1b1f23' : '#e23b2e',
+            color: submitting ? '#5d636a' : '#0b0c0e',
             border: 'none',
             fontSize: '12px',
             letterSpacing: '0.25em',
@@ -515,7 +515,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
         <p
           style={{
             fontSize: '10px',
-            color: '#9b9384',
+            color: '#5d636a',
             marginTop: '12px',
             letterSpacing: '0.05em',
             fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",

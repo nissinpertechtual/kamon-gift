@@ -2,13 +2,28 @@
 
 import Link from 'next/link';
 
-const KamonMark = () => (
-  <svg width="36" height="36" viewBox="0 0 72 72" aria-hidden="true">
-    <circle cx="36" cy="36" r="30" fill="none" stroke="#f3ece0" strokeWidth="1" opacity="0.85" />
-    <circle cx="36" cy="36" r="18" fill="none" stroke="#f3ece0" strokeWidth="0.8" opacity="0.85" />
-    <circle cx="36" cy="36" r="7" fill="none" stroke="#e0b15a" strokeWidth="0.8" />
-    <line x1="36" y1="6" x2="36" y2="66" stroke="#f3ece0" strokeWidth="0.7" opacity="0.7" />
-    <line x1="6" y1="36" x2="66" y2="36" stroke="#f3ece0" strokeWidth="0.7" opacity="0.7" />
+const MONO = "var(--font-mono)";
+const MINCHO = "var(--font-mincho)";
+
+/* トンボ（見当合わせ）— 四隅の観測枠マーク */
+function Crop({ corner }: { corner: 'tl' | 'tr' | 'bl' | 'br' }) {
+  const v: React.CSSProperties = { position: 'absolute', width: '14px', height: '14px', borderColor: '#5d636a', borderStyle: 'solid', borderWidth: 0 };
+  const pos: Record<string, React.CSSProperties> = {
+    tl: { top: -1, left: -1, borderTopWidth: 1, borderLeftWidth: 1 },
+    tr: { top: -1, right: -1, borderTopWidth: 1, borderRightWidth: 1 },
+    bl: { bottom: -1, left: -1, borderBottomWidth: 1, borderLeftWidth: 1 },
+    br: { bottom: -1, right: -1, borderBottomWidth: 1, borderRightWidth: 1 },
+  };
+  return <span aria-hidden="true" style={{ ...v, ...pos[corner] }} />;
+}
+
+const KamonGenpan = () => (
+  <svg width="62" height="62" viewBox="0 0 72 72" aria-hidden="true">
+    <circle cx="36" cy="36" r="30" fill="none" stroke="#e9e7e1" strokeWidth="1" opacity="0.9" />
+    <circle cx="36" cy="36" r="18" fill="none" stroke="#e9e7e1" strokeWidth="0.8" opacity="0.8" />
+    <line x1="36" y1="3" x2="36" y2="69" stroke="#5d636a" strokeWidth="0.6" />
+    <line x1="3" y1="36" x2="69" y2="36" stroke="#5d636a" strokeWidth="0.6" />
+    <circle cx="36" cy="36" r="3.4" fill="#e23b2e" />
   </svg>
 );
 
@@ -17,219 +32,143 @@ export default function HeroSection() {
     <section
       style={{
         minHeight: '100svh',
+        position: 'relative',
+        background: '#0b0c0e',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '120px 24px 90px',
-        position: 'relative',
         textAlign: 'center',
+        padding: 'clamp(72px, 12vh, 130px) 24px',
         overflow: 'hidden',
       }}
     >
-      {/* 全面KV写真 */}
+      {/* 背景画像（前デザインと同じKV） */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
+          zIndex: 0,
           backgroundImage: `url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80&auto=format&fit=crop')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          filter: 'brightness(0.46) saturate(0.72)',
-          zIndex: 0,
+          filter: 'brightness(0.3) saturate(0.65)',
         }}
       />
-      {/* 墨のスクリム — 文字の可読性＋下端を生成りへ繋ぐ */}
+      {/* 墨のスクリム — 計器グレードの暗さと可読性、下端を地に溶かす */}
       <div
         aria-hidden="true"
         style={{
           position: 'absolute',
           inset: 0,
-          background:
-            'linear-gradient(to bottom, rgba(26,22,18,0.5) 0%, rgba(26,22,18,0.2) 30%, rgba(26,22,18,0.35) 70%, rgba(244,240,231,0.96) 100%)',
           zIndex: 1,
+          background:
+            'linear-gradient(to bottom, rgba(11,12,14,0.7) 0%, rgba(11,12,14,0.5) 38%, rgba(11,12,14,0.72) 78%, #0b0c0e 100%)',
         }}
       />
 
-      {/* 右の縦書き添え書き（PCのみ） */}
+      {/* 観測枠（トンボ付き） */}
+      <div
+        aria-hidden="true"
+        style={{ position: 'absolute', inset: 'clamp(16px, 3vw, 30px)', border: '1px solid #23272c', pointerEvents: 'none', zIndex: 2 }}
+      >
+        <Crop corner="tl" /><Crop corner="tr" /><Crop corner="bl" /><Crop corner="br" />
+      </div>
+
+      {/* 上部 計器リードアウト */}
+      <div
+        className="hidden-mobile"
+        style={{
+          position: 'absolute',
+          top: 'clamp(28px, 4.5vw, 48px)',
+          left: 'clamp(36px, 5vw, 60px)',
+          right: 'clamp(36px, 5vw, 60px)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          zIndex: 3,
+        }}
+      >
+        <span className="mono" style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', fontSize: '10px', letterSpacing: '0.22em', color: '#9aa0a6' }}>
+          <span className="sig-dots"><i className="ir" /><i className="gr" /></span>
+          KAMON-01 · LASER ENGRAVING — λ DUAL WAVELENGTH
+        </span>
+        <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.22em', color: '#5d636a' }}>
+          SPECIMEN · 家紋
+        </span>
+      </div>
+
+      {/* 右端 焦点スケール（縦） */}
       <div
         className="hidden-mobile"
         aria-hidden="true"
-        style={{
-          position: 'absolute',
-          right: 'clamp(22px, 5vw, 68px)',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          zIndex: 2,
-        }}
+        style={{ position: 'absolute', right: 'clamp(40px, 5.5vw, 72px)', top: '50%', transform: 'translateY(-50%)', display: 'flex', alignItems: 'center', gap: '10px', zIndex: 3 }}
       >
-        <p
-          className="tate"
-          style={{
-            margin: 0,
-            fontSize: '14px',
-            color: 'rgba(247,241,230,0.78)',
-            fontWeight: 400,
-            fontFamily: 'var(--font-mincho)',
-          }}
-        >
-          家の記憶を、かたちに。
-        </p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '7px' }}>
+          {Array.from({ length: 9 }).map((_, i) => (
+            <span key={i} style={{ width: i === 4 ? '12px' : '6px', height: '1px', background: i === 4 ? '#e23b2e' : '#33383e' }} />
+          ))}
+        </div>
+        <span className="mono tate" style={{ fontSize: '9px', letterSpacing: '0.24em', color: '#5d636a' }}>
+          FOCUS Ø15μm
+        </span>
       </div>
 
-      {/* コンテンツ */}
-      <div style={{ position: 'relative', zIndex: 2 }}>
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '26px' }}>
-          <KamonMark />
+      {/* 本体 */}
+      <div style={{ position: 'relative', zIndex: 3 }}>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
+          <KamonGenpan />
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '18px',
-            marginBottom: '32px',
-          }}
-        >
-          <span style={{ width: '30px', height: '0.5px', background: 'rgba(247,241,230,0.5)' }} />
-          <span
-            className="latin"
-            style={{
-              fontSize: '11px',
-              letterSpacing: '0.42em',
-              color: 'rgba(247,241,230,0.92)',
-              fontStyle: 'italic',
-              paddingLeft: '0.42em',
-            }}
-          >
-            Laser-engraved Kamon Gifts
+        {/* eyebrow */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '26px' }}>
+          <span className="sig-dots"><i className="ir" /><i className="gr" /></span>
+          <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.36em', color: '#9aa0a6', textTransform: 'uppercase', paddingLeft: '0.36em' }}>
+            Dual Wavelength
           </span>
-          <span style={{ width: '30px', height: '0.5px', background: 'rgba(247,241,230,0.5)' }} />
         </div>
 
         <h1
           style={{
-            fontSize: 'clamp(28px, 5.6vw, 50px)',
+            fontSize: 'clamp(30px, 6vw, 56px)',
             fontWeight: 500,
-            letterSpacing: '0.14em',
-            lineHeight: 2.05,
-            color: '#f7f1e6',
+            letterSpacing: '0.06em',
+            lineHeight: 1.55,
+            color: '#e9e7e1',
             margin: 0,
-            fontFamily: 'var(--font-mincho)',
+            fontFamily: MINCHO,
             whiteSpace: 'pre-line',
-            textShadow: '0 2px 30px rgba(26,22,18,0.45)',
           }}
         >
           {`あなたの家紋を、\n世界にひとつの贈り物へ。`}
         </h1>
 
-        <p
-          style={{
-            fontSize: '13px',
-            letterSpacing: '0.16em',
-            lineHeight: 2.7,
-            color: 'rgba(247,241,230,0.82)',
-            marginTop: '30px',
-            fontWeight: 400,
-            fontFamily: 'var(--font-mincho)',
-            whiteSpace: 'pre-line',
-            textShadow: '0 1px 16px rgba(26,22,18,0.5)',
-          }}
-        >
-          {`金属・革・ガラスへの繊細なレーザー彫刻。\n結婚式・内祝い・推し活の贈り物に。`}
+        {/* スペック読み出し */}
+        <p className="mono" style={{ fontSize: '11px', letterSpacing: '0.18em', color: '#9aa0a6', marginTop: '26px', marginBottom: 0 }}>
+          METAL · LEATHER · GLASS — 結婚式 / 内祝い / 推し活
         </p>
 
         <div className="hero-cta-buttons">
-          <Link
-            href="/products"
-            style={{
-              display: 'inline-block',
-              background: '#a3282b',
-              color: '#f7f1e6',
-              padding: '16px 50px',
-              fontSize: '12px',
-              letterSpacing: '0.3em',
-              fontWeight: 500,
-              textDecoration: 'none',
-              border: '0.5px solid #a3282b',
-              fontFamily: 'var(--font-mincho)',
-            }}
-          >
-            商品を見る
-          </Link>
-          <Link
-            href="/contact"
-            style={{
-              display: 'inline-block',
-              background: 'rgba(247,241,230,0.06)',
-              color: '#f7f1e6',
-              padding: '16px 50px',
-              fontSize: '12px',
-              letterSpacing: '0.3em',
-              fontWeight: 400,
-              textDecoration: 'none',
-              border: '0.5px solid rgba(247,241,230,0.5)',
-              fontFamily: 'var(--font-mincho)',
-            }}
-          >
-            ギフトのご相談
-          </Link>
+          <Link href="/products" className="hero-btn-primary">商品を見る</Link>
+          <Link href="/contact" className="hero-btn-secondary">ギフトのご相談</Link>
         </div>
 
-        {/* 不安解消ストリップ — 購入前の障壁を先回りで取り除く */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-            gap: '10px 18px',
-            marginTop: '34px',
-            fontSize: '11px',
-            letterSpacing: '0.08em',
-            color: 'rgba(247,241,230,0.85)',
-            fontFamily: 'var(--font-mincho)',
-          }}
-        >
-          {['1点から承ります', '家紋が分からなくてもOK', '最短2〜3週間でお届け'].map((t, i) => (
-            <span key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: '18px' }}>
-              {i > 0 && <span style={{ width: '1px', height: '11px', background: 'rgba(247,241,230,0.35)' }} />}
+        {/* 不安解消ストリップ */}
+        <div className="mono" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', gap: '8px 16px', marginTop: '30px', fontSize: '10px', letterSpacing: '0.12em', color: '#828990' }}>
+          {['1点から承ります', '家紋が分からなくてもOK', '最短2〜3週間'].map((t, i) => (
+            <span key={t} style={{ display: 'inline-flex', alignItems: 'center', gap: '16px' }}>
+              {i > 0 && <span style={{ width: '1px', height: '10px', background: '#33383e' }} />}
               <span>{t}</span>
             </span>
           ))}
         </div>
       </div>
 
-      {/* スクロールインジケーター */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '34px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '10px',
-          zIndex: 2,
-        }}
-      >
-        <span
-          className="latin"
-          style={{
-            fontSize: '10px',
-            letterSpacing: '0.3em',
-            color: '#8a8173',
-            fontStyle: 'italic',
-          }}
-        >
-          Scroll
-        </span>
-        <div className="scroll-line-wrapper">
-          <div className="scroll-line-inner" />
-        </div>
+      {/* スクロール */}
+      <div style={{ position: 'absolute', bottom: 'clamp(30px, 5vw, 46px)', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', zIndex: 3 }}>
+        <span className="mono" style={{ fontSize: '9px', letterSpacing: '0.3em', color: '#5d636a' }}>SCROLL</span>
+        <div className="scroll-line-wrapper"><div className="scroll-line-inner" /></div>
       </div>
     </section>
   );

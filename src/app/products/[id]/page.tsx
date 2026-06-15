@@ -32,7 +32,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const hasPrice = p.price !== null;
 
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
 
       {/* スマホ固定お問い合わせバー */}
@@ -64,13 +64,13 @@ export default async function ProductDetailPage({ params }: Props) {
             <div
               style={{
                 fontSize: '9px',
-                color: '#9b9384',
+                color: '#5d636a',
                 letterSpacing: '0.15em',
                 marginBottom: '24px',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
-              <Link href="/products" style={{ color: '#857c6d', textDecoration: 'none' }}>
+              <Link href="/products" style={{ color: '#828990', textDecoration: 'none' }}>
                 商品一覧
               </Link>
               <span style={{ margin: '0 8px' }}>—</span>
@@ -84,7 +84,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 fontWeight: 300,
                 letterSpacing: '0.1em',
                 lineHeight: 1.7,
-                color: '#2a2620',
+                color: '#e9e7e1',
                 marginBottom: '20px',
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               }}
@@ -96,8 +96,8 @@ export default async function ProductDetailPage({ params }: Props) {
             <div
               style={{
                 display: 'inline-block',
-                border: '0.5px solid #c6bca6',
-                color: '#6f6759',
+                border: '0.5px solid #2c3137',
+                color: '#9aa0a6',
                 fontSize: '9px',
                 letterSpacing: '0.15em',
                 padding: '4px 12px',
@@ -113,7 +113,7 @@ export default async function ProductDetailPage({ params }: Props) {
               style={{
                 width: '40px',
                 height: '0.5px',
-                background: '#a3282b',
+                background: '#e23b2e',
                 opacity: 0.4,
                 marginBottom: '28px',
               }}
@@ -125,7 +125,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 style={{
                   fontSize: '13px',
                   lineHeight: 2.2,
-                  color: '#6f675a',
+                  color: '#9aa0a6',
                   letterSpacing: '0.05em',
                   marginBottom: '36px',
                   fontWeight: 300,
@@ -141,7 +141,7 @@ export default async function ProductDetailPage({ params }: Props) {
               <div
                 style={{
                   fontSize: '9px',
-                  color: '#857c6d',
+                  color: '#828990',
                   letterSpacing: '0.2em',
                   marginBottom: '8px',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -154,7 +154,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <span
                     style={{
                       fontSize: '24px',
-                      color: '#a3282b',
+                      color: '#e23b2e',
                       fontWeight: 300,
                       letterSpacing: '0.05em',
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -162,7 +162,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   >
                     ¥{p.price!.toLocaleString()}〜
                   </span>
-                  <span style={{ fontSize: '11px', color: '#857c6d', marginLeft: '6px' }}>
+                  <span style={{ fontSize: '11px', color: '#828990', marginLeft: '6px' }}>
                     （税込・参考価格）
                   </span>
                 </div>
@@ -171,7 +171,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <div
                     style={{
                       fontSize: '16px',
-                      color: '#a3282b',
+                      color: '#e23b2e',
                       fontWeight: 300,
                       fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                     }}
@@ -181,7 +181,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <div
                     style={{
                       fontSize: '10px',
-                      color: '#857c6d',
+                      color: '#828990',
                       marginTop: '6px',
                       fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                     }}
@@ -200,7 +200,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   display: 'block',
                   width: '100%',
                   padding: '15px',
-                  background: '#a3282b',
+                  background: '#e23b2e',
                   color: '#f6f1e7',
                   fontSize: '12px',
                   letterSpacing: '0.2em',
@@ -219,7 +219,7 @@ export default async function ProductDetailPage({ params }: Props) {
             <div
               style={{
                 padding: '20px',
-                border: '0.5px solid #ddd6c6',
+                border: '0.5px solid #23272c',
               }}
             >
               {[
@@ -231,16 +231,16 @@ export default async function ProductDetailPage({ params }: Props) {
                   key={point}
                   style={{
                     fontSize: '10px',
-                    color: '#857c6d',
+                    color: '#828990',
                     letterSpacing: '0.05em',
                     padding: '8px 0',
-                    borderBottom: '0.5px solid #e4ded0',
+                    borderBottom: '0.5px solid #1b1f23',
                     display: 'flex',
                     gap: '10px',
                     fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   }}
                 >
-                  <span style={{ color: '#a3282b', flexShrink: 0 }}>✓</span>
+                  <span style={{ color: '#e23b2e', flexShrink: 0 }}>✓</span>
                   {point}
                 </div>
               ))}

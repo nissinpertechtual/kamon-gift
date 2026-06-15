@@ -40,8 +40,8 @@ export default function Header() {
           position: 'sticky',
           top: 0,
           zIndex: 40,
-          backgroundColor: '#f4f0e7',
-          borderBottom: '0.5px solid rgba(163,40,43,0.25)',
+          backgroundColor: '#0b0c0e',
+          borderBottom: '0.5px solid rgba(226,59,46,0.25)',
           overflow: 'hidden',
         }}
       >
@@ -73,10 +73,10 @@ export default function Header() {
               textDecoration: 'none',
             }}
           >
-            <Logo size={44} color="#2a2620" />
+            <Logo size={44} color="#e9e7e1" />
             <span
               style={{
-                color: '#2a2620',
+                color: '#e9e7e1',
                 fontSize: '15px',
                 letterSpacing: '0.22em',
                 fontWeight: 500,
@@ -113,7 +113,7 @@ export default function Header() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#a3282b',
+                color: '#e23b2e',
                 textDecoration: 'none',
                 whiteSpace: 'nowrap',
               }}
@@ -161,12 +161,12 @@ export default function Header() {
             <Link
               href={langHref}
               style={{
-                color: '#a3282b',
+                color: '#e23b2e',
                 fontSize: '11px',
                 letterSpacing: '0.15em',
                 fontWeight: 300,
                 textDecoration: 'none',
-                border: '0.5px solid #a3282b',
+                border: '0.5px solid #e23b2e',
                 padding: '4px 12px',
                 transition: 'background 0.3s ease',
               }}
@@ -178,12 +178,12 @@ export default function Header() {
             <Link
               href={buyerHref}
               style={{
-                color: '#857c6d',
+                color: '#828990',
                 fontSize: '9px',
                 letterSpacing: '0.05em',
                 fontWeight: 300,
                 textDecoration: 'none',
-                border: '0.5px solid #c6bca6',
+                border: '0.5px solid #2c3137',
                 padding: '4px 10px',
                 whiteSpace: 'nowrap',
                 paddingLeft: '32px',    /* 修正: 右端に寄せ */
@@ -203,7 +203,7 @@ export default function Header() {
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              color: '#a3282b',
+              color: '#e23b2e',
               padding: '4px',
             }}
             aria-label="メニューを開く"
@@ -234,8 +234,8 @@ export default function Header() {
               bottom: 0,
               zIndex: 50,
               width: '260px',
-              backgroundColor: '#f4f0e7',
-              borderLeft: '0.5px solid rgba(163,40,43,0.2)',
+              backgroundColor: '#0b0c0e',
+              borderLeft: '0.5px solid rgba(226,59,46,0.2)',
               padding: '28px 24px',
               display: 'flex',
               flexDirection: 'column',
@@ -244,7 +244,7 @@ export default function Header() {
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '40px' }}>
               <button
                 onClick={() => setDrawerOpen(false)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#a3282b', padding: '4px' }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e23b2e', padding: '4px' }}
                 aria-label="メニューを閉じる"
               >
                 <X size={20} />
@@ -258,7 +258,7 @@ export default function Header() {
                   href={link.href}
                   onClick={() => setDrawerOpen(false)}
                   style={{
-                    color: '#2a2620',
+                    color: '#e9e7e1',
                     fontSize: '14px',
                     letterSpacing: '0.12em',
                     fontWeight: 300,
@@ -277,7 +277,7 @@ export default function Header() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  color: '#a3282b',
+                  color: '#e23b2e',
                   textDecoration: 'none',
                 }}
               >
@@ -315,12 +315,12 @@ export default function Header() {
                 href={langHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
-                  color: '#a3282b',
+                  color: '#e23b2e',
                   fontSize: '12px',
                   letterSpacing: '0.1em',
                   fontWeight: 300,
                   textDecoration: 'none',
-                  border: '0.5px solid #a3282b',
+                  border: '0.5px solid #e23b2e',
                   padding: '6px 14px',
                   display: 'inline-block',
                   width: 'fit-content',
@@ -333,12 +333,12 @@ export default function Header() {
                 href={buyerHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
-                  color: '#857c6d',
+                  color: '#828990',
                   fontSize: '10px',
                   letterSpacing: '0.05em',
                   fontWeight: 300,
                   textDecoration: 'none',
-                  border: '0.5px solid #d3cab5',
+                  border: '0.5px solid #2a2f35',
                   padding: '6px 12px',
                   display: 'inline-block',
                   width: 'fit-content',

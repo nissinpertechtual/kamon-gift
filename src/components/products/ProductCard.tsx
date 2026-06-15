@@ -21,18 +21,18 @@ export function ProductCard({ product }: { product: Product }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{
-          border: `0.5px solid ${hovered ? '#a3282b' : '#d3cab5'}`,
+          border: `0.5px solid ${hovered ? '#e23b2e' : '#2a2f35'}`,
           overflow: 'hidden',
           transition: 'border-color 0.4s ease',
           cursor: 'pointer',
-          background: '#fbf9f3',
+          background: '#101417',
         }}
       >
         {/* 画像 */}
         <div
           style={{
             aspectRatio: '4/3',
-            background: '#e7e0d2',
+            background: '#15181b',
             overflow: 'hidden',
             position: 'relative',
           }}
@@ -60,10 +60,10 @@ export function ProductCard({ product }: { product: Product }) {
               }}
             >
               <svg width="40" height="40" viewBox="0 0 72 72" style={{ opacity: 0.12 }}>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#a3282b" strokeWidth="1" />
-                <circle cx="36" cy="36" r="14" fill="none" stroke="#a3282b" strokeWidth="0.8" />
-                <line x1="36" y1="8" x2="36" y2="64" stroke="#a3282b" strokeWidth="0.8" />
-                <line x1="8" y1="36" x2="64" y2="36" stroke="#a3282b" strokeWidth="0.8" />
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#e23b2e" strokeWidth="1" />
+                <circle cx="36" cy="36" r="14" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
+                <line x1="36" y1="8" x2="36" y2="64" stroke="#e23b2e" strokeWidth="0.8" />
+                <line x1="8" y1="36" x2="64" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
               </svg>
             </div>
           )}
@@ -76,9 +76,9 @@ export function ProductCard({ product }: { product: Product }) {
               fontSize: '12px',
               letterSpacing: '0.08em',
               fontWeight: 300,
-              color: '#2a2620',
+              color: '#e9e7e1',
               paddingBottom: '10px',
-              borderBottom: '0.5px solid #ddd6c6',
+              borderBottom: '0.5px solid #23272c',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             }}
           >
@@ -96,7 +96,7 @@ export function ProductCard({ product }: { product: Product }) {
             <span
               style={{
                 fontSize: '9px',
-                color: '#857c6d',
+                color: '#828990',
                 letterSpacing: '0.1em',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
@@ -106,7 +106,7 @@ export function ProductCard({ product }: { product: Product }) {
             <span
               style={{
                 fontSize: '11px',
-                color: '#a3282b',
+                color: '#e23b2e',
                 fontWeight: 300,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}

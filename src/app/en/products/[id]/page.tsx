@@ -32,7 +32,7 @@ export default async function EnProductDetailPage({ params }: Props) {
     EN.products.materialLabels[p.material as keyof typeof EN.products.materialLabels] ?? p.material;
 
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
 
       {/* Mobile sticky contact bar */}
@@ -64,13 +64,13 @@ export default async function EnProductDetailPage({ params }: Props) {
             <div
               style={{
                 fontSize: '9px',
-                color: '#9b9384',
+                color: '#5d636a',
                 letterSpacing: '0.15em',
                 marginBottom: '24px',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >
-              <Link href="/en/products" style={{ color: '#857c6d', textDecoration: 'none' }}>
+              <Link href="/en/products" style={{ color: '#828990', textDecoration: 'none' }}>
                 PRODUCTS
               </Link>
               <span style={{ margin: '0 8px' }}>—</span>
@@ -84,7 +84,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                 fontWeight: 300,
                 letterSpacing: '0.08em',
                 lineHeight: 1.7,
-                color: '#2a2620',
+                color: '#e9e7e1',
                 marginBottom: '20px',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
@@ -96,8 +96,8 @@ export default async function EnProductDetailPage({ params }: Props) {
             <div
               style={{
                 display: 'inline-block',
-                border: '0.5px solid #c6bca6',
-                color: '#6f6759',
+                border: '0.5px solid #2c3137',
+                color: '#9aa0a6',
                 fontSize: '9px',
                 letterSpacing: '0.15em',
                 padding: '4px 12px',
@@ -113,7 +113,7 @@ export default async function EnProductDetailPage({ params }: Props) {
               style={{
                 width: '40px',
                 height: '0.5px',
-                background: '#a3282b',
+                background: '#e23b2e',
                 opacity: 0.4,
                 marginBottom: '28px',
               }}
@@ -125,7 +125,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                 style={{
                   fontSize: '13px',
                   lineHeight: 2.2,
-                  color: '#6f675a',
+                  color: '#9aa0a6',
                   letterSpacing: '0.04em',
                   marginBottom: '36px',
                   fontWeight: 300,
@@ -141,7 +141,7 @@ export default async function EnProductDetailPage({ params }: Props) {
               <div
                 style={{
                   fontSize: '9px',
-                  color: '#857c6d',
+                  color: '#828990',
                   letterSpacing: '0.2em',
                   marginBottom: '8px',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -154,7 +154,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                   <span
                     style={{
                       fontSize: '24px',
-                      color: '#a3282b',
+                      color: '#e23b2e',
                       fontWeight: 300,
                       letterSpacing: '0.05em',
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -162,7 +162,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                   >
                     ¥{p.price!.toLocaleString()}〜
                   </span>
-                  <span style={{ fontSize: '11px', color: '#857c6d', marginLeft: '6px' }}>
+                  <span style={{ fontSize: '11px', color: '#828990', marginLeft: '6px' }}>
                     (tax incl.)
                   </span>
                 </div>
@@ -170,7 +170,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                 <div
                   style={{
                     fontSize: '16px',
-                    color: '#a3282b',
+                    color: '#e23b2e',
                     fontWeight: 300,
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                   }}
@@ -188,7 +188,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                   display: 'block',
                   width: '100%',
                   padding: '15px',
-                  background: '#a3282b',
+                  background: '#e23b2e',
                   color: '#f6f1e7',
                   fontSize: '12px',
                   letterSpacing: '0.2em',
@@ -204,7 +204,7 @@ export default async function EnProductDetailPage({ params }: Props) {
             </div>
 
             {/* Reassurance */}
-            <div style={{ padding: '20px', border: '0.5px solid #ddd6c6' }}>
+            <div style={{ padding: '20px', border: '0.5px solid #23272c' }}>
               {[
                 'Production begins after your order is confirmed',
                 'Typical lead time: about 2–3 weeks',
@@ -214,16 +214,16 @@ export default async function EnProductDetailPage({ params }: Props) {
                   key={point}
                   style={{
                     fontSize: '10px',
-                    color: '#857c6d',
+                    color: '#828990',
                     letterSpacing: '0.04em',
                     padding: '8px 0',
-                    borderBottom: '0.5px solid #e4ded0',
+                    borderBottom: '0.5px solid #1b1f23',
                     display: 'flex',
                     gap: '10px',
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                   }}
                 >
-                  <span style={{ color: '#a3282b', flexShrink: 0 }}>✓</span>
+                  <span style={{ color: '#e23b2e', flexShrink: 0 }}>✓</span>
                   {point}
                 </div>
               ))}

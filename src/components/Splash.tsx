@@ -24,7 +24,7 @@ export default function Splash() {
         position: 'fixed',
         inset: 0,
         zIndex: 50,
-        backgroundColor: '#f4f0e7',
+        backgroundColor: '#0b0c0e',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -43,14 +43,14 @@ export default function Splash() {
         }}
       >
         {/* 落款ロゴ */}
-        <Logo size={132} color="#2a2620" />
+        <Logo size={132} color="#e9e7e1" />
 
         {/* 英語サブタイトル */}
         <p
           style={{
             fontSize: '11px',
             letterSpacing: '0.2em',
-            color: '#6f675a',
+            color: '#9aa0a6',
             margin: 0,
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}

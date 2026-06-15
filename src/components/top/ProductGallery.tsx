@@ -25,7 +25,7 @@ export default async function ProductGallery() {
           <div
             style={{
               textAlign: 'center',
-              color: '#9b9384',
+              color: '#5d636a',
               fontSize: '13px',
               padding: '40px 0 8px',
               letterSpacing: '0.08em',
@@ -47,8 +47,8 @@ export default async function ProductGallery() {
             href="/products"
             style={{
               display: 'inline-block',
-              border: '0.5px solid #a3282b',
-              color: '#a3282b',
+              border: '0.5px solid #e23b2e',
+              color: '#e23b2e',
               padding: '12px 44px',
               fontSize: '11px',
               letterSpacing: '0.2em',

@@ -13,7 +13,7 @@ export default async function EnProductsPage() {
     .order('sort_order', { ascending: true });
 
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -30,7 +30,7 @@ export default async function EnProductsPage() {
           <div
             style={{
               textAlign: 'center',
-              color: '#9b9384',
+              color: '#5d636a',
               fontSize: '13px',
               padding: '80px 0',
               fontFamily: "'Cormorant Garamond', Georgia, serif",

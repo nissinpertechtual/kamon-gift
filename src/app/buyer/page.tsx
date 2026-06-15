@@ -25,7 +25,7 @@ const FEATURES = [
 
 export default function BuyerPage() {
   return (
-    <div style={{ position: 'relative', background: '#f4f0e7', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -41,7 +41,7 @@ export default function BuyerPage() {
         <p
           style={{
             fontSize: '13px',
-            color: '#6f675a',
+            color: '#9aa0a6',
             lineHeight: 2.6,
             letterSpacing: '0.05em',
             textAlign: 'center',
@@ -62,14 +62,14 @@ export default function BuyerPage() {
           style={{
             fontSize: '9px',
             letterSpacing: '0.2em',
-            color: '#857c6d',
+            color: '#828990',
             marginBottom: '16px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
         >
           対応素材 / 最小ロット
         </div>
-        <div style={{ border: '0.5px solid #ddd6c6', marginBottom: '64px' }}>
+        <div style={{ border: '0.5px solid #23272c', marginBottom: '64px' }}>
           {BUYER_MATERIALS.map((row, i) => (
             <div
               key={i}
@@ -78,7 +78,7 @@ export default function BuyerPage() {
                 gridTemplateColumns: '1fr 100px 1fr',
                 padding: '16px 20px',
                 borderBottom:
-                  i < BUYER_MATERIALS.length - 1 ? '0.5px solid #e4ded0' : 'none',
+                  i < BUYER_MATERIALS.length - 1 ? '0.5px solid #1b1f23' : 'none',
                 alignItems: 'center',
                 gap: '16px',
               }}
@@ -87,7 +87,7 @@ export default function BuyerPage() {
                 style={{
                   fontSize: '13px',
                   fontWeight: 300,
-                  color: '#2a2620',
+                  color: '#e9e7e1',
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 }}
               >
@@ -96,7 +96,7 @@ export default function BuyerPage() {
               <div
                 style={{
                   fontSize: '12px',
-                  color: '#a3282b',
+                  color: '#e23b2e',
                   textAlign: 'center',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
@@ -106,7 +106,7 @@ export default function BuyerPage() {
               <div
                 style={{
                   fontSize: '11px',
-                  color: '#857c6d',
+                  color: '#828990',
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 }}
               >
@@ -126,16 +126,16 @@ export default function BuyerPage() {
           }}
         >
           {FEATURES.map((item, i) => (
-            <div key={i} style={{ border: '0.5px solid #ddd6c6', padding: '24px 20px' }}>
+            <div key={i} style={{ border: '0.5px solid #23272c', padding: '24px 20px' }}>
               <div
                 style={{
                   fontSize: '13px',
                   fontWeight: 300,
                   letterSpacing: '0.08em',
-                  color: '#2a2620',
+                  color: '#e9e7e1',
                   marginBottom: '12px',
                   paddingBottom: '12px',
-                  borderBottom: '0.5px solid #e4ded0',
+                  borderBottom: '0.5px solid #1b1f23',
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                 }}
               >
@@ -144,7 +144,7 @@ export default function BuyerPage() {
               <div
                 style={{
                   fontSize: '11px',
-                  color: '#766d5f',
+                  color: '#8b9298',
                   lineHeight: 1.9,
                   whiteSpace: 'pre-line',
                   fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
@@ -162,7 +162,7 @@ export default function BuyerPage() {
             style={{
               width: '1px',
               height: '48px',
-              background: '#a3282b',
+              background: '#e23b2e',
               opacity: 0.3,
               margin: '0 auto 40px',
             }}
@@ -174,7 +174,7 @@ export default function BuyerPage() {
               letterSpacing: '0.1em',
               marginBottom: '12px',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-              color: '#2a2620',
+              color: '#e9e7e1',
             }}
           >
             まずはお気軽にご相談ください。
@@ -182,7 +182,7 @@ export default function BuyerPage() {
           <p
             style={{
               fontSize: '12px',
-              color: '#766d5f',
+              color: '#8b9298',
               marginBottom: '40px',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
             }}
@@ -193,7 +193,7 @@ export default function BuyerPage() {
             href="/contact?purpose=%E6%B3%95%E4%BA%BA%E3%83%BB%E3%81%BE%E3%81%A8%E3%82%81%E7%99%BA%E6%B3%A8"
             style={{
               display: 'inline-block',
-              background: '#a3282b',
+              background: '#e23b2e',
               color: '#f6f1e7',
               padding: '15px 48px',
               fontSize: '12px',

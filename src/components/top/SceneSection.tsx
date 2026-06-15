@@ -81,7 +81,7 @@ export default function SceneSection() {
   const { refs, visible } = useStaggeredFadeIn(SCENES.length);
 
   return (
-    <section style={{ padding: '120px 24px', background: '#ece6da' }}>
+    <section style={{ padding: '120px 24px', background: '#101315' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
         <SectionLabel en="For Your Scene" ja="シーン別" />
