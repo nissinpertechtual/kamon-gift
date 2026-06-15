@@ -37,7 +37,7 @@
 }
 
 /* ===== ベース ===== */
-html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
 
 body {
   background-color: #0b0c0e;
@@ -208,3 +208,37 @@ h2 { font-size: clamp(20px, 3.4vw, 32px); }
 .nav-link::after { content: ""; position: absolute; left: 0; bottom: -7px; width: 0; height: 1px; background: var(--ir); transition: width 0.4s ease; }
 .nav-link:hover { color: #fff; opacity: 1; }
 .nav-link:hover::after { width: 100%; }
+
+/* ===== KV クロスフェード・スライドショー（main-visual 相当） ===== */
+.kv-stage { position: absolute; inset: 0; z-index: 0; overflow: hidden; background: #000; }
+.kv {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  filter: brightness(0.32) saturate(0.62);
+  opacity: 0;
+  animation: kv-cycle 28s infinite;
+  will-change: opacity, transform;
+}
+.kv:nth-child(1) { animation-delay: 0s; }
+.kv:nth-child(2) { animation-delay: 7s; }
+.kv:nth-child(3) { animation-delay: 14s; }
+.kv:nth-child(4) { animation-delay: 21s; }
+@keyframes kv-cycle {
+  0%   { opacity: 0; transform: scale(1.03); }
+  3%   { opacity: 1; }
+  22%  { opacity: 1; }
+  27%  { opacity: 0; transform: scale(1.12); }
+  100% { opacity: 0; transform: scale(1.03); }
+}
+
+/* ===== シネマティック帯（動画 or スローズーム） ===== */
+.cine-zoom { animation: cine-zoom 20s ease-in-out infinite alternate; will-change: transform; }
+@keyframes cine-zoom { from { transform: scale(1.03); } to { transform: scale(1.14); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .kv { animation: none; opacity: 1; }
+  .kv:nth-child(n+2) { display: none; }
+  .cine-zoom { animation: none; }
+  html { scroll-behavior: auto; }
+}
+

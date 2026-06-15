@@ -43,19 +43,21 @@ export default function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* 背景画像（前デザインと同じKV） */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 0,
-          backgroundImage: `url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80&auto=format&fit=crop')`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          filter: 'brightness(0.3) saturate(0.65)',
-        }}
-      />
+      {/* 背景: KV クロスフェード・スライドショー（前デザインのKV写真を含む） */}
+      <div className="kv-stage" aria-hidden="true">
+        {[
+          'photo-1545569341-9eb8b30979d9',
+          'photo-1558618666-fcd25c85cd64',
+          'photo-1557409518-691ebcd96038',
+          'photo-1512909006721-3d6018887383',
+        ].map((id) => (
+          <div
+            key={id}
+            className="kv"
+            style={{ backgroundImage: `url('https://images.unsplash.com/${id}?w=1600&q=80&auto=format&fit=crop')` }}
+          />
+        ))}
+      </div>
       {/* 墨のスクリム — 計器グレードの暗さと可読性、下端を地に溶かす */}
       <div
         aria-hidden="true"

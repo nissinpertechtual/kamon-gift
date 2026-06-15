@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import KamonBackground from '@/components/KamonBackground';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EnProductCard } from '@/components/products/EnProductCard';
+import { CinematicBand } from '@/components/top/CinematicBand';
 import type { Product } from '@/types/supabase';
 
 const SERIF = "'Cormorant Garamond', Georgia, serif";
@@ -36,18 +37,20 @@ export default async function EnTopPage() {
           overflow: 'hidden',
         }}
       >
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundImage: `url('https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80&auto=format&fit=crop')`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            filter: 'brightness(0.46) saturate(0.72)',
-            zIndex: 0,
-          }}
-        />
+        <div className="kv-stage" aria-hidden="true">
+          {[
+            'photo-1545569341-9eb8b30979d9',
+            'photo-1558618666-fcd25c85cd64',
+            'photo-1557409518-691ebcd96038',
+            'photo-1512909006721-3d6018887383',
+          ].map((id) => (
+            <div
+              key={id}
+              className="kv"
+              style={{ backgroundImage: `url('https://images.unsplash.com/${id}?w=1600&q=80&auto=format&fit=crop')` }}
+            />
+          ))}
+        </div>
         <div
           aria-hidden="true"
           style={{
@@ -163,6 +166,14 @@ export default async function EnTopPage() {
           ))}
         </div>
       </section>
+
+      {/* ───── Cinematic band ───── */}
+      <CinematicBand
+        eyebrow="Femtosecond Laser"
+        caption={'Engraved with light.'}
+        sub="λ 1030nm IR · 515nm GR — FOCUS Ø15μm / 0.1μm"
+        lang="en"
+      />
 
       {/* ───── Scenes ───── */}
       <section style={{ padding: '120px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>
