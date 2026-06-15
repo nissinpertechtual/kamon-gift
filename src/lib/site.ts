@@ -27,6 +27,20 @@ export const SITE = {
   //   もしくは外部の動画URLを設定。
   // 空文字の間は、静止画のスローズーム（動画風）でフォールバック表示します。
   craftVideo: '',
-  craftVideoPoster:
-    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop',
+  craftVideoPoster: '/products/scene-01.jpg',
+
+  // ── 実作品の写真（実物の家紋彫刻 / ガラス・ホログラム） ───
+  // public/products/ に配置。実作品ギャラリーに表示。
+  productPhotos: [
+    '/products/work-01.jpg',
+    '/products/work-02.jpg',
+    '/products/work-03.jpg',
+    '/products/work-04.jpg',
+    '/products/work-05.jpg',
+    '/products/work-06.jpg',
+  ] as string[],
+
+  // ヒーロー背景に使う実写（名字×家紋・プレート展示のラインナップ）。
+  // 空ならヒーローは情景スライドショーにフォールバック。
+  heroPhotos: ['/products/scene-01.jpg', '/products/scene-02.jpg'] as string[],
 } as const;

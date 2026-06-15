@@ -1,9 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { SITE } from '@/lib/site';
 
-const MONO = "var(--font-mono)";
 const MINCHO = "var(--font-mincho)";
+
+const UNSPLASH_KV = [
+  'https://images.unsplash.com/photo-1545569341-9eb8b30979d9?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1557409518-691ebcd96038?w=1600&q=80&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1512909006721-3d6018887383?w=1600&q=80&auto=format&fit=crop',
+];
 
 /* トンボ（見当合わせ）— 四隅の観測枠マーク */
 function Crop({ corner }: { corner: 'tl' | 'tr' | 'bl' | 'br' }) {
@@ -43,18 +50,16 @@ export default function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* 背景: KV クロスフェード・スライドショー（前デザインのKV写真を含む） */}
+      {/* 背景: KV クロスフェード・スライドショー（実作品 or 情景） */}
       <div className="kv-stage" aria-hidden="true">
-        {[
-          'photo-1545569341-9eb8b30979d9',
-          'photo-1558618666-fcd25c85cd64',
-          'photo-1557409518-691ebcd96038',
-          'photo-1512909006721-3d6018887383',
-        ].map((id) => (
+        {(SITE.heroPhotos.length ? SITE.heroPhotos : UNSPLASH_KV).map((src) => (
           <div
-            key={id}
+            key={src}
             className="kv"
-            style={{ backgroundImage: `url('https://images.unsplash.com/${id}?w=1600&q=80&auto=format&fit=crop')` }}
+            style={{
+              backgroundImage: `url('${src}')`,
+              filter: SITE.heroPhotos.length ? 'brightness(0.5) saturate(0.95)' : undefined,
+            }}
           />
         ))}
       </div>

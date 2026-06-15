@@ -5,6 +5,7 @@ import KamonBackground from '@/components/KamonBackground';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EnProductCard } from '@/components/products/EnProductCard';
 import { CinematicBand } from '@/components/top/CinematicBand';
+import { ProductShowcase } from '@/components/top/ProductShowcase';
 import type { Product } from '@/types/supabase';
 
 const SERIF = "'Cormorant Garamond', Georgia, serif";
@@ -174,6 +175,7 @@ export default async function EnTopPage() {
         sub="λ 1030nm IR · 515nm GR — FOCUS Ø15μm / 0.1μm"
         lang="en"
       />
+      <ProductShowcase lang="en" />
 
       {/* ───── Scenes ───── */}
       <section style={{ padding: '120px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>
