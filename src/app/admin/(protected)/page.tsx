@@ -56,7 +56,7 @@ export default async function AdminDashboardPage() {
             key={stat.label}
             style={{
               background: '#15181b',
-              border: `0.5px solid ${stat.highlight ? '#e23b2e' : '#2a2f35'}`,
+              border: `0.5px solid ${stat.highlight ? '#efece4' : '#2a2f35'}`,
               padding: '24px',
             }}
           >
@@ -75,7 +75,7 @@ export default async function AdminDashboardPage() {
               style={{
                 fontSize: '32px',
                 fontWeight: 300,
-                color: stat.highlight ? '#e23b2e' : '#e9e7e1',
+                color: stat.highlight ? '#efece4' : '#e9e7e1',
                 margin: 0,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 letterSpacing: '0.05em',
@@ -167,7 +167,7 @@ export default async function AdminDashboardPage() {
 
 function StatusBadge({ status }: { status: Inquiry['status'] }) {
   const map = {
-    new: { label: '新規', color: '#e23b2e', bg: 'rgba(226,59,46,0.1)' },
+    new: { label: '新規', color: '#efece4', bg: 'rgba(239,236,228,0.1)' },
     in_progress: { label: '対応中', color: '#6aa0ff', bg: 'rgba(110,168,254,0.1)' },
     done: { label: '完了', color: '#5d636a', bg: 'transparent' },
   };

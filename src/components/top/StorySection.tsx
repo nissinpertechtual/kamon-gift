@@ -167,7 +167,7 @@ function GoldDivider() {
         transition: 'opacity 0.8s ease',
       }}
     >
-      <div style={{ width: '40px', height: '0.5px', background: '#e23b2e', opacity: 0.4 }} />
+      <div style={{ width: '40px', height: '0.5px', background: '#efece4', opacity: 0.4 }} />
     </div>
   );
 }

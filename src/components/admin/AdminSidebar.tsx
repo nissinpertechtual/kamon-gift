@@ -43,7 +43,7 @@ export default function AdminSidebar() {
           style={{
             fontSize: '9px',
             letterSpacing: '0.25em',
-            color: '#e23b2e',
+            color: '#efece4',
             margin: 0,
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -67,12 +67,12 @@ export default function AdminSidebar() {
                 padding: '10px 12px',
                 fontSize: '12px',
                 letterSpacing: '0.06em',
-                color: isActive ? '#e23b2e' : '#9aa0a6',
+                color: isActive ? '#efece4' : '#9aa0a6',
                 textDecoration: 'none',
                 fontWeight: 300,
                 fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
-                background: isActive ? 'rgba(226,59,46,0.06)' : 'transparent',
-                borderLeft: isActive ? '2px solid #e23b2e' : '2px solid transparent',
+                background: isActive ? 'rgba(239,236,228,0.06)' : 'transparent',
+                borderLeft: isActive ? '2px solid #efece4' : '2px solid transparent',
                 transition: 'color 0.2s ease, background 0.2s ease',
               }}
             >

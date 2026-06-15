@@ -50,7 +50,7 @@ export default async function AdminInquiriesPage() {
               style={{
                 background: '#15181b',
                 padding: '24px',
-                borderLeft: inq.status === 'new' ? '2px solid #e23b2e' : '2px solid transparent',
+                borderLeft: inq.status === 'new' ? '2px solid #efece4' : '2px solid transparent',
               }}
             >
               {/* ヘッダー行 */}

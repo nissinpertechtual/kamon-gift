@@ -41,7 +41,7 @@ export default function Header() {
           top: 0,
           zIndex: 40,
           backgroundColor: '#0b0c0e',
-          borderBottom: '0.5px solid rgba(226,59,46,0.25)',
+          borderBottom: '0.5px solid rgba(239,236,228,0.25)',
           overflow: 'hidden',
         }}
       >
@@ -113,7 +113,7 @@ export default function Header() {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '6px',
-                color: '#e23b2e',
+                color: '#efece4',
                 textDecoration: 'none',
                 whiteSpace: 'nowrap',
               }}
@@ -161,12 +161,12 @@ export default function Header() {
             <Link
               href={langHref}
               style={{
-                color: '#e23b2e',
+                color: '#efece4',
                 fontSize: '11px',
                 letterSpacing: '0.15em',
                 fontWeight: 300,
                 textDecoration: 'none',
-                border: '0.5px solid #e23b2e',
+                border: '0.5px solid #efece4',
                 padding: '4px 12px',
                 transition: 'background 0.3s ease',
               }}
@@ -203,7 +203,7 @@ export default function Header() {
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              color: '#e23b2e',
+              color: '#efece4',
               padding: '4px',
             }}
             aria-label="メニューを開く"
@@ -235,7 +235,7 @@ export default function Header() {
               zIndex: 50,
               width: '260px',
               backgroundColor: '#0b0c0e',
-              borderLeft: '0.5px solid rgba(226,59,46,0.2)',
+              borderLeft: '0.5px solid rgba(239,236,228,0.2)',
               padding: '28px 24px',
               display: 'flex',
               flexDirection: 'column',
@@ -244,7 +244,7 @@ export default function Header() {
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: '40px' }}>
               <button
                 onClick={() => setDrawerOpen(false)}
-                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#e23b2e', padding: '4px' }}
+                style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#efece4', padding: '4px' }}
                 aria-label="メニューを閉じる"
               >
                 <X size={20} />
@@ -277,7 +277,7 @@ export default function Header() {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  color: '#e23b2e',
+                  color: '#efece4',
                   textDecoration: 'none',
                 }}
               >
@@ -315,12 +315,12 @@ export default function Header() {
                 href={langHref}
                 onClick={() => setDrawerOpen(false)}
                 style={{
-                  color: '#e23b2e',
+                  color: '#efece4',
                   fontSize: '12px',
                   letterSpacing: '0.1em',
                   fontWeight: 300,
                   textDecoration: 'none',
-                  border: '0.5px solid #e23b2e',
+                  border: '0.5px solid #efece4',
                   padding: '6px 14px',
                   display: 'inline-block',
                   width: 'fit-content',

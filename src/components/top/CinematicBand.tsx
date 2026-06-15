@@ -4,17 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 import { SITE } from '@/lib/site';
 
 type Props = {
-  eyebrow: string;   // 等幅ラベル（例: DUAL WAVELENGTH）
-  caption: string;   // 明朝の見出し
-  sub: string;       // 等幅のスペック読み出し
-  image?: string;    // フォールバック静止画（動画未設定時）
+  eyebrow: string;
+  caption: string;
+  sub: string;
+  image?: string;
   lang?: 'ja' | 'en';
 };
 
-/**
- * 全面のシネマティック帯。SITE.craftVideo があれば実写動画、無ければ
- * 静止画のスローズーム（動画風）でフォールバック。スクロールで浮かび上がる。
- */
+/** 全面のシネマティック帯。SITE.craftVideo があれば実写動画、無ければ静止画スローズーム。 */
 export function CinematicBand({ eyebrow, caption, sub, image, lang = 'ja' }: Props) {
   const ref = useRef<HTMLDivElement>(null);
   const [shown, setShown] = useState(false);
@@ -37,16 +34,13 @@ export function CinematicBand({ eyebrow, caption, sub, image, lang = 'ja' }: Pro
       ref={ref}
       style={{
         position: 'relative',
-        minHeight: 'min(78vh, 640px)',
+        minHeight: 'min(80vh, 660px)',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        textAlign: 'center',
         overflow: 'hidden',
         background: '#000',
       }}
     >
-      {/* 背景: 動画 or 静止画スローズーム */}
       {SITE.craftVideo ? (
         <video
           autoPlay
@@ -54,7 +48,7 @@ export function CinematicBand({ eyebrow, caption, sub, image, lang = 'ja' }: Pro
           loop
           playsInline
           poster={poster}
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.4) saturate(0.7)', zIndex: 0 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.5) saturate(0.85)', zIndex: 0 }}
         >
           <source src={SITE.craftVideo} />
         </video>
@@ -62,40 +56,39 @@ export function CinematicBand({ eyebrow, caption, sub, image, lang = 'ja' }: Pro
         <div
           aria-hidden="true"
           className="cine-zoom"
-          style={{ position: 'absolute', inset: 0, backgroundImage: `url('${poster}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.4) saturate(0.7)', zIndex: 0 }}
+          style={{ position: 'absolute', inset: 0, backgroundImage: `url('${poster}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.5) saturate(0.85)', zIndex: 0 }}
         />
       )}
 
-      {/* スクリム＋上下の地溶け */}
       <div
         aria-hidden="true"
-        style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to bottom, #0b0c0e 0%, rgba(11,12,14,0.35) 26%, rgba(11,12,14,0.55) 74%, #0b0c0e 100%)' }}
+        style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to right, rgba(11,11,12,0.82) 0%, rgba(11,11,12,0.45) 50%, rgba(11,11,12,0.15) 100%), linear-gradient(to bottom, #0b0b0c 0%, transparent 22%, transparent 78%, #0b0b0c 100%)' }}
       />
 
       <div
         style={{
           position: 'relative',
           zIndex: 2,
-          padding: '0 24px',
+          width: '100%',
+          maxWidth: '1180px',
+          margin: '0 auto',
+          padding: '0 32px',
           opacity: shown ? 1 : 0,
-          transform: shown ? 'none' : 'translateY(20px)',
-          transition: 'opacity 1.1s ease, transform 1.1s ease',
+          transform: shown ? 'none' : 'translateY(22px)',
+          transition: 'opacity 1.2s ease, transform 1.2s ease',
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '22px' }}>
-          <span className="sig-dots"><i className="ir" /><i className="gr" /></span>
-          <span className="mono" style={{ fontSize: '10px', letterSpacing: '0.36em', color: '#cfd2d6', textTransform: 'uppercase', paddingLeft: '0.36em' }}>
+        <div style={{ maxWidth: '560px' }}>
+          <p className="latin" style={{ fontSize: '12px', letterSpacing: '0.2em', color: 'rgba(239,236,228,0.6)', fontStyle: 'italic', margin: '0 0 20px' }}>
             {eyebrow}
-          </span>
+          </p>
+          <h2 style={{ fontSize: 'clamp(26px, 4.6vw, 44px)', fontWeight: 500, letterSpacing: '0.06em', lineHeight: 1.5, color: '#f3f0e8', margin: 0, fontFamily: mincho, whiteSpace: 'pre-line' }}>
+            {caption}
+          </h2>
+          <p style={{ fontSize: '14px', letterSpacing: '0.05em', color: 'rgba(239,236,228,0.7)', margin: '22px 0 0', fontFamily: mincho }}>
+            {sub}
+          </p>
         </div>
-
-        <h2 style={{ fontSize: 'clamp(24px, 4.4vw, 40px)', fontWeight: 500, letterSpacing: '0.08em', lineHeight: 1.5, color: '#f1efe9', margin: 0, fontFamily: mincho, whiteSpace: 'pre-line' }}>
-          {caption}
-        </h2>
-
-        <p className="mono" style={{ fontSize: '11px', letterSpacing: '0.2em', color: '#9aa0a6', marginTop: '22px', marginBottom: 0 }}>
-          {sub}
-        </p>
       </div>
     </section>
   );

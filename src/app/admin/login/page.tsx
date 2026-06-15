@@ -54,7 +54,7 @@ export default function AdminLoginPage() {
             style={{
               fontSize: '9px',
               letterSpacing: '0.35em',
-              color: '#e23b2e',
+              color: '#efece4',
               margin: '0 0 12px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
@@ -108,7 +108,7 @@ export default function AdminLoginPage() {
                 boxSizing: 'border-box',
                 letterSpacing: '0.05em',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#e23b2e')}
+              onFocus={(e) => (e.currentTarget.style.borderColor = '#efece4')}
               onBlur={(e) => (e.currentTarget.style.borderColor = '#2a2f35')}
             />
           </div>
@@ -144,7 +144,7 @@ export default function AdminLoginPage() {
                 boxSizing: 'border-box',
                 letterSpacing: '0.05em',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#e23b2e')}
+              onFocus={(e) => (e.currentTarget.style.borderColor = '#efece4')}
               onBlur={(e) => (e.currentTarget.style.borderColor = '#2a2f35')}
             />
           </div>
@@ -169,7 +169,7 @@ export default function AdminLoginPage() {
             style={{
               marginTop: '8px',
               padding: '14px',
-              background: loading ? '#828990' : '#e23b2e',
+              background: loading ? '#828990' : '#efece4',
               color: '#f6f1e7',
               fontSize: '11px',
               letterSpacing: '0.25em',

@@ -73,7 +73,7 @@ export default function FaqPage() {
               >
                 <span
                   style={{
-                    color: '#e23b2e',
+                    color: '#efece4',
                     fontSize: '13px',
                     fontFamily: "'Cormorant Garamond', Georgia, serif",
                     flexShrink: 0,
@@ -142,8 +142,8 @@ export default function FaqPage() {
             href="/contact"
             style={{
               display: 'inline-block',
-              background: '#e23b2e',
-              color: '#f6f1e7',
+              background: '#efece4',
+              color: '#0b0b0c',
               padding: '14px 44px',
               fontSize: '12px',
               letterSpacing: '0.2em',

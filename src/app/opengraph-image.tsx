@@ -33,8 +33,8 @@ export default function OpengraphImage() {
           }}
         >
           <div style={{ position: 'absolute', top: 22, bottom: 22, width: 6, background: '#e9e7e1' }} />
-          <div style={{ position: 'absolute', top: 8, width: 14, height: 14, borderRadius: 14, background: '#e23b2e' }} />
-          <div style={{ position: 'absolute', bottom: 8, width: 14, height: 14, borderRadius: 14, background: '#e23b2e' }} />
+          <div style={{ position: 'absolute', top: 8, width: 14, height: 14, borderRadius: 14, background: '#efece4' }} />
+          <div style={{ position: 'absolute', bottom: 8, width: 14, height: 14, borderRadius: 14, background: '#efece4' }} />
         </div>
 
         <div
@@ -42,7 +42,7 @@ export default function OpengraphImage() {
             marginTop: 54,
             fontSize: 38,
             letterSpacing: 10,
-            color: '#e23b2e',
+            color: '#efece4',
             display: 'flex',
           }}
         >

@@ -21,8 +21,8 @@ export function customerAutoReply(data: InquiryData): string {
   <style>
     body { background: #0b0c0e; color: #e9e7e1; font-family: Georgia, 'Zen Old Mincho', 'Hiragino Mincho ProN', serif; margin: 0; padding: 0; }
     .wrap { max-width: 560px; margin: 0 auto; padding: 48px 32px; }
-    .logo { font-size: 13px; letter-spacing: 0.2em; color: #e23b2e; margin-bottom: 40px; }
-    .divider { width: 40px; height: 1px; background: #e23b2e; opacity: 0.4; margin: 32px 0; }
+    .logo { font-size: 13px; letter-spacing: 0.2em; color: #efece4; margin-bottom: 40px; }
+    .divider { width: 40px; height: 1px; background: #efece4; opacity: 0.4; margin: 32px 0; }
     h1 { font-size: 18px; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 16px; color: #e9e7e1; }
     p { font-size: 13px; line-height: 2.2; color: #9aa0a6; letter-spacing: 0.05em; margin: 0 0 16px; }
     .table { width: 100%; border-collapse: collapse; margin: 24px 0; }
@@ -78,13 +78,13 @@ export function adminNotification(data: InquiryData): string {
   <style>
     body { font-family: -apple-system, sans-serif; color: #2c3137; margin: 0; padding: 0; background: #fff; }
     .wrap { max-width: 560px; margin: 0 auto; padding: 32px; }
-    h1 { font-size: 16px; border-bottom: 2px solid #e23b2e; padding-bottom: 8px; margin-bottom: 24px; }
+    h1 { font-size: 16px; border-bottom: 2px solid #efece4; padding-bottom: 8px; margin-bottom: 24px; }
     .table { width: 100%; border-collapse: collapse; }
     .table tr:nth-child(even) { background: #15181b; }
     .table td { padding: 10px 12px; border: 1px solid #23272c; font-size: 13px; }
     .table td:first-child { font-weight: bold; width: 120px; color: #8b9298; }
-    .badge { display: inline-block; background: #e23b2e; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 2px; margin-left: 8px; }
-    .link-btn { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #e23b2e; color: #fff; text-decoration: none; font-size: 12px; border-radius: 2px; }
+    .badge { display: inline-block; background: #efece4; color: #fff; font-size: 11px; padding: 2px 8px; border-radius: 2px; margin-left: 8px; }
+    .link-btn { display: inline-block; margin-top: 24px; padding: 10px 24px; background: #efece4; color: #fff; text-decoration: none; font-size: 12px; border-radius: 2px; }
   </style>
 </head>
 <body>

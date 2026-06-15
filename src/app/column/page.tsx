@@ -86,9 +86,9 @@ export default async function ColumnPage() {
                       }}
                     >
                       <svg width="32" height="32" viewBox="0 0 72 72" style={{ opacity: 0.15 }}>
-                        <circle cx="36" cy="36" r="28" fill="none" stroke="#e23b2e" strokeWidth="1" />
-                        <line x1="36" y1="8" x2="36" y2="64" stroke="#e23b2e" strokeWidth="0.8" />
-                        <line x1="8" y1="36" x2="64" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
+                        <circle cx="36" cy="36" r="28" fill="none" stroke="#efece4" strokeWidth="1" />
+                        <line x1="36" y1="8" x2="36" y2="64" stroke="#efece4" strokeWidth="0.8" />
+                        <line x1="8" y1="36" x2="64" y2="36" stroke="#efece4" strokeWidth="0.8" />
                       </svg>
                     </div>
                   )}

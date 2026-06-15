@@ -171,7 +171,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
         <button
           onClick={handleDelete}
           disabled={deleting}
-          style={{ background: 'transparent', border: '0.5px solid rgba(226,59,46,0.4)', color: '#ff6b5e', padding: '8px 16px', fontSize: '11px', cursor: deleting ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif", opacity: deleting ? 0.5 : 1 }}
+          style={{ background: 'transparent', border: '0.5px solid rgba(239,236,228,0.4)', color: '#ff6b5e', padding: '8px 16px', fontSize: '11px', cursor: deleting ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif", opacity: deleting ? 0.5 : 1 }}
         >
           {deleting ? '削除中...' : '削除'}
         </button>
@@ -179,12 +179,12 @@ export default function ProductEditForm({ product: initial }: { product: Product
 
       {/* エラー・メッセージ */}
       {error && (
-        <div style={{ background: 'rgba(226,59,46,0.08)', border: '0.5px solid rgba(226,59,46,0.3)', color: '#ff6b5e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+        <div style={{ background: 'rgba(239,236,228,0.08)', border: '0.5px solid rgba(239,236,228,0.3)', color: '#ff6b5e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {error}
         </div>
       )}
       {message && !error && (
-        <div style={{ background: 'rgba(226,59,46,0.06)', border: '0.5px solid rgba(226,59,46,0.3)', color: '#e23b2e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+        <div style={{ background: 'rgba(239,236,228,0.06)', border: '0.5px solid rgba(239,236,228,0.3)', color: '#efece4', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {message}
         </div>
       )}
@@ -236,11 +236,11 @@ export default function ProductEditForm({ product: initial }: { product: Product
 
         <div style={{ display: 'flex', gap: '24px' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#e23b2e', width: '14px', height: '14px' }} />
+            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#efece4', width: '14px', height: '14px' }} />
             <span style={{ fontSize: '12px', color: '#9aa0a6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開する</span>
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#e23b2e', width: '14px', height: '14px' }} />
+            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#efece4', width: '14px', height: '14px' }} />
             <span style={{ fontSize: '12px', color: '#9aa0a6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>有効（is_active）</span>
           </label>
         </div>
@@ -249,7 +249,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
           <button
             type="submit"
             disabled={saving}
-            style={{ background: saving ? '#828990' : '#e23b2e', color: '#f6f1e7', padding: '12px 40px', fontSize: '12px', letterSpacing: '0.15em', fontWeight: 300, border: 'none', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
+            style={{ background: saving ? '#828990' : '#efece4', color: '#f6f1e7', padding: '12px 40px', fontSize: '12px', letterSpacing: '0.15em', fontWeight: 300, border: 'none', cursor: saving ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
             {saving ? '保存中...' : '保存する'}
           </button>
@@ -278,7 +278,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
             <div key={url} style={{ position: 'relative', width: '100px', height: '75px' }}>
               <img src={url} alt={`image-${i}`} style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.85 }} />
               {i === 0 && (
-                <div style={{ position: 'absolute', bottom: 0, left: 0, background: 'rgba(226,59,46,0.8)', fontSize: '8px', color: '#f6f1e7', padding: '2px 6px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+                <div style={{ position: 'absolute', bottom: 0, left: 0, background: 'rgba(239,236,228,0.8)', fontSize: '8px', color: '#f6f1e7', padding: '2px 6px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
                   メイン
                 </div>
               )}

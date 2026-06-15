@@ -12,18 +12,18 @@ const FinalKamonBg = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style={{ position: 'absolute', inset: 0 }}>
       <defs>
         <pattern id="kamon-final-a" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-          <circle cx="30" cy="30" r="12" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
-          <circle cx="30" cy="30" r="7"  fill="none" stroke="#e23b2e" strokeWidth="0.6" />
-          <circle cx="30" cy="30" r="3"  fill="none" stroke="#e23b2e" strokeWidth="0.5" />
-          <line x1="30" y1="18" x2="30" y2="42" stroke="#e23b2e" strokeWidth="0.5" />
-          <line x1="18" y1="30" x2="42" y2="30" stroke="#e23b2e" strokeWidth="0.5" />
+          <circle cx="30" cy="30" r="12" fill="none" stroke="#efece4" strokeWidth="0.8" />
+          <circle cx="30" cy="30" r="7"  fill="none" stroke="#efece4" strokeWidth="0.6" />
+          <circle cx="30" cy="30" r="3"  fill="none" stroke="#efece4" strokeWidth="0.5" />
+          <line x1="30" y1="18" x2="30" y2="42" stroke="#efece4" strokeWidth="0.5" />
+          <line x1="18" y1="30" x2="42" y2="30" stroke="#efece4" strokeWidth="0.5" />
         </pattern>
         <pattern id="kamon-final-b" x="30" y="30" width="60" height="60" patternUnits="userSpaceOnUse">
-          <circle cx="30" cy="30" r="12" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
-          <circle cx="30" cy="30" r="7"  fill="none" stroke="#e23b2e" strokeWidth="0.6" />
-          <circle cx="30" cy="30" r="3"  fill="none" stroke="#e23b2e" strokeWidth="0.5" />
-          <line x1="30" y1="18" x2="30" y2="42" stroke="#e23b2e" strokeWidth="0.5" />
-          <line x1="18" y1="30" x2="42" y2="30" stroke="#e23b2e" strokeWidth="0.5" />
+          <circle cx="30" cy="30" r="12" fill="none" stroke="#efece4" strokeWidth="0.8" />
+          <circle cx="30" cy="30" r="7"  fill="none" stroke="#efece4" strokeWidth="0.6" />
+          <circle cx="30" cy="30" r="3"  fill="none" stroke="#efece4" strokeWidth="0.5" />
+          <line x1="30" y1="18" x2="30" y2="42" stroke="#efece4" strokeWidth="0.5" />
+          <line x1="18" y1="30" x2="42" y2="30" stroke="#efece4" strokeWidth="0.5" />
         </pattern>
       </defs>
       {/* 修正: opacity 0.08 → 0.06 */}
@@ -75,7 +75,7 @@ export default function FinalCTA() {
           style={{
             width: '1px',
             height: '48px',
-            background: '#e23b2e',
+            background: '#efece4',
             opacity: 0.4,
             margin: '0 auto 48px',
           }}
@@ -115,8 +115,8 @@ export default function FinalCTA() {
           href="/contact"
           style={{
             display: 'inline-block',
-            background: '#e23b2e',
-            color: '#f6f1e7',
+            background: '#efece4',
+            color: '#0b0b0c',
             padding: '18px 52px',
             fontSize: '13px',
             letterSpacing: '0.2em',

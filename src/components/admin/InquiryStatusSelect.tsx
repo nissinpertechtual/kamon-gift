@@ -11,7 +11,7 @@ const STATUS_OPTIONS: { value: Inquiry['status']; label: string }[] = [
 ];
 
 const STATUS_COLORS: Record<Inquiry['status'], string> = {
-  new: '#e23b2e',
+  new: '#efece4',
   in_progress: '#6aa0ff',
   done: '#5d636a',
 };

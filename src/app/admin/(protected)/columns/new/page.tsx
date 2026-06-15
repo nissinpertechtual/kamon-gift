@@ -122,8 +122,8 @@ export default function AdminColumnsNewPage() {
       {error && (
         <div
           style={{
-            background: 'rgba(226,59,46,0.08)',
-            border: '0.5px solid rgba(226,59,46,0.3)',
+            background: 'rgba(239,236,228,0.08)',
+            border: '0.5px solid rgba(239,236,228,0.3)',
             color: '#ff6b5e',
             padding: '12px 16px',
             fontSize: '12px',
@@ -238,7 +238,7 @@ export default function AdminColumnsNewPage() {
                 type="checkbox"
                 checked={form.is_published}
                 onChange={handleChange}
-                style={{ accentColor: '#e23b2e', width: '14px', height: '14px' }}
+                style={{ accentColor: '#efece4', width: '14px', height: '14px' }}
               />
               <span style={{ fontSize: '12px', color: '#9aa0a6', fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: '0.06em' }}>
                 公開する
@@ -252,7 +252,7 @@ export default function AdminColumnsNewPage() {
             type="submit"
             disabled={saving}
             style={{
-              background: saving ? '#828990' : '#e23b2e',
+              background: saving ? '#828990' : '#efece4',
               color: '#f6f1e7',
               padding: '12px 40px',
               fontSize: '12px',

@@ -21,7 +21,7 @@ export function EnProductCard({ product }: { product: ProductEn }) {
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
         style={{
-          border: `0.5px solid ${hovered ? '#e23b2e' : '#2a2f35'}`,
+          border: `0.5px solid ${hovered ? '#efece4' : '#2a2f35'}`,
           transition: 'border-color 0.4s',
           background: '#101417',
         }}
@@ -45,9 +45,9 @@ export function EnProductCard({ product }: { product: ProductEn }) {
               }}
             >
               <svg width="40" height="40" viewBox="0 0 72 72" style={{ opacity: 0.15 }}>
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#e23b2e" strokeWidth="1" />
-                <line x1="36" y1="8" x2="36" y2="64" stroke="#e23b2e" strokeWidth="0.8" />
-                <line x1="8" y1="36" x2="64" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
+                <circle cx="36" cy="36" r="28" fill="none" stroke="#efece4" strokeWidth="1" />
+                <line x1="36" y1="8" x2="36" y2="64" stroke="#efece4" strokeWidth="0.8" />
+                <line x1="8" y1="36" x2="64" y2="36" stroke="#efece4" strokeWidth="0.8" />
               </svg>
             </div>
           )}
@@ -87,7 +87,7 @@ export function EnProductCard({ product }: { product: ProductEn }) {
             <span
               style={{
                 fontSize: '11px',
-                color: '#e23b2e',
+                color: '#efece4',
                 fontWeight: 300,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}

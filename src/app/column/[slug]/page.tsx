@@ -95,7 +95,7 @@ export default async function ColumnDetailPage({ params }: Props) {
           style={{
             width: '40px',
             height: '0.5px',
-            background: '#e23b2e',
+            background: '#efece4',
             opacity: 0.4,
             marginBottom: '48px',
           }}
@@ -129,7 +129,7 @@ export default async function ColumnDetailPage({ params }: Props) {
             style={{
               fontSize: '9px',
               letterSpacing: '0.25em',
-              color: '#e23b2e',
+              color: '#efece4',
               marginBottom: '16px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}
@@ -151,8 +151,8 @@ export default async function ColumnDetailPage({ params }: Props) {
             href="/products"
             style={{
               display: 'inline-block',
-              border: '0.5px solid #e23b2e',
-              color: '#e23b2e',
+              border: '0.5px solid #efece4',
+              color: '#efece4',
               padding: '11px 32px',
               fontSize: '11px',
               letterSpacing: '0.2em',

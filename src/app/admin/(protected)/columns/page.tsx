@@ -33,8 +33,8 @@ export default async function AdminColumnsPage() {
         <Link
           href="/admin/columns/new"
           style={{
-            background: '#e23b2e',
-            color: '#f6f1e7',
+            background: '#efece4',
+            color: '#0b0b0c',
             padding: '8px 24px',
             fontSize: '12px',
             letterSpacing: '0.1em',
@@ -127,7 +127,7 @@ export default async function AdminColumnsPage() {
               <span
                 style={{
                   fontSize: '10px',
-                  color: col.is_published ? '#e23b2e' : '#5d636a',
+                  color: col.is_published ? '#efece4' : '#5d636a',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
@@ -148,7 +148,7 @@ export default async function AdminColumnsPage() {
                 href={`/admin/columns/${col.id}`}
                 style={{
                   fontSize: '11px',
-                  color: '#e23b2e',
+                  color: '#efece4',
                   textDecoration: 'none',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                   letterSpacing: '0.05em',

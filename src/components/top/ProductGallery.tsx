@@ -47,8 +47,8 @@ export default async function ProductGallery() {
             href="/products"
             style={{
               display: 'inline-block',
-              border: '0.5px solid #e23b2e',
-              color: '#e23b2e',
+              border: '0.5px solid #efece4',
+              color: '#efece4',
               padding: '12px 44px',
               fontSize: '11px',
               letterSpacing: '0.2em',

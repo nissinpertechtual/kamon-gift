@@ -34,7 +34,7 @@ export default function LegalPage() {
             style={{
               fontSize: '9px',
               letterSpacing: '0.35em',
-              color: '#e23b2e',
+              color: '#efece4',
               marginBottom: '16px',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
             }}

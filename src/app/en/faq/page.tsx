@@ -29,7 +29,7 @@ export default function EnFaqPage() {
               }}
             >
               <div style={{ display: 'flex', gap: '12px', alignItems: 'baseline', marginBottom: '14px' }}>
-                <span style={{ color: '#e23b2e', fontSize: '15px', fontFamily: SERIF, flexShrink: 0 }}>Q</span>
+                <span style={{ color: '#efece4', fontSize: '15px', fontFamily: SERIF, flexShrink: 0 }}>Q</span>
                 <h2 style={{ fontSize: '16px', fontWeight: 500, letterSpacing: '0.02em', lineHeight: 1.6, color: '#e9e7e1', margin: 0, fontFamily: SERIF }}>
                   {item.q}
                 </h2>
@@ -50,7 +50,7 @@ export default function EnFaqPage() {
           </p>
           <Link
             href="/en/contact"
-            style={{ display: 'inline-block', background: '#e23b2e', color: '#f7f1e6', padding: '14px 44px', fontSize: '12px', letterSpacing: '0.16em', textDecoration: 'none', fontFamily: SERIF }}
+            style={{ display: 'inline-block', background: '#efece4', color: '#0b0b0c', padding: '14px 44px', fontSize: '12px', letterSpacing: '0.16em', textDecoration: 'none', fontFamily: SERIF }}
           >
             Get in Touch
           </Link>

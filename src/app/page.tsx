@@ -17,7 +17,7 @@ export default function HomePage() {
       <CinematicBand
         eyebrow="Femtosecond Laser"
         caption={'光で、家紋を刻む。'}
-        sub="λ 1030nm IR · 515nm GR — FOCUS Ø15μm / 0.1μm"
+        sub="フェムト秒レーザーが、家紋の繊細な線を、そのままの精度で刻みます。"
       />
       <ProductShowcase />
       <SceneSection />

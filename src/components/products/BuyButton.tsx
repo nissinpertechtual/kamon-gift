@@ -38,7 +38,7 @@ export function BuyButton({ productId, productName, price }: Props) {
       style={{
         width: '100%',
         padding: '15px',
-        background: loading ? '#1b1f23' : '#e23b2e',
+        background: loading ? '#1b1f23' : '#efece4',
         color: loading ? '#5d636a' : '#0b0c0e',
         border: 'none',
         fontSize: '12px',

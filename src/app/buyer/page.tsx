@@ -96,7 +96,7 @@ export default function BuyerPage() {
               <div
                 style={{
                   fontSize: '12px',
-                  color: '#e23b2e',
+                  color: '#efece4',
                   textAlign: 'center',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
@@ -162,7 +162,7 @@ export default function BuyerPage() {
             style={{
               width: '1px',
               height: '48px',
-              background: '#e23b2e',
+              background: '#efece4',
               opacity: 0.3,
               margin: '0 auto 40px',
             }}
@@ -193,8 +193,8 @@ export default function BuyerPage() {
             href="/contact?purpose=%E6%B3%95%E4%BA%BA%E3%83%BB%E3%81%BE%E3%81%A8%E3%82%81%E7%99%BA%E6%B3%A8"
             style={{
               display: 'inline-block',
-              background: '#e23b2e',
-              color: '#f6f1e7',
+              background: '#efece4',
+              color: '#0b0b0c',
               padding: '15px 48px',
               fontSize: '12px',
               letterSpacing: '0.2em',

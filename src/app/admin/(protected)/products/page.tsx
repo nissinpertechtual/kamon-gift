@@ -27,8 +27,8 @@ export default async function AdminProductsPage() {
         <Link
           href="/admin/products/new"
           style={{
-            background: '#e23b2e',
-            color: '#f6f1e7',
+            background: '#efece4',
+            color: '#0b0b0c',
             padding: '8px 24px',
             fontSize: '12px',
             letterSpacing: '0.1em',
@@ -115,7 +115,7 @@ export default async function AdminProductsPage() {
               </span>
 
               {/* 公開 */}
-              <span style={{ fontSize: '10px', color: product.is_published ? '#e23b2e' : '#2c3137', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+              <span style={{ fontSize: '10px', color: product.is_published ? '#efece4' : '#2c3137', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
                 {product.is_published ? '公開中' : '非公開'}
               </span>
 
@@ -127,7 +127,7 @@ export default async function AdminProductsPage() {
               {/* 操作 */}
               <Link
                 href={`/admin/products/${product.id}`}
-                style={{ fontSize: '11px', color: '#e23b2e', textDecoration: 'none', fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: '0.05em' }}
+                style={{ fontSize: '11px', color: '#efece4', textDecoration: 'none', fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: '0.05em' }}
               >
                 編集
               </Link>

@@ -23,17 +23,17 @@ export default function CheckoutSuccess() {
           viewBox="0 0 72 72"
           style={{ marginBottom: '32px', opacity: 0.55 }}
         >
-          <circle cx="36" cy="36" r="30" fill="none" stroke="#e23b2e" strokeWidth="1" />
-          <circle cx="36" cy="36" r="16" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
-          <line x1="36" y1="6" x2="36" y2="66" stroke="#e23b2e" strokeWidth="0.8" />
-          <line x1="6" y1="36" x2="66" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
+          <circle cx="36" cy="36" r="30" fill="none" stroke="#efece4" strokeWidth="1" />
+          <circle cx="36" cy="36" r="16" fill="none" stroke="#efece4" strokeWidth="0.8" />
+          <line x1="36" y1="6" x2="36" y2="66" stroke="#efece4" strokeWidth="0.8" />
+          <line x1="6" y1="36" x2="66" y2="36" stroke="#efece4" strokeWidth="0.8" />
         </svg>
 
         <div
           style={{
             fontSize: '9px',
             letterSpacing: '0.35em',
-            color: '#e23b2e',
+            color: '#efece4',
             marginBottom: '24px',
             fontFamily: "'Cormorant Garamond', Georgia, serif",
           }}
@@ -77,7 +77,7 @@ export default function CheckoutSuccess() {
           style={{
             width: '1px',
             height: '40px',
-            background: '#e23b2e',
+            background: '#efece4',
             opacity: 0.25,
             margin: '0 auto 32px',
           }}
@@ -87,8 +87,8 @@ export default function CheckoutSuccess() {
           href="/"
           style={{
             display: 'inline-block',
-            border: '0.5px solid #e23b2e',
-            color: '#e23b2e',
+            border: '0.5px solid #efece4',
+            color: '#efece4',
             padding: '12px 40px',
             fontSize: '10px',
             letterSpacing: '0.25em',

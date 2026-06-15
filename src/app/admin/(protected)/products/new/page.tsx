@@ -108,7 +108,7 @@ export default function AdminProductsNewPage() {
       </div>
 
       {error && (
-        <div style={{ background: 'rgba(226,59,46,0.08)', border: '0.5px solid rgba(226,59,46,0.3)', color: '#ff6b5e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+        <div style={{ background: 'rgba(239,236,228,0.08)', border: '0.5px solid rgba(239,236,228,0.3)', color: '#ff6b5e', padding: '12px 16px', fontSize: '12px', marginBottom: '24px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
           {error}
         </div>
       )}
@@ -173,11 +173,11 @@ export default function AdminProductsNewPage() {
 
         <div style={{ display: 'flex', gap: '24px' }}>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#e23b2e', width: '14px', height: '14px' }} />
+            <input name="is_published" type="checkbox" checked={form.is_published} onChange={handleChange} style={{ accentColor: '#efece4', width: '14px', height: '14px' }} />
             <span style={{ fontSize: '12px', color: '#9aa0a6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開する</span>
           </label>
           <label style={{ display: 'flex', alignItems: 'center', gap: '10px', cursor: 'pointer' }}>
-            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#e23b2e', width: '14px', height: '14px' }} />
+            <input name="is_active" type="checkbox" checked={form.is_active} onChange={handleChange} style={{ accentColor: '#efece4', width: '14px', height: '14px' }} />
             <span style={{ fontSize: '12px', color: '#9aa0a6', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>有効（is_active）</span>
           </label>
         </div>
@@ -187,7 +187,7 @@ export default function AdminProductsNewPage() {
             type="submit"
             disabled={saving}
             style={{
-              background: saving ? '#828990' : '#e23b2e',
+              background: saving ? '#828990' : '#efece4',
               color: '#f6f1e7',
               padding: '12px 40px',
               fontSize: '12px',

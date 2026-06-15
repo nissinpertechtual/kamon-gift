@@ -6,13 +6,13 @@ import Image from 'next/image';
 
 const KamonPlaceholder = () => (
   <svg width="48" height="48" viewBox="0 0 72 72" fill="none" aria-hidden="true" style={{ opacity: 0.25 }}>
-    <circle cx="36" cy="36" r="30" stroke="#e23b2e" strokeWidth="1.2" />
-    <circle cx="36" cy="36" r="18" stroke="#e23b2e" strokeWidth="1" />
-    <circle cx="36" cy="36" r="8"  stroke="#e23b2e" strokeWidth="0.8" />
-    <line x1="36" y1="6"  x2="36" y2="66" stroke="#e23b2e" strokeWidth="0.8" />
-    <line x1="6"  y1="36" x2="66" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
-    <line x1="15" y1="15" x2="57" y2="57" stroke="#e23b2e" strokeWidth="0.6" />
-    <line x1="57" y1="15" x2="15" y2="57" stroke="#e23b2e" strokeWidth="0.6" />
+    <circle cx="36" cy="36" r="30" stroke="#efece4" strokeWidth="1.2" />
+    <circle cx="36" cy="36" r="18" stroke="#efece4" strokeWidth="1" />
+    <circle cx="36" cy="36" r="8"  stroke="#efece4" strokeWidth="0.8" />
+    <line x1="36" y1="6"  x2="36" y2="66" stroke="#efece4" strokeWidth="0.8" />
+    <line x1="6"  y1="36" x2="66" y2="36" stroke="#efece4" strokeWidth="0.8" />
+    <line x1="15" y1="15" x2="57" y2="57" stroke="#efece4" strokeWidth="0.6" />
+    <line x1="57" y1="15" x2="15" y2="57" stroke="#efece4" strokeWidth="0.6" />
   </svg>
 );
 
@@ -107,8 +107,8 @@ export function ProductCard({ product }: { product: ProductItem }) {
                     top: '8px',
                     left: '8px',
                     background: 'rgba(10,10,10,0.75)',
-                    border: '0.5px solid #e23b2e',
-                    color: '#e23b2e',
+                    border: '0.5px solid #efece4',
+                    color: '#efece4',
                     fontSize: '9px',
                     letterSpacing: '0.15em',
                     padding: '3px 8px',
@@ -150,7 +150,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
             <p
               style={{
                 fontSize: '11px',
-                color: '#e23b2e',
+                color: '#efece4',
                 margin: '8px 0 0',
                 fontWeight: 300,
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -198,8 +198,8 @@ export function ProductCard({ product }: { product: ProductItem }) {
           }}
           onMouseEnter={(e) => {
             if (!loading) {
-              e.currentTarget.style.borderColor = '#e23b2e';
-              e.currentTarget.style.color = '#e23b2e';
+              e.currentTarget.style.borderColor = '#efece4';
+              e.currentTarget.style.color = '#efece4';
             }
           }}
           onMouseLeave={(e) => {

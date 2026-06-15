@@ -73,7 +73,7 @@ export default function Footer() {
           </p>
 
           <a href={SITE.telHref} style={{ textDecoration: 'none' }}>
-            <span style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.04em', color: '#e23b2e', fontFamily: SERIF }}>
+            <span style={{ fontSize: '20px', fontWeight: 500, letterSpacing: '0.04em', color: '#efece4', fontFamily: SERIF }}>
               {SITE.tel}
             </span>
           </a>
@@ -91,7 +91,7 @@ export default function Footer() {
 
           <Link
             href={ctaHref}
-            style={{ display: 'inline-block', color: '#e23b2e', fontSize: '11px', letterSpacing: '0.15em', textDecoration: 'none', border: '0.5px solid #e23b2e', padding: '10px 20px', fontFamily: font }}
+            style={{ display: 'inline-block', color: '#efece4', fontSize: '11px', letterSpacing: '0.15em', textDecoration: 'none', border: '0.5px solid #efece4', padding: '10px 20px', fontFamily: font }}
           >
             {ctaLabel}
           </Link>

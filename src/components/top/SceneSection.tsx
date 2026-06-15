@@ -123,8 +123,6 @@ export default function SceneSection() {
               />
 
               <div style={{ position: 'relative', zIndex: 2 }}>
-                <div style={{ marginBottom: '6px' }}>{scene.icon}</div>
-
                 <p
                   style={{
                     fontSize: '17px',

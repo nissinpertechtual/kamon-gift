@@ -161,15 +161,15 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
               flex: 1,
               padding: '8px',
               background: 'transparent',
-              border: '0.5px solid #e23b2e',
-              color: generating ? '#828990' : '#e23b2e',
+              border: '0.5px solid #efece4',
+              color: generating ? '#828990' : '#efece4',
               fontSize: '9px',
               letterSpacing: '0.12em',
               cursor: generating ? 'not-allowed' : 'pointer',
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               transition: 'background 0.2s ease',
             }}
-            onMouseEnter={(e) => !generating && (e.currentTarget.style.background = 'rgba(226,59,46,0.08)')}
+            onMouseEnter={(e) => !generating && (e.currentTarget.style.background = 'rgba(239,236,228,0.08)')}
             onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
           >
             {generating ? '生成中...' : 'AI 生成'}
@@ -259,7 +259,7 @@ export default function ProductAdminCard({ product: initialProduct }: { product:
             style={{
               marginTop: '10px',
               fontSize: '10px',
-              color: message.startsWith('エラー') ? '#ff6b5e' : '#e23b2e',
+              color: message.startsWith('エラー') ? '#ff6b5e' : '#efece4',
               fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
               letterSpacing: '0.05em',
             }}

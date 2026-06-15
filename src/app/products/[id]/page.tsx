@@ -113,7 +113,7 @@ export default async function ProductDetailPage({ params }: Props) {
               style={{
                 width: '40px',
                 height: '0.5px',
-                background: '#e23b2e',
+                background: '#efece4',
                 opacity: 0.4,
                 marginBottom: '28px',
               }}
@@ -154,7 +154,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <span
                     style={{
                       fontSize: '24px',
-                      color: '#e23b2e',
+                      color: '#efece4',
                       fontWeight: 300,
                       letterSpacing: '0.05em',
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
@@ -171,7 +171,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <div
                     style={{
                       fontSize: '16px',
-                      color: '#e23b2e',
+                      color: '#efece4',
                       fontWeight: 300,
                       fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                     }}
@@ -200,8 +200,8 @@ export default async function ProductDetailPage({ params }: Props) {
                   display: 'block',
                   width: '100%',
                   padding: '15px',
-                  background: '#e23b2e',
-                  color: '#f6f1e7',
+                  background: '#efece4',
+                  color: '#0b0b0c',
                   fontSize: '12px',
                   letterSpacing: '0.2em',
                   textAlign: 'center',
@@ -240,7 +240,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
                   }}
                 >
-                  <span style={{ color: '#e23b2e', flexShrink: 0 }}>✓</span>
+                  <span style={{ color: '#efece4', flexShrink: 0 }}>✓</span>
                   {point}
                 </div>
               ))}

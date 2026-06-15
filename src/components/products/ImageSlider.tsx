@@ -15,10 +15,10 @@ const KamonPlaceholder = () => (
     }}
   >
     <svg width="60" height="60" viewBox="0 0 72 72" style={{ opacity: 0.1 }}>
-      <circle cx="36" cy="36" r="28" fill="none" stroke="#e23b2e" strokeWidth="1" />
-      <circle cx="36" cy="36" r="14" fill="none" stroke="#e23b2e" strokeWidth="0.8" />
-      <line x1="36" y1="8" x2="36" y2="64" stroke="#e23b2e" strokeWidth="0.8" />
-      <line x1="8" y1="36" x2="64" y2="36" stroke="#e23b2e" strokeWidth="0.8" />
+      <circle cx="36" cy="36" r="28" fill="none" stroke="#efece4" strokeWidth="1" />
+      <circle cx="36" cy="36" r="14" fill="none" stroke="#efece4" strokeWidth="0.8" />
+      <line x1="36" y1="8" x2="36" y2="64" stroke="#efece4" strokeWidth="0.8" />
+      <line x1="8" y1="36" x2="64" y2="36" stroke="#efece4" strokeWidth="0.8" />
     </svg>
   </div>
 );
@@ -111,7 +111,7 @@ export function ImageSlider({ images, name }: Props) {
                 width: '56px',
                 height: '56px',
                 padding: 0,
-                border: `0.5px solid ${i === current ? '#e23b2e' : '#2a2f35'}`,
+                border: `0.5px solid ${i === current ? '#efece4' : '#2a2f35'}`,
                 background: 'none',
                 cursor: 'pointer',
                 overflow: 'hidden',
