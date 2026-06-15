@@ -24,16 +24,6 @@ function Crop({ corner }: { corner: 'tl' | 'tr' | 'bl' | 'br' }) {
   return <span aria-hidden="true" style={{ ...v, ...pos[corner] }} />;
 }
 
-const KamonGenpan = () => (
-  <svg width="62" height="62" viewBox="0 0 72 72" aria-hidden="true">
-    <circle cx="36" cy="36" r="30" fill="none" stroke="#e9e7e1" strokeWidth="1" opacity="0.9" />
-    <circle cx="36" cy="36" r="18" fill="none" stroke="#e9e7e1" strokeWidth="0.8" opacity="0.8" />
-    <line x1="36" y1="3" x2="36" y2="69" stroke="#5d636a" strokeWidth="0.6" />
-    <line x1="3" y1="36" x2="69" y2="36" stroke="#5d636a" strokeWidth="0.6" />
-    <circle cx="36" cy="36" r="3.4" fill="#e23b2e" />
-  </svg>
-);
-
 export default function HeroSection() {
   return (
     <section
@@ -50,18 +40,23 @@ export default function HeroSection() {
         overflow: 'hidden',
       }}
     >
-      {/* 背景: KV クロスフェード・スライドショー（実作品 or 情景） */}
+      {/* 背景: 生成ヒーロー画像（スローズーム）。複数指定時はクロスフェード */}
       <div className="kv-stage" aria-hidden="true">
-        {(SITE.heroPhotos.length ? SITE.heroPhotos : UNSPLASH_KV).map((src) => (
-          <div
-            key={src}
-            className="kv"
-            style={{
-              backgroundImage: `url('${src}')`,
-              filter: SITE.heroPhotos.length ? 'brightness(0.5) saturate(0.95)' : undefined,
-            }}
-          />
-        ))}
+        {(() => {
+          const imgs = SITE.heroPhotos.length ? SITE.heroPhotos : UNSPLASH_KV;
+          const filt = SITE.heroPhotos.length ? 'brightness(0.62) saturate(0.98)' : 'brightness(0.32) saturate(0.62)';
+          if (imgs.length === 1) {
+            return (
+              <div
+                className="cine-zoom"
+                style={{ position: 'absolute', inset: 0, backgroundImage: `url('${imgs[0]}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: filt }}
+              />
+            );
+          }
+          return imgs.map((src) => (
+            <div key={src} className="kv" style={{ backgroundImage: `url('${src}')`, filter: filt }} />
+          ));
+        })()}
       </div>
       {/* 墨のスクリム — 計器グレードの暗さと可読性、下端を地に溶かす */}
       <div
@@ -124,10 +119,6 @@ export default function HeroSection() {
 
       {/* 本体 */}
       <div style={{ position: 'relative', zIndex: 3 }}>
-        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '24px' }}>
-          <KamonGenpan />
-        </div>
-
         {/* eyebrow */}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', marginBottom: '26px' }}>
           <span className="sig-dots"><i className="ir" /><i className="gr" /></span>
