@@ -14,9 +14,43 @@ function getSupabase() {
   return createClient(url, key);
 }
 
-// POST: 本物の写真をアップロードして指定インデックスを差し替え（または先頭に追加）
+// POST: 画像を商品に追加/差し替え。
+//   - JSON {productId, publicUrl, index?}: 直アップロード済みURLを紐付け（大容量対応の本筋）
+//   - multipart(file): 互換のためのサーバ経由アップロード（小容量向け）
 export async function POST(req: NextRequest) {
   try {
+    const contentType = req.headers.get('content-type') ?? '';
+
+    // ── 直アップロード済みURLの紐付け（JSON） ──
+    if (contentType.includes('application/json')) {
+      const supabase = getSupabase();
+      const { productId, publicUrl, index } = await req.json().catch(() => ({}));
+      if (!productId || !publicUrl) {
+        return NextResponse.json({ error: 'productId と publicUrl は必須です' }, { status: 400 });
+      }
+      const { data: product } = await supabase
+        .from('products')
+        .select('images')
+        .eq('id', productId)
+        .single();
+      const cur: string[] = product?.images ?? [];
+      let next: string[];
+      if (index != null && index >= 0 && index < cur.length) {
+        next = [...cur];
+        next[index] = publicUrl;
+      } else {
+        next = [publicUrl, ...cur];
+      }
+      const { error: updErr } = await supabase
+        .from('products')
+        .update({ images: next })
+        .eq('id', productId);
+      if (updErr) {
+        return NextResponse.json({ error: `DB更新失敗: ${updErr.message}` }, { status: 500 });
+      }
+      return NextResponse.json({ success: true, imageUrl: publicUrl, images: next });
+    }
+
     const supabase = getSupabase();
     const formData = await req.formData();
     const productId = formData.get('productId') as string | null;

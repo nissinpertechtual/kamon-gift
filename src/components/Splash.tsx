@@ -5,14 +5,19 @@ import KamonBackground from './KamonBackground';
 import Logo from './Logo';
 
 export default function Splash() {
-  // ページロード毎に毎回表示する
-  const [visible, setVisible] = useState(true);
+  // セッション内で初回のみ表示（リピート訪問・ページ遷移では出さない）
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(false);
-    }, 2800);
-    return () => clearTimeout(timer);
+    if (typeof window === 'undefined') return;
+    if (sessionStorage.getItem('splash-shown')) return;
+    sessionStorage.setItem('splash-shown', '1');
+    const raf = requestAnimationFrame(() => setVisible(true));
+    const timer = setTimeout(() => setVisible(false), 2600);
+    return () => {
+      cancelAnimationFrame(raf);
+      clearTimeout(timer);
+    };
   }, []);
 
   if (!visible) return null;

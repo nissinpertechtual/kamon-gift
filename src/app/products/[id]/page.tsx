@@ -1,9 +1,11 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { ImageSlider } from '@/components/products/ImageSlider';
 import { StickyContactBar } from '@/components/products/StickyContactBar';
 import KamonBackground from '@/components/KamonBackground';
+import { SITE } from '@/lib/site';
 import type { Product } from '@/types/supabase';
 
 const MATERIAL_LABEL: Record<string, string> = {
@@ -14,6 +16,32 @@ const MATERIAL_LABEL: Record<string, string> = {
 };
 
 type Props = { params: Promise<{ id: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { id } = await params;
+  const supabase = await createClient();
+  const { data } = await supabase
+    .from('products')
+    .select('name_ja, description_ja, images')
+    .eq('id', id)
+    .eq('is_published', true)
+    .single();
+  if (!data) return { title: '商品 | 家紋の彫刻室' };
+  const title = `${data.name_ja} | 家紋の彫刻室`;
+  const description =
+    data.description_ja ?? `${data.name_ja} — レーザー彫刻による家紋ギフト。お見積もり・ご相談を承ります。`;
+  const img = data.images?.[0];
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      images: img ? [img] : undefined,
+    },
+  };
+}
 
 export default async function ProductDetailPage({ params }: Props) {
   const { id } = await params;
@@ -31,8 +59,30 @@ export default async function ProductDetailPage({ params }: Props) {
   const p = product as Product;
   const hasPrice = p.price !== null;
 
+  const productLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: p.name_ja,
+    description: p.description_ja ?? undefined,
+    image: p.images?.length ? p.images : undefined,
+    material: MATERIAL_LABEL[p.material] ?? p.material,
+    brand: { '@type': 'Brand', name: SITE.name },
+    ...(hasPrice
+      ? {
+          offers: {
+            '@type': 'Offer',
+            priceCurrency: 'JPY',
+            price: p.price,
+            availability: 'https://schema.org/InStock',
+            url: `${SITE.url}/products/${p.id}`,
+          },
+        }
+      : {}),
+  };
+
   return (
     <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }} />
       <KamonBackground />
 
       {/* スマホ固定お問い合わせバー */}

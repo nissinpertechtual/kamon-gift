@@ -182,6 +182,21 @@ export default function AdminLoginPage() {
           >
             {loading ? '...' : 'ログイン'}
           </button>
+
+          <a
+            href="/admin/reset-password"
+            style={{
+              textAlign: 'center',
+              color: '#828990',
+              fontSize: '11px',
+              letterSpacing: '0.05em',
+              textDecoration: 'none',
+              marginTop: '4px',
+              fontFamily: "'Cormorant Garamond', Georgia, serif",
+            }}
+          >
+            パスワードをお忘れですか？
+          </a>
         </form>
       </div>
     </div>

@@ -4,6 +4,7 @@ import { useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { readJson } from '@/lib/http';
+import { compressImage } from '@/lib/compress-image';
 
 type FormData = {
   name: string;
@@ -122,6 +123,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
     message: '',
   });
   const [kamonImage, setKamonImage] = useState<File | null>(null);
+  const [company, setCompany] = useState(''); // ハニーポット（人間は触らない）
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -143,10 +145,11 @@ export function ContactForm({ lang = 'ja' }: Props) {
     try {
       let kamonImageUrl: string | undefined;
 
-      // 家紋画像アップロード
+      // 家紋画像アップロード（送信前に圧縮）
       if (kamonImage) {
+        const compressed = await compressImage(kamonImage);
         const fd = new FormData();
-        fd.append('file', kamonImage);
+        fd.append('file', compressed);
         const uploadRes = await fetch('/api/upload/kamon-image', {
           method: 'POST',
           body: fd,
@@ -159,7 +162,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, kamonImageUrl }),
+        body: JSON.stringify({ ...form, kamonImageUrl, company }),
       });
       const data = await readJson<{ error?: string }>(res);
       if (!res.ok) throw new Error(data.error ?? '送信に失敗しました');
@@ -243,6 +246,18 @@ export function ContactForm({ lang = 'ja' }: Props) {
 
   return (
     <div style={{ maxWidth: '560px', margin: '0 auto' }}>
+      {/* ハニーポット（スパム対策・人間には不可視） */}
+      <input
+        type="text"
+        name="company"
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="sr-only"
+      />
+
       {/* お名前 + 電話番号 */}
       <div
         style={{

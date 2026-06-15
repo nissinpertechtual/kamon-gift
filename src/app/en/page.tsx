@@ -5,7 +5,6 @@ import KamonBackground from '@/components/KamonBackground';
 import { SectionLabel } from '@/components/ui/SectionLabel';
 import { EnProductCard } from '@/components/products/EnProductCard';
 import { CinematicBand } from '@/components/top/CinematicBand';
-import { ProductShowcase } from '@/components/top/ProductShowcase';
 import { SITE } from '@/lib/site';
 import type { Product } from '@/types/supabase';
 
@@ -82,7 +81,6 @@ export default async function EnTopPage() {
         sub="The femtosecond laser preserves the finest lines of your crest, exactly."
         lang="en"
       />
-      <ProductShowcase lang="en" />
 
       {/* ───── Scenes ───── */}
       <section style={{ padding: '120px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>

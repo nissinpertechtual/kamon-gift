@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { readJson } from '@/lib/http';
+import { compressImage } from '@/lib/compress-image';
 import type { Product } from '@/types/supabase';
 
 const SCENE_OPTIONS = [
@@ -33,6 +34,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
   const [saving, setSaving] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
 
@@ -90,23 +92,73 @@ export default function ProductEditForm({ product: initial }: { product: Product
   }
 
   async function handleUpload(e: React.ChangeEvent<HTMLInputElement>) {
-    const file = e.target.files?.[0];
-    if (!file) return;
+    const raw = e.target.files?.[0];
+    if (!raw) return;
     setUploading(true);
+    setProgress(0);
     setMessage('');
+    setError('');
     try {
-      const formData = new FormData();
-      formData.append('productId', initial.id);
-      formData.append('file', file);
-      const res = await fetch('/api/admin/product-image', { method: 'POST', body: formData });
-      const data = await readJson<{ error?: string; images?: string[] }>(res);
-      if (!res.ok) throw new Error(data.error ?? 'アップロード失敗');
-      if (data.images) setImages(data.images);
+      // 送信前に圧縮（画像のみ。長辺2000px / JPEG）
+      const file = await compressImage(raw);
+
+      let images: string[] | undefined;
+
+      if (file.size <= 4 * 1024 * 1024) {
+        // 小容量: サーバ経由（実績のある経路）
+        const fd = new FormData();
+        fd.append('productId', initial.id);
+        fd.append('file', file);
+        const res = await fetch('/api/admin/product-image', { method: 'POST', body: fd });
+        const data = await readJson<{ error?: string; images?: string[] }>(res);
+        if (!res.ok) throw new Error(data.error ?? 'アップロード失敗');
+        images = data.images;
+      } else {
+        // 大容量: Supabase へ直接アップロード（Netlifyの本体上限を回避）
+        const ext = file.name.split('.').pop() || 'jpg';
+        const r1 = await fetch('/api/admin/upload-url', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId: initial.id, ext }),
+        });
+        const sig = await readJson<{ path?: string; token?: string; publicUrl?: string; error?: string }>(r1);
+        if (!r1.ok || !sig.path || !sig.token || !sig.publicUrl) {
+          throw new Error(sig.error || '署名URLの取得に失敗しました');
+        }
+        const base = process.env.NEXT_PUBLIC_SUPABASE_URL;
+        const putUrl = `${base}/storage/v1/object/upload/sign/product-images/${sig.path}?token=${sig.token}`;
+        await new Promise<void>((resolve, reject) => {
+          const xhr = new XMLHttpRequest();
+          xhr.open('PUT', putUrl);
+          xhr.setRequestHeader('Content-Type', file.type || 'application/octet-stream');
+          xhr.setRequestHeader('x-upsert', 'false');
+          xhr.upload.onprogress = (ev) => {
+            if (ev.lengthComputable) setProgress(Math.round((ev.loaded / ev.total) * 100));
+          };
+          xhr.onload = () =>
+            xhr.status >= 200 && xhr.status < 300
+              ? resolve()
+              : reject(new Error(`アップロードに失敗しました (${xhr.status})`));
+          xhr.onerror = () => reject(new Error('ネットワークエラー'));
+          xhr.send(file);
+        });
+        const r2 = await fetch('/api/admin/product-image', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ productId: initial.id, publicUrl: sig.publicUrl }),
+        });
+        const data = await readJson<{ error?: string; images?: string[] }>(r2);
+        if (!r2.ok) throw new Error(data.error ?? '画像の登録に失敗しました');
+        images = data.images;
+      }
+
+      if (images) setImages(images);
       setMessage('画像をアップロードしました');
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'アップロード失敗');
     } finally {
       setUploading(false);
+      setProgress(0);
       if (fileInputRef.current) fileInputRef.current.value = '';
     }
   }
@@ -297,7 +349,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
             disabled={uploading}
             style={{ background: 'transparent', border: '0.5px solid #2a2f35', color: uploading ? '#828990' : '#9aa0a6', padding: '10px 24px', fontSize: '11px', letterSpacing: '0.1em', cursor: uploading ? 'not-allowed' : 'pointer', fontFamily: "'Cormorant Garamond', Georgia, serif" }}
           >
-            {uploading ? 'アップロード中...' : '＋ 画像を追加'}
+            {uploading ? (progress > 0 ? `アップロード中... ${progress}%` : 'アップロード中...') : '＋ 画像を追加'}
           </button>
           <input ref={fileInputRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={handleUpload} />
         </div>

@@ -28,7 +28,13 @@ export async function POST(req: NextRequest) {
       purpose,
       budget,
       message,
+      company, // ハニーポット（人間は空のまま）
     } = body;
+
+    // ハニーポット: ボットは hidden 入力を埋めがち → 成功を装って静かに破棄
+    if (company) {
+      return NextResponse.json({ success: true });
+    }
 
     // バリデーション
     if (!name || !email) {
@@ -45,6 +51,24 @@ export async function POST(req: NextRequest) {
     }
 
     const supabase = getSupabase();
+
+    // 連投制限: 同一メールから直近60秒以内の送信は弾く
+    try {
+      const since = new Date(Date.now() - 60_000).toISOString();
+      const { count } = await supabase
+        .from('inquiries')
+        .select('id', { count: 'exact', head: true })
+        .eq('email', email)
+        .gte('created_at', since);
+      if ((count ?? 0) > 0) {
+        return NextResponse.json(
+          { error: '送信が続けて行われました。しばらくお待ちください。' },
+          { status: 429 }
+        );
+      }
+    } catch {
+      // 制限チェック失敗は無視（送信は継続）
+    }
 
     // 1. Supabase に保存
     const { data: inquiry, error: dbError } = await supabase
