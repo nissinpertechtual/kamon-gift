@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { readJson } from '@/lib/http';
 
 const SCENE_OPTIONS = [
   { value: '', label: '— 指定なし —' },
@@ -57,11 +58,8 @@ export default function AdminProductsNewPage() {
           images: [],
         }),
       });
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || '保存に失敗しました');
-      }
-      const data = await res.json();
+      const data = await readJson<{ id?: string; error?: string }>(res);
+      if (!res.ok) throw new Error(data.error || '保存に失敗しました');
       // 作成後は編集ページへ（画像追加のため）
       router.push(`/admin/products/${data.id}`);
     } catch (err: unknown) {

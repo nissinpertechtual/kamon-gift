@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { readJson } from '@/lib/http';
 
 type FormData = {
   name: string;
@@ -150,7 +151,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
           method: 'POST',
           body: fd,
         });
-        const uploadData = await uploadRes.json();
+        const uploadData = await readJson<{ url?: string; error?: string }>(uploadRes);
         if (!uploadRes.ok) throw new Error(uploadData.error ?? '画像のアップロードに失敗しました');
         kamonImageUrl = uploadData.url;
       }
@@ -160,7 +161,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, kamonImageUrl }),
       });
-      const data = await res.json();
+      const data = await readJson<{ error?: string }>(res);
       if (!res.ok) throw new Error(data.error ?? '送信に失敗しました');
 
       setSubmitted(true);

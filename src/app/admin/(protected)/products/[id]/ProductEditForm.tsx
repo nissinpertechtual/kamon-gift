@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
+import { readJson } from '@/lib/http';
 import type { Product } from '@/types/supabase';
 
 const SCENE_OPTIONS = [
@@ -64,10 +65,8 @@ export default function ProductEditForm({ product: initial }: { product: Product
           is_active: form.is_active,
         }),
       });
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || '保存に失敗しました');
-      }
+      const data = await readJson<{ error?: string }>(res);
+      if (!res.ok) throw new Error(data.error || '保存に失敗しました');
       setMessage('保存しました');
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : '保存に失敗しました');
@@ -81,10 +80,8 @@ export default function ProductEditForm({ product: initial }: { product: Product
     setDeleting(true);
     try {
       const res = await fetch(`/api/admin/products/${initial.id}`, { method: 'DELETE' });
-      if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error || '削除に失敗しました');
-      }
+      const data = await readJson<{ error?: string }>(res);
+      if (!res.ok) throw new Error(data.error || '削除に失敗しました');
       router.push('/admin/products');
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : '削除に失敗しました');
@@ -102,9 +99,9 @@ export default function ProductEditForm({ product: initial }: { product: Product
       formData.append('productId', initial.id);
       formData.append('file', file);
       const res = await fetch('/api/admin/product-image', { method: 'POST', body: formData });
-      const data = await res.json();
+      const data = await readJson<{ error?: string; images?: string[] }>(res);
       if (!res.ok) throw new Error(data.error ?? 'アップロード失敗');
-      setImages(data.images);
+      if (data.images) setImages(data.images);
       setMessage('画像をアップロードしました');
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : 'アップロード失敗');
@@ -122,9 +119,9 @@ export default function ProductEditForm({ product: initial }: { product: Product
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ productId: initial.id, index }),
       });
-      const data = await res.json();
+      const data = await readJson<{ error?: string; images?: string[] }>(res);
       if (!res.ok) throw new Error(data.error ?? '削除失敗');
-      setImages(data.images);
+      if (data.images) setImages(data.images);
       setMessage('画像を削除しました');
     } catch (err: unknown) {
       setError(err instanceof Error ? err.message : '削除失敗');
