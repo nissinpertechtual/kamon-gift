@@ -10,6 +10,16 @@ export type InquiryData = {
   message?: string;
 };
 
+// ユーザー入力をHTMLメールに埋め込む前にエスケープ（HTML/フィッシング注入対策）
+function esc(v: unknown): string {
+  return String(v ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // 顧客への自動返信
 export function customerAutoReply(data: InquiryData): string {
   return `
@@ -35,7 +45,7 @@ export function customerAutoReply(data: InquiryData): string {
   <div class="wrap">
     <div class="logo">家紋の彫刻室</div>
     <div class="divider"></div>
-    <h1>${data.name} 様</h1>
+    <h1>${esc(data.name)} 様</h1>
     <p>
       お問い合わせいただきありがとうございます。<br>
       内容を確認のうえ、担当者より2〜3営業日以内にご連絡いたします。
@@ -43,12 +53,12 @@ export function customerAutoReply(data: InquiryData): string {
     <div class="divider"></div>
     <p style="font-size:11px; color:#828990; letter-spacing:0.1em;">お問い合わせ内容</p>
     <table class="table">
-      ${data.productName ? `<tr><td>商品</td><td>${data.productName}</td></tr>` : ''}
-      ${data.kamonName ? `<tr><td>家紋名</td><td>${data.kamonName}</td></tr>` : ''}
-      ${data.quantity ? `<tr><td>数量</td><td>${data.quantity}個</td></tr>` : ''}
-      ${data.purpose ? `<tr><td>用途</td><td>${data.purpose}</td></tr>` : ''}
-      ${data.budget ? `<tr><td>ご予算</td><td>${data.budget}</td></tr>` : ''}
-      ${data.message ? `<tr><td>メッセージ</td><td style="white-space:pre-wrap">${data.message}</td></tr>` : ''}
+      ${data.productName ? `<tr><td>商品</td><td>${esc(data.productName)}</td></tr>` : ''}
+      ${data.kamonName ? `<tr><td>家紋名</td><td>${esc(data.kamonName)}</td></tr>` : ''}
+      ${data.quantity ? `<tr><td>数量</td><td>${esc(data.quantity)}個</td></tr>` : ''}
+      ${data.purpose ? `<tr><td>用途</td><td>${esc(data.purpose)}</td></tr>` : ''}
+      ${data.budget ? `<tr><td>ご予算</td><td>${esc(data.budget)}</td></tr>` : ''}
+      ${data.message ? `<tr><td>メッセージ</td><td style="white-space:pre-wrap">${esc(data.message)}</td></tr>` : ''}
     </table>
     <div class="divider"></div>
     <p>
@@ -69,7 +79,7 @@ export function customerAutoReply(data: InquiryData): string {
 // 社内通知メール
 export function adminNotification(data: InquiryData): string {
   const baseUrl =
-    process.env.NEXT_PUBLIC_BASE_URL ?? 'https://spiffy-tiramisu-ef114a.netlify.app';
+    process.env.NEXT_PUBLIC_BASE_URL ?? 'https://kamon-gift.netlify.app';
   return `
 <!DOCTYPE html>
 <html lang="ja">
@@ -91,15 +101,15 @@ export function adminNotification(data: InquiryData): string {
   <div class="wrap">
     <h1>新着問い合わせ <span class="badge">NEW</span></h1>
     <table class="table">
-      <tr><td>お名前</td><td>${data.name}</td></tr>
-      <tr><td>メール</td><td>${data.email}</td></tr>
-      ${data.phone ? `<tr><td>電話番号</td><td>${data.phone}</td></tr>` : ''}
-      ${data.productName ? `<tr><td>商品名</td><td>${data.productName}</td></tr>` : ''}
-      ${data.kamonName ? `<tr><td>家紋名</td><td>${data.kamonName}</td></tr>` : ''}
-      ${data.quantity ? `<tr><td>数量</td><td>${data.quantity}個</td></tr>` : ''}
-      ${data.purpose ? `<tr><td>用途</td><td>${data.purpose}</td></tr>` : ''}
-      ${data.budget ? `<tr><td>ご予算</td><td>${data.budget}</td></tr>` : ''}
-      ${data.message ? `<tr><td>メッセージ</td><td style="white-space:pre-wrap">${data.message}</td></tr>` : ''}
+      <tr><td>お名前</td><td>${esc(data.name)}</td></tr>
+      <tr><td>メール</td><td>${esc(data.email)}</td></tr>
+      ${data.phone ? `<tr><td>電話番号</td><td>${esc(data.phone)}</td></tr>` : ''}
+      ${data.productName ? `<tr><td>商品名</td><td>${esc(data.productName)}</td></tr>` : ''}
+      ${data.kamonName ? `<tr><td>家紋名</td><td>${esc(data.kamonName)}</td></tr>` : ''}
+      ${data.quantity ? `<tr><td>数量</td><td>${esc(data.quantity)}個</td></tr>` : ''}
+      ${data.purpose ? `<tr><td>用途</td><td>${esc(data.purpose)}</td></tr>` : ''}
+      ${data.budget ? `<tr><td>ご予算</td><td>${esc(data.budget)}</td></tr>` : ''}
+      ${data.message ? `<tr><td>メッセージ</td><td style="white-space:pre-wrap">${esc(data.message)}</td></tr>` : ''}
     </table>
     <a href="${baseUrl}/admin/inquiries" class="link-btn">管理画面で確認する</a>
   </div>

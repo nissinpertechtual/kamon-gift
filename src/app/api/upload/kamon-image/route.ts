@@ -1,9 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
-import { MAX_UPLOAD_BYTES, MAX_UPLOAD_LABEL } from '@/lib/upload-limits';
 
 export const runtime = 'nodejs';
 export const maxDuration = 60;
+
+// 認証なしの公開エンドポイント（問い合わせフォームの家紋画像添付に使用）。
+// 悪用を防ぐため、画像形式のみ・サイズ上限を絞る。
+const PUBLIC_MAX_BYTES = 15 * 1024 * 1024; // 15MB
+const ALLOWED_TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/heic', 'image/heif'];
+const ALLOWED_EXT = ['jpg', 'jpeg', 'png', 'webp', 'gif', 'heic', 'heif'];
 
 function getSupabase() {
   return createClient(
@@ -21,15 +26,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'ファイルがありません' }, { status: 400 });
     }
 
-    // ファイルサイズ制限
-    if (file.size > MAX_UPLOAD_BYTES) {
+    // 画像形式のみ許可
+    if (!ALLOWED_TYPES.includes(file.type)) {
       return NextResponse.json(
-        { error: `ファイルサイズは${MAX_UPLOAD_LABEL}以下にしてください` },
+        { error: '画像ファイル（JPEG / PNG / WebP / GIF / HEIC）のみアップロードできます' },
         { status: 400 }
       );
     }
 
-    const ext = file.name.split('.').pop()?.toLowerCase() ?? 'jpg';
+    // ファイルサイズ制限
+    if (file.size > PUBLIC_MAX_BYTES) {
+      return NextResponse.json(
+        { error: 'ファイルサイズは15MB以下にしてください' },
+        { status: 400 }
+      );
+    }
+
+    const rawExt = file.name.split('.').pop()?.toLowerCase() ?? 'jpg';
+    const ext = ALLOWED_EXT.includes(rawExt) ? rawExt : 'jpg';
     const filename = `inquiry_${Date.now()}_${Math.random().toString(36).slice(2, 8)}.${ext}`;
     const buffer = Buffer.from(await file.arrayBuffer());
 

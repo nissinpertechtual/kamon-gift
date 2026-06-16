@@ -9,8 +9,8 @@ export async function PATCH(
   try {
     const { id } = await params;
     const supabase = await createClient();
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await req.json();
     const { name, name_ja, description_ja, price, material, scene, sort_order, is_published, is_active } = body;
@@ -42,7 +42,7 @@ export async function PATCH(
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    await logAudit({ actor: session.user?.email ?? session.user?.id, action: 'update', entity: 'product', entityId: id, detail: { name_ja } });
+    await logAudit({ actor: user.email ?? user.id, action: 'update', entity: 'product', entityId: id, detail: { name_ja } });
     return NextResponse.json(data);
   } catch (err) {
     console.error('Product PATCH error:', err);
@@ -57,8 +57,8 @@ export async function DELETE(
   try {
     const { id } = await params;
     const supabase = await createClient();
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const { error } = await supabase.from('products').delete().eq('id', id);
     if (error) {
@@ -66,7 +66,7 @@ export async function DELETE(
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    await logAudit({ actor: session.user?.email ?? session.user?.id, action: 'delete', entity: 'product', entityId: id });
+    await logAudit({ actor: user.email ?? user.id, action: 'delete', entity: 'product', entityId: id });
     return NextResponse.json({ success: true });
   } catch (err) {
     console.error('Product DELETE error:', err);

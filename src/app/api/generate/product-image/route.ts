@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { generateProductImage } from '@/lib/gemini';
 import { createClient } from '@supabase/supabase-js';
+import { createClient as createServerSupabase } from '@/lib/supabase/server';
 
 // リクエスト時に初期化（ビルド時に環境変数がなくてもエラーにならないよう遅延）
 function getSupabase() {
@@ -12,6 +13,13 @@ function getSupabase() {
 
 export async function POST(req: NextRequest) {
   try {
+    // 認証チェック（管理者のみ）— 有料の画像生成APIを保護
+    const auth = await createServerSupabase();
+    const { data: { user } } = await auth.auth.getUser();
+    if (!user) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
     const body = await req.json().catch(() => ({}));
     const { productId, productName, material } = body;
 

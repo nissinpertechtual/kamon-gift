@@ -5,8 +5,8 @@ import { logAudit } from '@/lib/audit';
 export async function POST(req: NextRequest) {
   try {
     const supabase = await createClient();
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
 
     const body = await req.json();
     const { name, name_ja, description_ja, price, material, scene, sort_order, is_published, is_active, images } = body;
@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 
-    await logAudit({ actor: session.user?.email ?? session.user?.id, action: 'create', entity: 'product', entityId: data?.id, detail: { name_ja } });
+    await logAudit({ actor: user.email ?? user.id, action: 'create', entity: 'product', entityId: data?.id, detail: { name_ja } });
     return NextResponse.json(data, { status: 201 });
   } catch (err) {
     console.error('Product POST error:', err);

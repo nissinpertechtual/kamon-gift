@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
+import { createClient as createServerSupabase } from '@/lib/supabase/server';
 import { MAX_UPLOAD_BYTES, MAX_UPLOAD_LABEL } from '@/lib/upload-limits';
 
 // Node.js ランタイム上で大きい multipart を扱う
@@ -14,11 +15,21 @@ function getSupabase() {
   return createClient(url, key);
 }
 
+// 管理者認証（service-roleで特権操作を行うため、必ず先に確認する）
+async function requireAdmin(): Promise<boolean> {
+  const auth = await createServerSupabase();
+  const { data: { user } } = await auth.auth.getUser();
+  return !!user;
+}
+
 // POST: 画像を商品に追加/差し替え。
 //   - JSON {productId, publicUrl, index?}: 直アップロード済みURLを紐付け（大容量対応の本筋）
 //   - multipart(file): 互換のためのサーバ経由アップロード（小容量向け）
 export async function POST(req: NextRequest) {
   try {
+    if (!(await requireAdmin())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     const contentType = req.headers.get('content-type') ?? '';
 
     // ── 直アップロード済みURLの紐付け（JSON） ──
@@ -122,6 +133,9 @@ export async function POST(req: NextRequest) {
 // DELETE: 指定インデックスの画像を削除
 export async function DELETE(req: NextRequest) {
   try {
+    if (!(await requireAdmin())) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
     const supabase = getSupabase();
     const { productId, index } = await req.json().catch(() => ({}));
 

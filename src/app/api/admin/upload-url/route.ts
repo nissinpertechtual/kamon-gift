@@ -10,8 +10,8 @@ export async function POST(req: NextRequest) {
   try {
     // 認証チェック（管理者のみ）
     const supabase = await createClient();
-    const { data: { session } } = await supabase.auth.getSession();
-    if (!session) {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 

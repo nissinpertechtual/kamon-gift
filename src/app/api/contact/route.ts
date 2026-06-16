@@ -135,10 +135,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, inquiryId: inquiry.id });
   } catch (error) {
-    const message = error instanceof Error ? error.message : '不明なエラー';
+    // 詳細はサーバーログのみに記録し、クライアントには内部情報を返さない
     console.error('contact route error:', error);
     return NextResponse.json(
-      { error: `送信に失敗しました。時間をおいて再度お試しください。（${message}）` },
+      { error: '送信に失敗しました。時間をおいて再度お試しください。' },
       { status: 500 }
     );
   }
