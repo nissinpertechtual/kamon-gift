@@ -187,53 +187,62 @@ export default async function ProductDetailPage({ params }: Props) {
             )}
 
             {/* 価格 */}
-            <div style={{ marginBottom: '28px' }}>
+            <div
+              style={{
+                marginBottom: '28px',
+                padding: '18px 20px',
+                border: '0.5px solid #2a2a26',
+                background: '#111113',
+              }}
+            >
               <div
                 style={{
-                  fontSize: '9px',
-                  color: '#828990',
-                  letterSpacing: '0.2em',
-                  marginBottom: '8px',
+                  fontSize: '10px',
+                  color: '#9a958b',
+                  letterSpacing: '0.22em',
+                  marginBottom: '10px',
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
                 参考価格
               </div>
               {hasPrice ? (
-                <div>
+                <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '4px 8px' }}>
                   <span
                     style={{
-                      fontSize: '24px',
-                      color: '#efece4',
-                      fontWeight: 300,
-                      letterSpacing: '0.05em',
+                      fontSize: '34px',
+                      color: '#f7f4ec',
+                      fontWeight: 500,
+                      letterSpacing: '0.02em',
+                      lineHeight: 1,
                       fontFamily: "'Cormorant Garamond', Georgia, serif",
                     }}
                   >
-                    ¥{p.price!.toLocaleString()}〜
+                    ¥{p.price!.toLocaleString()}
+                    <span style={{ fontSize: '18px', marginLeft: '2px' }}>〜</span>
                   </span>
-                  <span style={{ fontSize: '11px', color: '#828990', marginLeft: '6px' }}>
-                    （税込・参考価格）
-                  </span>
+                  <span style={{ fontSize: '11px', color: '#9a958b' }}>（税込・参考価格）</span>
                 </div>
               ) : (
                 <div>
                   <div
                     style={{
-                      fontSize: '16px',
-                      color: '#efece4',
-                      fontWeight: 300,
-                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                      fontSize: '24px',
+                      color: '#f7f4ec',
+                      fontWeight: 500,
+                      letterSpacing: '0.04em',
+                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif",
                     }}
                   >
                     お見積もり
                   </div>
                   <div
                     style={{
-                      fontSize: '10px',
-                      color: '#828990',
-                      marginTop: '6px',
-                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+                      fontSize: '11px',
+                      color: '#9a958b',
+                      marginTop: '8px',
+                      lineHeight: 1.8,
+                      fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif",
                     }}
                   >
                     家紋・仕様によって異なります。お気軽にご相談ください。

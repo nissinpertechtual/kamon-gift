@@ -94,7 +94,7 @@ export default function HeroSection() {
               fontWeight: 400,
             }}
           >
-            金属・革・ガラスへの、繊細なレーザー彫刻。
+            金属・アクリル・ガラスへの、繊細なレーザー彫刻。
           </p>
 
           <div className="hero-cta-buttons">

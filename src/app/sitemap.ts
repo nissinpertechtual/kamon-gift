@@ -13,14 +13,12 @@ const ROUTES: RouteConfig[] = [
   { path: '/contact', changeFrequency: 'monthly', priority: 0.8 },
   { path: '/faq', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/column', changeFrequency: 'weekly', priority: 0.7 },
-  { path: '/buyer', changeFrequency: 'monthly', priority: 0.6 },
   { path: '/legal', changeFrequency: 'yearly', priority: 0.3 },
   { path: '/en', changeFrequency: 'weekly', priority: 0.9 },
   { path: '/en/products', changeFrequency: 'weekly', priority: 0.8 },
   { path: '/en/contact', changeFrequency: 'monthly', priority: 0.7 },
   { path: '/en/faq', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/en/legal', changeFrequency: 'yearly', priority: 0.3 },
-  { path: '/en/buyer', changeFrequency: 'monthly', priority: 0.5 },
   { path: '/en/column', changeFrequency: 'weekly', priority: 0.6 },
 ]
 

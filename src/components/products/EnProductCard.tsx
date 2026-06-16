@@ -86,9 +86,10 @@ export function EnProductCard({ product }: { product: ProductEn }) {
             </span>
             <span
               style={{
-                fontSize: '11px',
-                color: '#efece4',
-                fontWeight: 300,
+                fontSize: '19px',
+                color: '#f5f2ea',
+                fontWeight: 500,
+                letterSpacing: '0.02em',
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
               }}
             >

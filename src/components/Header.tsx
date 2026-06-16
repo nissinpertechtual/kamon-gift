@@ -30,8 +30,6 @@ export default function Header() {
   const logoHref = isEn ? '/en' : '/';
   const langHref = isEn ? '/' : '/en';
   const langLabel = isEn ? 'JP' : 'EN';
-  const buyerLabel = isEn ? 'For Buyers →' : '法人・卸売の方はこちら →';
-  const buyerHref = '/buyer';
 
   return (
     <>
@@ -173,26 +171,6 @@ export default function Header() {
             >
               {langLabel}
             </Link>
-
-            {/* 法人・卸売（右端に視覚的に分離） */}
-            <Link
-              href={buyerHref}
-              style={{
-                color: '#828990',
-                fontSize: '9px',
-                letterSpacing: '0.05em',
-                fontWeight: 300,
-                textDecoration: 'none',
-                border: '0.5px solid #2c3137',
-                padding: '4px 10px',
-                whiteSpace: 'nowrap',
-                paddingLeft: '32px',    /* 修正: 右端に寄せ */
-                borderLeft: 'none',
-                transition: 'color 0.3s ease',
-              }}
-            >
-              {buyerLabel}
-            </Link>
           </nav>
 
           {/* ハンバーガー（モバイル） */}
@@ -327,24 +305,6 @@ export default function Header() {
                 }}
               >
                 {langLabel}
-              </Link>
-
-              <Link
-                href={buyerHref}
-                onClick={() => setDrawerOpen(false)}
-                style={{
-                  color: '#828990',
-                  fontSize: '10px',
-                  letterSpacing: '0.05em',
-                  fontWeight: 300,
-                  textDecoration: 'none',
-                  border: '0.5px solid #2a2f35',
-                  padding: '6px 12px',
-                  display: 'inline-block',
-                  width: 'fit-content',
-                }}
-              >
-                {buyerLabel}
               </Link>
             </nav>
           </div>

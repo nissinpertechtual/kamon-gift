@@ -14,11 +14,11 @@ const STORY_CONTENT = [
     imagePosition: 'right' as const,
   },
   {
-    heading: '0.1ミクロンの彫刻。',
-    body: `フェムト秒レーザーは、1000兆分の1秒という\n極めて短いパルスで素材を加工します。\n熱を生まず、金属にも革にもガラスにも。\n家紋の繊細な線を、そのままの精度で刻みます。`,
-    // 精密工具を扱う職人
-    imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=70&auto=format&fit=crop',
-    imageAlt: '精密な職人の手仕事',
+    heading: '一つの紋に、願いがある。',
+    body: `家紋の多くは、草花や鳥、自然のかたちを写したもの。\nそこには、繁栄や長寿、家を守るという願いが\nそっと込められています。\n受け継がれてきたのは、紋様だけではありません。`,
+    // 受け継がれる紋様・和の意匠
+    imageUrl: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=70&auto=format&fit=crop',
+    imageAlt: '和の意匠と受け継がれる紋様',
     imagePosition: 'left' as const,
   },
   {

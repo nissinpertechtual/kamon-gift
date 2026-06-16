@@ -5,12 +5,11 @@ export const EN = {
     column: 'Journal',
     faq: 'FAQ',
     contact: 'Contact',
-    buyer: 'For Wholesale Buyers →',
   },
   hero: {
     label: 'Laser-engraved Kamon Gifts',
     heading: 'Your family crest,\nengraved for eternity.',
-    sub: 'Delicate laser engraving on metal, leather and glass.\nFor weddings, celebrations and gifts you’ll treasure.',
+    sub: 'Delicate laser engraving on metal, acrylic and glass.\nFor weddings, celebrations and gifts you’ll treasure.',
     ctaShop: 'View Products',
     ctaOrder: 'Make an Inquiry',
     trust: ['From a single piece', 'No crest? We’ll help you find it', 'Ships in about 2–3 weeks'],
@@ -23,8 +22,8 @@ export const EN = {
       body: 'Japan is home to over ten thousand family crests.\nFrom samurai clans to merchant families,\neach kamon carries the memory of a name.',
     },
     block2: {
-      heading: 'Engraved to 0.1 micron.',
-      body: 'Femtosecond laser technology pulses\nat one quadrillionth of a second.\nNo heat. No distortion.\nThe finest lines of your kamon, preserved exactly.',
+      heading: 'Every crest holds a wish.',
+      body: 'Most kamon are drawn from plants, birds\nand the forms of nature —\nquiet wishes for prosperity, long life\nand the protection of a home.',
     },
     block3: {
       heading: 'A gift that carries meaning.',

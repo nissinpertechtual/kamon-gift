@@ -10,6 +10,12 @@ import type { Product } from '@/types/supabase';
 
 const SERIF = "'Cormorant Garamond', Georgia, serif";
 
+const STORY_IMAGES = [
+  { url: 'https://images.unsplash.com/photo-1557409518-691ebcd96038?w=900&q=70&auto=format&fit=crop', alt: 'Japanese landscape at dusk', position: 'right' as const },
+  { url: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=900&q=70&auto=format&fit=crop', alt: 'Traditional Japanese motif', position: 'left' as const },
+  { url: 'https://images.unsplash.com/photo-1512909006721-3d6018887383?w=900&q=70&auto=format&fit=crop', alt: 'Beautifully wrapped gift', position: 'right' as const },
+];
+
 export default async function EnTopPage() {
   const supabase = await createClient();
   const { data } = await supabase
@@ -58,19 +64,53 @@ export default async function EnTopPage() {
 
       {/* ───── Story ───── */}
       <section id="story" style={{ padding: '120px 24px', position: 'relative', zIndex: 1 }}>
-        <div style={{ maxWidth: '620px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '880px', margin: '0 auto' }}>
           <SectionLabel en={EN.story.label} />
-          {[EN.story.block1, EN.story.block2, EN.story.block3].map((block, i) => (
-            <div key={i}>
-              <h2 style={{ fontSize: 'clamp(20px, 3.4vw, 28px)', fontWeight: 500, letterSpacing: '0.03em', lineHeight: 1.5, color: '#e9e7e1', marginBottom: '18px', fontFamily: SERIF }}>
-                {block.heading}
-              </h2>
-              <p style={{ fontSize: '14px', lineHeight: 2.3, color: '#9aa0a6', letterSpacing: '0.02em', whiteSpace: 'pre-line', fontFamily: SERIF, fontStyle: 'italic' }}>
-                {block.body}
-              </p>
-              {i < 2 && <div style={{ width: '40px', height: '0.5px', background: 'rgba(239,236,228,0.4)', margin: '56px auto' }} />}
-            </div>
-          ))}
+          {[EN.story.block1, EN.story.block2, EN.story.block3].map((block, i) => {
+            const img = STORY_IMAGES[i];
+            return (
+              <div key={i}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                    gap: '48px',
+                    alignItems: 'center',
+                    direction: img.position === 'left' ? 'rtl' : 'ltr',
+                  }}
+                >
+                  {/* Text */}
+                  <div style={{ direction: 'ltr' }}>
+                    <h2 style={{ fontSize: 'clamp(20px, 3.4vw, 28px)', fontWeight: 500, letterSpacing: '0.03em', lineHeight: 1.5, color: '#e9e7e1', marginBottom: '18px', fontFamily: SERIF }}>
+                      {block.heading}
+                    </h2>
+                    <p style={{ fontSize: '14px', lineHeight: 2.3, color: '#9aa0a6', letterSpacing: '0.02em', whiteSpace: 'pre-line', fontFamily: SERIF, fontStyle: 'italic', margin: 0 }}>
+                      {block.body}
+                    </p>
+                  </div>
+                  {/* Image */}
+                  <div style={{ direction: 'ltr', position: 'relative', aspectRatio: '4/3', overflow: 'hidden' }}>
+                    <div
+                      role="img"
+                      aria-label={img.alt}
+                      style={{ position: 'absolute', inset: 0, backgroundImage: `url(${img.url})`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.56) saturate(0.8)', zIndex: 0 }}
+                    />
+                    <div
+                      style={{
+                        position: 'absolute',
+                        inset: 0,
+                        background: img.position === 'right'
+                          ? 'linear-gradient(to right, #0b0c0e 0%, transparent 40%)'
+                          : 'linear-gradient(to left, #0b0c0e 0%, transparent 40%)',
+                        zIndex: 1,
+                      }}
+                    />
+                  </div>
+                </div>
+                {i < 2 && <div style={{ width: '40px', height: '0.5px', background: 'rgba(239,236,228,0.4)', margin: '72px auto' }} />}
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -78,7 +118,7 @@ export default async function EnTopPage() {
       <CinematicBand
         eyebrow="Femtosecond Laser"
         caption={'Engraved with light.'}
-        sub="The femtosecond laser preserves the finest lines of your crest, exactly."
+        sub="The finest lines of your crest, preserved exactly."
         lang="en"
       />
 
