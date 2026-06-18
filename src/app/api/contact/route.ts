@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { createClient } from '@supabase/supabase-js';
 import { customerAutoReply, adminNotification } from '@/lib/email/templates';
+import { SITE } from '@/lib/site';
 
 function getResend() {
   return new Resend(process.env.RESEND_API_KEY!);
@@ -106,7 +107,10 @@ export async function POST(req: NextRequest) {
       message,
     };
 
-    const fromAddress = `家紋の彫刻室 <${process.env.CONTACT_FROM_EMAIL}>`;
+    // 送信元は必ず認証済みドメイン（SITE.mailFrom）を使用する。
+    // Netlify 環境変数 CONTACT_FROM_EMAIL には未認証の kamongift.com が
+    // 残っているため、あえて参照せずコード側の単一設定で固定する。
+    const fromAddress = `${SITE.mailFromName} <${SITE.mailFrom}>`;
 
     // 2. 顧客への自動返信
     const { error: customerMailError } = await getResend().emails.send({

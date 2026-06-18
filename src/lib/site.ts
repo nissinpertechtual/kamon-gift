@@ -10,6 +10,14 @@ export const SITE = {
   tel: '048-754-6511',
   telHref: 'tel:+81487546511',
   email: 'noreply@kamongift.com',
+
+  // ── 問い合わせメールの送信元（Resend） ───────────────────────
+  // Resend は「認証済みドメイン」からのみ送信できる。
+  // 現状 kamongift.com は未認証（failed）のため、認証済みの
+  // en.pertechtual.co.jp を送信元に使用する。
+  // kamongift.com の DNS 認証が完了したら 'noreply@kamongift.com' に戻すだけでよい。
+  mailFrom: 'noreply@en.pertechtual.co.jp',
+  mailFromName: '家紋の彫刻室',
   addressRegion: '埼玉県',
   addressLocality: '春日部市',
   lineUrl: '', // 例: 'https://lin.ee/xxxxxxx'（未設定の間は非表示）
