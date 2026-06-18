@@ -30,6 +30,17 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Netlify サブドメインへのアクセスは独自ドメインへ恒久リダイレクト（重複コンテンツ防止・正規化）
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'kamon-gift.netlify.app' }],
+        destination: 'https://kamongift.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
