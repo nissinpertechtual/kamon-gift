@@ -13,10 +13,8 @@ export const SITE = {
 
   // ── 問い合わせメールの送信元（Resend） ───────────────────────
   // Resend は「認証済みドメイン」からのみ送信できる。
-  // 現状 kamongift.com は未認証（failed）のため、認証済みの
-  // en.pertechtual.co.jp を送信元に使用する。
-  // kamongift.com の DNS 認証が完了したら 'noreply@kamongift.com' に戻すだけでよい。
-  mailFrom: 'noreply@en.pertechtual.co.jp',
+  // kamongift.com は Resend で認証済み（verified）。
+  mailFrom: 'noreply@kamongift.com',
   mailFromName: '家紋の彫刻室',
   addressRegion: '埼玉県',
   addressLocality: '春日部市',
