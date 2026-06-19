@@ -83,7 +83,7 @@ export function ProductCard({ product }: { product: ProductItem }) {
           <div
             style={{
               aspectRatio: '4/3',
-              background: '#15181b',
+              background: '#202127',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

@@ -6,7 +6,7 @@ export default function Loading() {
     <div
       style={{
         minHeight: '100vh',
-        background: '#0b0b0c',
+        background: '#17181c',
         color: '#9a958b',
         display: 'flex',
         alignItems: 'center',

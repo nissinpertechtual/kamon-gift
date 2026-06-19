@@ -48,7 +48,7 @@ export function CinematicBand({ eyebrow, caption, sub, image, lang = 'ja' }: Pro
           loop
           playsInline
           poster={poster}
-          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.5) saturate(0.85)', zIndex: 0 }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.64) saturate(0.85)', zIndex: 0 }}
         >
           <source src={SITE.craftVideo} />
         </video>
@@ -56,13 +56,13 @@ export function CinematicBand({ eyebrow, caption, sub, image, lang = 'ja' }: Pro
         <div
           aria-hidden="true"
           className="cine-zoom"
-          style={{ position: 'absolute', inset: 0, backgroundImage: `url('${poster}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.5) saturate(0.85)', zIndex: 0 }}
+          style={{ position: 'absolute', inset: 0, backgroundImage: `url('${poster}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.64) saturate(0.85)', zIndex: 0 }}
         />
       )}
 
       <div
         aria-hidden="true"
-        style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to right, rgba(11,11,12,0.82) 0%, rgba(11,11,12,0.45) 50%, rgba(11,11,12,0.15) 100%), linear-gradient(to bottom, #0b0b0c 0%, transparent 22%, transparent 78%, #0b0b0c 100%)' }}
+        style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to right, rgba(28,29,34,0.82) 0%, rgba(28,29,34,0.45) 50%, rgba(28,29,34,0.15) 100%), linear-gradient(to bottom, #17181c 0%, transparent 22%, transparent 78%, #17181c 100%)' }}
       />
 
       <div

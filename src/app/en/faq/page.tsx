@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function EnFaqPage() {
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <KamonBackground />
       <div style={{ maxWidth: '760px', margin: '0 auto', padding: '100px 24px 120px', position: 'relative', zIndex: 1 }}>
         <SectionLabel en={EN.faq.heading} />

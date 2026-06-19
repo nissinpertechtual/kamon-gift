@@ -29,14 +29,14 @@ export default function AdminResetPasswordPage() {
   }
 
   const inputStyle: React.CSSProperties = {
-    width: '100%', padding: '12px 14px', background: '#111113',
+    width: '100%', padding: '12px 14px', background: '#202127',
     border: '0.5px solid #34342f', color: '#efece4', fontSize: '13px',
     fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif",
     outline: 'none', boxSizing: 'border-box',
   };
 
   return (
-    <div style={{ minHeight: '100vh', background: '#0b0b0c', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
+    <div style={{ minHeight: '100vh', background: '#17181c', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '24px' }}>
       <div style={{ width: '100%', maxWidth: '360px' }}>
         <p style={{ fontSize: '12px', letterSpacing: '0.2em', color: '#9a958b', textAlign: 'center', marginBottom: '32px', fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: 'italic' }}>
           パスワードの再設定

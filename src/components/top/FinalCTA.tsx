@@ -55,7 +55,7 @@ export default function FinalCTA() {
         textAlign: 'center',
         position: 'relative',
         overflow: 'hidden',
-        background: '#0b0c0e',
+        background: '#17181c',
       }}
     >
       <FinalKamonBg />

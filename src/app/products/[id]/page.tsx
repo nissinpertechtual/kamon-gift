@@ -81,7 +81,7 @@ export default async function ProductDetailPage({ params }: Props) {
   };
 
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productLd) }} />
       <KamonBackground />
 
@@ -192,7 +192,7 @@ export default async function ProductDetailPage({ params }: Props) {
                 marginBottom: '28px',
                 padding: '18px 20px',
                 border: '0.5px solid #2a2a26',
-                background: '#111113',
+                background: '#202127',
               }}
             >
               <div

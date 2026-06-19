@@ -68,7 +68,7 @@ export default function ReassuranceSection() {
   const { ref: pointsRef, visible: pointsVisible } = useFadeIn(300);
 
   return (
-    <section style={{ padding: '120px 24px', background: '#0b0b0c' }}>
+    <section style={{ padding: '120px 24px', background: '#17181c' }}>
       <div style={{ maxWidth: '1180px', margin: '0 auto' }}>
         <SectionLabel en="How it works" ja="ご注文の流れ" align="left" />
 

@@ -30,7 +30,7 @@ export default function Footer() {
   const ctaHref = isEn ? '/en/contact' : '/contact';
 
   return (
-    <footer style={{ backgroundColor: '#0b0c0e', borderTop: '0.5px solid #23272c', padding: '32px 24px' }}>
+    <footer style={{ backgroundColor: '#17181c', borderTop: '0.5px solid #23272c', padding: '32px 24px' }}>
       <div
         style={{
           maxWidth: '1200px',

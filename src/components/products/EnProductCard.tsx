@@ -23,10 +23,10 @@ export function EnProductCard({ product }: { product: ProductEn }) {
         style={{
           border: `0.5px solid ${hovered ? '#efece4' : '#2a2f35'}`,
           transition: 'border-color 0.4s',
-          background: '#101417',
+          background: '#202127',
         }}
       >
-        <div style={{ aspectRatio: '4/3', background: '#15181b', overflow: 'hidden' }}>
+        <div style={{ aspectRatio: '4/3', background: '#202127', overflow: 'hidden' }}>
           {mainImage ? (
             // eslint-disable-next-line @next/next/no-img-element
             <img

@@ -27,20 +27,20 @@ export default async function EnTopPage() {
   const products = (data ?? []) as (Product & { name_en?: string | null })[];
 
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e' }}>
+    <div style={{ position: 'relative', background: '#17181c' }}>
       <KamonBackground />
 
       {/* ───── Hero (KV) — editorial ───── */}
-      <section style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', background: '#0b0b0c' }}>
+      <section style={{ minHeight: '100svh', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', background: '#17181c' }}>
         <div className="kv-stage" aria-hidden="true">
           <div
             className="cine-zoom"
-            style={{ position: 'absolute', inset: 0, backgroundImage: `url('${SITE.heroPhotos[0] ?? '/products/hero-gen.jpg'}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.66) saturate(1)' }}
+            style={{ position: 'absolute', inset: 0, backgroundImage: `url('${SITE.heroPhotos[0] ?? '/products/hero-gen.jpg'}')`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.8) saturate(1)' }}
           />
         </div>
         <div
           aria-hidden="true"
-          style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to right, rgba(11,11,12,0.86) 0%, rgba(11,11,12,0.55) 42%, rgba(11,11,12,0.15) 100%), linear-gradient(to bottom, transparent 60%, #0b0b0c 100%)' }}
+          style={{ position: 'absolute', inset: 0, zIndex: 1, background: 'linear-gradient(to right, rgba(28,29,34,0.86) 0%, rgba(28,29,34,0.55) 42%, rgba(28,29,34,0.15) 100%), linear-gradient(to bottom, transparent 60%, #17181c 100%)' }}
         />
 
         <div style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1180px', margin: '0 auto', padding: '120px 32px' }}>
@@ -93,15 +93,15 @@ export default async function EnTopPage() {
                     <div
                       role="img"
                       aria-label={img.alt}
-                      style={{ position: 'absolute', inset: 0, backgroundImage: `url(${img.url})`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.56) saturate(0.8)', zIndex: 0 }}
+                      style={{ position: 'absolute', inset: 0, backgroundImage: `url(${img.url})`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.7) saturate(0.8)', zIndex: 0 }}
                     />
                     <div
                       style={{
                         position: 'absolute',
                         inset: 0,
                         background: img.position === 'right'
-                          ? 'linear-gradient(to right, #0b0c0e 0%, transparent 40%)'
-                          : 'linear-gradient(to left, #0b0c0e 0%, transparent 40%)',
+                          ? 'linear-gradient(to right, #17181c 0%, transparent 40%)'
+                          : 'linear-gradient(to left, #17181c 0%, transparent 40%)',
                         zIndex: 1,
                       }}
                     />
@@ -123,13 +123,13 @@ export default async function EnTopPage() {
       />
 
       {/* ───── Scenes ───── */}
-      <section style={{ padding: '120px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>
+      <section style={{ padding: '120px 24px', background: '#202127', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           <SectionLabel en={EN.scenes.label} />
           <div className="scene-grid">
             {EN.scenes.items.map((scene) => (
               <Link key={scene.title} href={scene.href} className="scene-card" style={{ overflow: 'hidden', position: 'relative', textDecoration: 'none', display: 'block' }}>
-                <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${scene.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.42) saturate(0.72)', zIndex: 0 }} />
+                <div style={{ position: 'absolute', inset: 0, backgroundImage: `url(${scene.imageUrl})`, backgroundSize: 'cover', backgroundPosition: 'center', filter: 'brightness(0.56) saturate(0.72)', zIndex: 0 }} />
                 <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent 25%, rgba(20,17,13,0.82) 100%)', zIndex: 1 }} />
                 <div style={{ position: 'relative', zIndex: 2 }}>
                   <p style={{ fontSize: '18px', letterSpacing: '0.04em', fontWeight: 500, margin: '0 0 12px', color: '#f7f1e6', fontFamily: SERIF }}>
@@ -172,7 +172,7 @@ export default async function EnTopPage() {
       </section>
 
       {/* ───── Products ───── */}
-      <section style={{ padding: '110px 24px', background: '#101315', position: 'relative', zIndex: 1 }}>
+      <section style={{ padding: '110px 24px', background: '#202127', position: 'relative', zIndex: 1 }}>
         <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           <SectionLabel en={EN.products.label} />
           {products.length === 0 ? (

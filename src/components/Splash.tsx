@@ -29,7 +29,7 @@ export default function Splash() {
         position: 'fixed',
         inset: 0,
         zIndex: 50,
-        backgroundColor: '#0b0c0e',
+        backgroundColor: '#17181c',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

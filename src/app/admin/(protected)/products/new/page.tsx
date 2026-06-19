@@ -71,7 +71,7 @@ export default function AdminProductsNewPage() {
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: '#15181b',
+    background: '#202127',
     border: '0.5px solid #2a2f35',
     color: '#e9e7e1',
     padding: '10px 12px',
@@ -159,7 +159,7 @@ export default function AdminProductsNewPage() {
             <label style={labelStyle}>シーン</label>
             <select name="scene" value={form.scene} onChange={handleChange} style={{ ...inputStyle, cursor: 'pointer' }}>
               {SCENE_OPTIONS.map((o) => (
-                <option key={o.value} value={o.value} style={{ background: '#15181b' }}>{o.label}</option>
+                <option key={o.value} value={o.value} style={{ background: '#202127' }}>{o.label}</option>
               ))}
             </select>
           </div>

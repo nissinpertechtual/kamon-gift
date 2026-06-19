@@ -65,7 +65,7 @@ const EN_TEXT: LangText = {
 
 const INPUT: React.CSSProperties = {
   width: '100%',
-  background: '#15181b',
+  background: '#202127',
   border: '0.5px solid #2a2f35',
   color: '#e9e7e1',
   padding: '12px 16px',
@@ -510,7 +510,7 @@ export function ContactForm({ lang = 'ja' }: Props) {
             width: '100%',
             padding: '16px',
             background: submitting ? '#1b1f23' : '#efece4',
-            color: submitting ? '#5d636a' : '#0b0c0e',
+            color: submitting ? '#5d636a' : '#17181c',
             border: 'none',
             fontSize: '12px',
             letterSpacing: '0.25em',

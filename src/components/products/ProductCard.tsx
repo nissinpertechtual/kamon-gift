@@ -25,14 +25,14 @@ export function ProductCard({ product }: { product: Product }) {
           overflow: 'hidden',
           transition: 'border-color 0.4s ease',
           cursor: 'pointer',
-          background: '#101417',
+          background: '#202127',
         }}
       >
         {/* 画像 */}
         <div
           style={{
             aspectRatio: '4/3',
-            background: '#15181b',
+            background: '#202127',
             overflow: 'hidden',
             position: 'relative',
           }}

@@ -28,7 +28,7 @@ export function ImageSlider({ images, name }: Props) {
 
   if (images.length === 0) {
     return (
-      <div style={{ aspectRatio: '1/1', background: '#15181b' }}>
+      <div style={{ aspectRatio: '1/1', background: '#202127' }}>
         <KamonPlaceholder />
       </div>
     );
@@ -40,7 +40,7 @@ export function ImageSlider({ images, name }: Props) {
       <div
         style={{
           aspectRatio: '1/1',
-          background: '#15181b',
+          background: '#202127',
           overflow: 'hidden',
           marginBottom: '12px',
           position: 'relative',

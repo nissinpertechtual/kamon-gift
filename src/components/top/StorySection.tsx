@@ -131,7 +131,7 @@ function StoryBlock({
               backgroundImage: `url(${imageUrl})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
-              filter: 'brightness(0.56) saturate(0.8)',
+              filter: 'brightness(0.7) saturate(0.8)',
               zIndex: 0,
             }}
             aria-label={imageAlt}
@@ -143,8 +143,8 @@ function StoryBlock({
               position: 'absolute',
               inset: 0,
               background: imagePosition === 'right'
-                ? 'linear-gradient(to right, #0b0c0e 0%, transparent 40%)'
-                : 'linear-gradient(to left, #0b0c0e 0%, transparent 40%)',
+                ? 'linear-gradient(to right, #17181c 0%, transparent 40%)'
+                : 'linear-gradient(to left, #17181c 0%, transparent 40%)',
               zIndex: 1,
             }}
           />

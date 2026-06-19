@@ -55,7 +55,7 @@ export default async function AdminDashboardPage() {
           <div
             key={stat.label}
             style={{
-              background: '#15181b',
+              background: '#202127',
               border: `0.5px solid ${stat.highlight ? '#efece4' : '#2a2f35'}`,
               padding: '24px',
             }}
@@ -113,7 +113,7 @@ export default async function AdminDashboardPage() {
               <div
                 key={inq.id}
                 style={{
-                  background: '#15181b',
+                  background: '#202127',
                   padding: '16px 20px',
                   display: 'grid',
                   gridTemplateColumns: '1fr auto auto',

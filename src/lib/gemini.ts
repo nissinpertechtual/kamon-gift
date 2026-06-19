@@ -36,7 +36,7 @@ export async function generateProductImage(
     Material: ${materialDesc}.
     A traditional Japanese family crest (kamon) is laser-engraved
     on the surface with extremely fine, precise lines.
-    Dark studio background (#0b0c0e) with dramatic warm side lighting.
+    Dark studio background (#17181c) with dramatic warm side lighting.
     The engraving glows faintly gold (#efece4) from the lighting.
     Luxury gift, minimal composition, centered product.
     High-end Japanese craftsmanship aesthetic.

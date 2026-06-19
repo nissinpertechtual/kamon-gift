@@ -40,7 +40,7 @@ export default function AdminLoginPage() {
     <div
       style={{
         minHeight: '100vh',
-        background: '#0b0c0e',
+        background: '#17181c',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
@@ -98,7 +98,7 @@ export default function AdminLoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 14px',
-                background: '#15181b',
+                background: '#202127',
                 border: '0.5px solid #2a2f35',
                 color: '#e9e7e1',
                 fontSize: '13px',
@@ -134,7 +134,7 @@ export default function AdminLoginPage() {
               style={{
                 width: '100%',
                 padding: '12px 14px',
-                background: '#15181b',
+                background: '#202127',
                 border: '0.5px solid #2a2f35',
                 color: '#e9e7e1',
                 fontSize: '13px',

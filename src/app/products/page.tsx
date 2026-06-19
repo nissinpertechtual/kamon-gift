@@ -54,7 +54,7 @@ export default async function ProductsPage({ searchParams }: Props) {
   const { data: products, error } = await query;
 
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{

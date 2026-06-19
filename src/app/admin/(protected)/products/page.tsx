@@ -62,7 +62,7 @@ export default async function AdminProductsPage() {
               gridTemplateColumns: '60px 1fr 120px 80px 80px 80px 80px',
               padding: '10px 16px',
               borderBottom: '0.5px solid #2a2f35',
-              background: '#15181b',
+              background: '#202127',
             }}
           >
             {['画像', '商品名', '価格', '素材', '公開', 'Sort', '操作'].map((h) => (
@@ -84,7 +84,7 @@ export default async function AdminProductsPage() {
               }}
             >
               {/* サムネイル */}
-              <div style={{ width: '48px', height: '36px', background: '#101417', overflow: 'hidden', flexShrink: 0 }}>
+              <div style={{ width: '48px', height: '36px', background: '#202127', overflow: 'hidden', flexShrink: 0 }}>
                 {product.images?.[0] ? (
                   <img src={product.images[0]} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} />
                 ) : (

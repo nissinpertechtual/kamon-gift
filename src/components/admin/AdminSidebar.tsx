@@ -23,7 +23,7 @@ export default function AdminSidebar() {
       style={{
         width: '200px',
         minHeight: '100vh',
-        background: '#15181b',
+        background: '#202127',
         borderRight: '0.5px solid #2a2f35',
         display: 'flex',
         flexDirection: 'column',

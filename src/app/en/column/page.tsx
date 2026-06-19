@@ -21,7 +21,7 @@ export default async function EnColumnPage() {
     .order('created_at', { ascending: false });
 
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -74,7 +74,7 @@ export default async function EnColumnPage() {
                   style={{
                     width: '120px',
                     height: '80px',
-                    background: '#15181b',
+                    background: '#202127',
                     overflow: 'hidden',
                     flexShrink: 0,
                   }}

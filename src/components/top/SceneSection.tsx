@@ -81,7 +81,7 @@ export default function SceneSection() {
   const { refs, visible } = useStaggeredFadeIn(SCENES.length);
 
   return (
-    <section style={{ padding: '120px 24px', background: '#101315' }}>
+    <section style={{ padding: '120px 24px', background: '#202127' }}>
       <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
 
         <SectionLabel en="For Your Scene" ja="シーン別" />
@@ -108,7 +108,7 @@ export default function SceneSection() {
                   backgroundImage: `url(${scene.imageUrl})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
-                  filter: 'brightness(0.42) saturate(0.72)',
+                  filter: 'brightness(0.56) saturate(0.72)',
                   zIndex: 0,
                   transition: 'filter 0.6s ease',
                 }}

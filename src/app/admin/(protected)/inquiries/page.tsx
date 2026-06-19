@@ -48,7 +48,7 @@ export default async function AdminInquiriesPage() {
             <div
               key={inq.id}
               style={{
-                background: '#15181b',
+                background: '#202127',
                 padding: '24px',
                 borderLeft: inq.status === 'new' ? '2px solid #efece4' : '2px solid transparent',
               }}

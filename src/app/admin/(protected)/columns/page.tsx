@@ -68,7 +68,7 @@ export default async function AdminColumnsPage() {
               gridTemplateColumns: '1fr 180px 100px 120px 80px',
               padding: '10px 16px',
               borderBottom: '0.5px solid #2a2f35',
-              background: '#15181b',
+              background: '#202127',
             }}
           >
             {['タイトル', 'スラッグ', '公開状態', '公開日', '操作'].map((h) => (

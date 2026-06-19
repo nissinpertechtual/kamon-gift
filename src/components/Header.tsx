@@ -38,7 +38,7 @@ export default function Header() {
           position: 'sticky',
           top: 0,
           zIndex: 40,
-          backgroundColor: '#0b0c0e',
+          backgroundColor: '#17181c',
           borderBottom: '0.5px solid rgba(239,236,228,0.25)',
           overflow: 'hidden',
         }}
@@ -212,7 +212,7 @@ export default function Header() {
               bottom: 0,
               zIndex: 50,
               width: '260px',
-              backgroundColor: '#0b0c0e',
+              backgroundColor: '#17181c',
               borderLeft: '0.5px solid rgba(239,236,228,0.2)',
               padding: '28px 24px',
               display: 'flex',

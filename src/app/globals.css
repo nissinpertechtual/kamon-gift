@@ -2,9 +2,9 @@
 
 :root {
   /* 墨と生成り白だけの無彩クローム（色は実物写真に担わせる） */
-  --ground:  #0b0b0c;
-  --panel:   #111113;
-  --card:    #111113;
+  --ground:  #17181c;
+  --panel:   #202127;
+  --card:    #202127;
   --ink:     #efece4;
   --ink-2:   #9a958b;
   --ink-3:   #615d55;
@@ -14,17 +14,17 @@
   --font-mincho: 'Zen Old Mincho', 'Hina Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'YuMincho', serif;
   --font-latin:  'Cormorant Garamond', Georgia, serif;
 
-  --background: #0b0b0c;
+  --background: #17181c;
   --foreground: #efece4;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-kamon-ground: #0b0b0c;
+  --color-kamon-ground: #17181c;
   --color-kamon-gold:   #efece4;
   --color-kamon-ink:    #efece4;
-  --color-kamon-card:   #111113;
+  --color-kamon-card:   #202127;
   --color-kamon-border: #232320;
   --color-kamon-muted:  #9a958b;
 }
@@ -32,7 +32,7 @@
 html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
 
 body {
-  background-color: #0b0b0c;
+  background-color: #17181c;
   color: #efece4;
   font-family: var(--font-mincho);
   font-weight: 400;
@@ -133,7 +133,7 @@ h2 { font-size: clamp(22px, 3.6vw, 34px); }
 .scene-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: #1c1c19; }
 @media (min-width: 768px) { .scene-grid { grid-template-columns: repeat(3, 1fr); } }
 .scene-card { background: #000; padding: 40px 30px 34px; transition: opacity .5s ease; min-height: 340px; }
-.scene-card:hover > div:first-child { filter: brightness(0.55) saturate(0.85) !important; }
+.scene-card:hover > div:first-child { filter: brightness(0.68) saturate(0.85) !important; }
 
 /* ProductGallery */
 .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: #1c1c19; }

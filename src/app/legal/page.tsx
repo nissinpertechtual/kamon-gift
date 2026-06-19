@@ -17,7 +17,7 @@ const items = [
 
 export default function LegalPage() {
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -69,7 +69,7 @@ export default function LegalPage() {
               <div
                 style={{
                   padding: '20px 24px',
-                  background: '#101417',
+                  background: '#202127',
                   borderRight: '0.5px solid #1b1f23',
                   fontSize: '11px',
                   letterSpacing: '0.08em',

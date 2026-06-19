@@ -55,7 +55,7 @@ const items = [
 
 export default function EnLegalPage() {
   return (
-    <div style={{ position: 'relative', background: '#0b0b0c', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <KamonBackground />
       <div
         style={{
@@ -98,7 +98,7 @@ export default function EnLegalPage() {
               <div
                 style={{
                   padding: '20px 24px',
-                  background: '#111113',
+                  background: '#202127',
                   borderRight: '0.5px solid #232320',
                   fontSize: '11px',
                   letterSpacing: '0.08em',

@@ -17,7 +17,7 @@ export default function HeroSection() {
       style={{
         minHeight: '100svh',
         position: 'relative',
-        background: '#0b0b0c',
+        background: '#17181c',
         display: 'flex',
         alignItems: 'center',
         overflow: 'hidden',
@@ -33,7 +33,7 @@ export default function HeroSection() {
             backgroundImage: `url('${img}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            filter: 'brightness(0.66) saturate(1)',
+            filter: 'brightness(0.8) saturate(1)',
           }}
         />
       </div>
@@ -45,7 +45,7 @@ export default function HeroSection() {
           inset: 0,
           zIndex: 1,
           background:
-            'linear-gradient(to right, rgba(11,11,12,0.86) 0%, rgba(11,11,12,0.55) 42%, rgba(11,11,12,0.15) 100%), linear-gradient(to bottom, transparent 60%, #0b0b0c 100%)',
+            'linear-gradient(to right, rgba(28,29,34,0.86) 0%, rgba(28,29,34,0.55) 42%, rgba(28,29,34,0.15) 100%), linear-gradient(to bottom, transparent 60%, #17181c 100%)',
         }}
       />
 

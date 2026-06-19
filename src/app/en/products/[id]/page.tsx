@@ -32,7 +32,7 @@ export default async function EnProductDetailPage({ params }: Props) {
     EN.products.materialLabels[p.material as keyof typeof EN.products.materialLabels] ?? p.material;
 
   return (
-    <div style={{ position: 'relative', background: '#0b0c0e', minHeight: '100vh' }}>
+    <div style={{ position: 'relative', background: '#17181c', minHeight: '100vh' }}>
       <KamonBackground />
 
       {/* Mobile sticky contact bar */}

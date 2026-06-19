@@ -90,7 +90,7 @@ export default function ColumnEditForm({ column }: { column: Column }) {
 
   const inputStyle: React.CSSProperties = {
     width: '100%',
-    background: '#15181b',
+    background: '#202127',
     border: '0.5px solid #2a2f35',
     color: '#e9e7e1',
     padding: '10px 12px',
