@@ -17,14 +17,6 @@ const SCENE_FILTERS = [
   { value: 'corporate', label: '法人・ギフト' },
 ];
 
-const MATERIAL_FILTERS = [
-  { value: '', label: 'すべての素材' },
-  { value: 'metal', label: '金属' },
-  { value: 'leather', label: '革' },
-  { value: 'glass', label: 'ガラス' },
-  { value: 'acrylic', label: 'アクリル' },
-];
-
 const filterLinkStyle = (isActive: boolean, gold = false) => ({
   fontSize: gold ? '10px' : '9px',
   letterSpacing: '0.1em',
@@ -74,7 +66,7 @@ export default async function ProductsPage({ searchParams }: Props) {
             gap: '8px',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            marginBottom: '16px',
+            marginBottom: '56px',
           }}
         >
           {SCENE_FILTERS.map((f) => {
@@ -85,30 +77,6 @@ export default async function ProductsPage({ searchParams }: Props) {
                 : `/products${params.material ? `?material=${params.material}` : ''}`;
             return (
               <Link key={f.value} href={href} style={filterLinkStyle(isActive, true)}>
-                {f.label}
-              </Link>
-            );
-          })}
-        </div>
-
-        {/* 素材フィルター */}
-        <div
-          style={{
-            display: 'flex',
-            gap: '8px',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            marginBottom: '56px',
-          }}
-        >
-          {MATERIAL_FILTERS.map((f) => {
-            const isActive = (params.material ?? '') === f.value;
-            const href =
-              f.value
-                ? `/products?material=${f.value}${params.scene ? `&scene=${params.scene}` : ''}`
-                : `/products${params.scene ? `?scene=${params.scene}` : ''}`;
-            return (
-              <Link key={f.value} href={href} style={filterLinkStyle(isActive, false)}>
                 {f.label}
               </Link>
             );
