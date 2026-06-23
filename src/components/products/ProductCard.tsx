@@ -88,7 +88,7 @@ export function ProductCard({ product }: { product: Product }) {
             style={{
               display: 'flex',
               justifyContent: 'space-between',
-              alignItems: 'center',
+              alignItems: 'flex-end',
               marginTop: '8px',
               paddingBottom: '12px',
             }}
@@ -103,19 +103,34 @@ export function ProductCard({ product }: { product: Product }) {
             >
               {MATERIAL_LABEL[product.material] ?? product.material}
             </span>
-            <span
-              style={{
-                fontSize: '19px',
-                color: '#f5f2ea',
-                fontWeight: 500,
-                letterSpacing: '0.02em',
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-              }}
-            >
-              {product.price != null
-                ? `¥${product.price.toLocaleString()}〜`
-                : 'お見積もり'}
-            </span>
+            <div style={{ textAlign: 'right' }}>
+              {product.price != null && (
+                <div
+                  style={{
+                    fontSize: '8px',
+                    letterSpacing: '0.14em',
+                    color: '#7c8088',
+                    marginBottom: '3px',
+                    fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  参考上代
+                </div>
+              )}
+              <span
+                style={{
+                  fontSize: '19px',
+                  color: '#f5f2ea',
+                  fontWeight: 500,
+                  letterSpacing: '0.02em',
+                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                }}
+              >
+                {product.price != null
+                  ? `¥${product.price.toLocaleString()}〜`
+                  : 'お見積もり'}
+              </span>
+            </div>
           </div>
         </div>
       </div>

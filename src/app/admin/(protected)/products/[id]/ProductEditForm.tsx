@@ -14,7 +14,13 @@ const SCENE_OPTIONS = [
   { value: 'corporate', label: '法人・まとめ発注' },
 ];
 
-export default function ProductEditForm({ product: initial }: { product: Product }) {
+export default function ProductEditForm({
+  product: initial,
+  wholesalePrice,
+}: {
+  product: Product;
+  wholesalePrice: number | null;
+}) {
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -23,6 +29,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
     name_ja: initial.name_ja,
     description_ja: initial.description_ja ?? '',
     price: initial.price != null ? String(initial.price) : '',
+    wholesale_price: wholesalePrice != null ? String(wholesalePrice) : '',
     material: initial.material,
     scene: initial.scene ?? '',
     sort_order: String(initial.sort_order),
@@ -60,6 +67,7 @@ export default function ProductEditForm({ product: initial }: { product: Product
           name_ja: form.name_ja,
           description_ja: form.description_ja || null,
           price: form.price !== '' ? Number(form.price) : null,
+          wholesale_price: form.wholesale_price !== '' ? Number(form.wholesale_price) : null,
           material: form.material,
           scene: form.scene || null,
           sort_order: Number(form.sort_order),
@@ -258,14 +266,20 @@ export default function ProductEditForm({ product: initial }: { product: Product
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
           <div>
-            <label style={labelStyle}>価格（円）</label>
+            <label style={labelStyle}>参考上代（円）</label>
             <input name="price" type="number" value={form.price} onChange={handleChange} placeholder="空欄 = お見積もり" style={inputStyle} />
-            <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>空欄にするとカスタム注文扱い</p>
+            <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開ページに「参考上代価格」として表示</p>
           </div>
           <div>
             <label style={labelStyle}>素材 *</label>
             <input name="material" value={form.material} onChange={handleChange} required style={inputStyle} />
           </div>
+        </div>
+
+        <div>
+          <label style={labelStyle}>下代（円・卸価格 / バイヤー専用）</label>
+          <input name="wholesale_price" type="number" value={form.wholesale_price} onChange={handleChange} placeholder="例：8000（公開ページには表示されません）" style={inputStyle} />
+          <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開ページには出ません。バイヤーが会社情報を入力した時だけ表示されます。</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>

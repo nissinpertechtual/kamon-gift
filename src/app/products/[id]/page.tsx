@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { createClient } from '@/lib/supabase/server';
 import { ImageSlider } from '@/components/products/ImageSlider';
 import { StickyContactBar } from '@/components/products/StickyContactBar';
+import { BuyerQuoteForm } from '@/components/products/BuyerQuoteForm';
 import KamonBackground from '@/components/KamonBackground';
 import { SITE } from '@/lib/site';
 import type { Product } from '@/types/supabase';
@@ -204,7 +205,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
-                参考価格
+                参考上代価格
               </div>
               {hasPrice ? (
                 <div style={{ display: 'flex', alignItems: 'baseline', flexWrap: 'wrap', gap: '4px 8px' }}>
@@ -221,7 +222,7 @@ export default async function ProductDetailPage({ params }: Props) {
                     ¥{p.price!.toLocaleString()}
                     <span style={{ fontSize: '18px', marginLeft: '2px' }}>〜</span>
                   </span>
-                  <span style={{ fontSize: '11px', color: '#9a958b' }}>（税込・参考価格）</span>
+                  <span style={{ fontSize: '11px', color: '#9a958b' }}>（税込・参考上代）</span>
                 </div>
               ) : (
                 <div>
@@ -306,6 +307,9 @@ export default async function ProductDetailPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* バイヤー（卸）向け: 会社情報を入力すると下代を即時表示 */}
+        <BuyerQuoteForm productId={p.id} productName={p.name_ja} />
       </div>
     </div>
   );

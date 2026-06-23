@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { logAudit } from '@/lib/audit';
+import { upsertWholesalePrice } from '@/lib/buyer';
 
 export async function POST(req: NextRequest) {
   try {
@@ -35,6 +36,16 @@ export async function POST(req: NextRequest) {
     if (error) {
       console.error('Product insert error:', error);
       return NextResponse.json({ error: error.message }, { status: 500 });
+    }
+
+    // 下代（別テーブル・service-role）を保存。失敗しても商品作成は成立させる。
+    if (data?.id) {
+      const wp = body.wholesale_price;
+      try {
+        await upsertWholesalePrice(data.id, wp === '' || wp == null ? null : Number(wp));
+      } catch (e) {
+        console.error('wholesale upsert failed (create):', e);
+      }
     }
 
     await logAudit({ actor: user.email ?? user.id, action: 'create', entity: 'product', entityId: data?.id, detail: { name_ja } });

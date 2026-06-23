@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { createClient } from '@/lib/supabase/server';
 import { ImageSlider } from '@/components/products/ImageSlider';
 import { StickyContactBar } from '@/components/products/StickyContactBar';
+import { BuyerQuoteForm } from '@/components/products/BuyerQuoteForm';
 import KamonBackground from '@/components/KamonBackground';
 import { EN } from '@/lib/i18n/translations';
 import type { Product } from '@/types/supabase';
@@ -147,7 +148,7 @@ export default async function EnProductDetailPage({ params }: Props) {
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                 }}
               >
-                REFERENCE PRICE
+                SUGGESTED RETAIL
               </div>
               {hasPrice ? (
                 <div>
@@ -230,6 +231,9 @@ export default async function EnProductDetailPage({ params }: Props) {
             </div>
           </div>
         </div>
+
+        {/* Wholesale buyers: reveal the wholesale price after submitting company info */}
+        <BuyerQuoteForm productId={p.id} productName={name} lang="en" />
       </div>
     </div>
   );

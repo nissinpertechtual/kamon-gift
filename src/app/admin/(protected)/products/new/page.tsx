@@ -22,6 +22,7 @@ export default function AdminProductsNewPage() {
     name_ja: '',
     description_ja: '',
     price: '',
+    wholesale_price: '',
     material: '',
     scene: '',
     sort_order: '0',
@@ -50,6 +51,7 @@ export default function AdminProductsNewPage() {
           name_ja: form.name_ja,
           description_ja: form.description_ja || null,
           price: form.price !== '' ? Number(form.price) : null,
+          wholesale_price: form.wholesale_price !== '' ? Number(form.wholesale_price) : null,
           material: form.material,
           scene: form.scene || null,
           sort_order: Number(form.sort_order),
@@ -137,7 +139,7 @@ export default function AdminProductsNewPage() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
           <div>
-            <label style={labelStyle}>価格（円）</label>
+            <label style={labelStyle}>参考上代（円）</label>
             <input
               name="price"
               type="number"
@@ -146,12 +148,18 @@ export default function AdminProductsNewPage() {
               placeholder="空欄 = お見積もり"
               style={inputStyle}
             />
-            <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>空欄にするとカスタム注文扱い</p>
+            <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開ページに「参考上代価格」として表示</p>
           </div>
           <div>
             <label style={labelStyle}>素材 *</label>
             <input name="material" value={form.material} onChange={handleChange} required placeholder="例：ステンレス、真鍮、革" style={inputStyle} />
           </div>
+        </div>
+
+        <div>
+          <label style={labelStyle}>下代（円・卸価格 / バイヤー専用）</label>
+          <input name="wholesale_price" type="number" value={form.wholesale_price} onChange={handleChange} placeholder="例：8000（公開ページには表示されません）" style={inputStyle} />
+          <p style={{ fontSize: '10px', color: '#5d636a', marginTop: '4px', fontFamily: "'Cormorant Garamond', Georgia, serif" }}>公開ページには出ません。バイヤーが会社情報を入力した時だけ表示されます。</p>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
