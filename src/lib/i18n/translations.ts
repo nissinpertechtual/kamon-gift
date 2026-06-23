@@ -136,7 +136,7 @@ export const EN = {
       },
       {
         q: 'Which materials do you offer?',
-        a: 'Metal (brass / stainless steel), genuine leather, crystal glass and acrylic. Feel free to ask if you’re unsure which suits your gift.',
+        a: 'Metal, glass, acrylic and more. Each material has its own character and ideal uses — feel free to ask if you’re unsure which suits your gift.',
       },
       {
         q: 'Can I order just one piece?',
