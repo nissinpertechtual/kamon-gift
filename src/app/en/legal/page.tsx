@@ -34,7 +34,7 @@ const items = [
   {
     label: 'Additional fees',
     value:
-      'Shipping fees and bank transfer charges (at payment) may apply. Details are confirmed at the time of quotation.',
+      'Shipping fees and bank transfer charges (at payment) may apply. New or custom designs incur a separate design fee. Details are confirmed at the time of quotation.',
   },
   {
     label: 'Payment',
@@ -44,7 +44,7 @@ const items = [
   {
     label: 'Delivery',
     value:
-      'Items are shipped within approximately 2–3 weeks after the order is confirmed. Please contact us separately for custom pieces.',
+      'Items are shipped from approximately 1 month after the order is confirmed. Please contact us separately for custom pieces.',
   },
   {
     label: 'Returns & cancellations',

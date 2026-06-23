@@ -284,7 +284,7 @@ export default async function ProductDetailPage({ params }: Props) {
             >
               {[
                 '注文確定後に制作を開始します',
-                '納期の目安：約2〜3週間',
+                '納期の目安：1か月〜',
                 'カスタム品は担当者が丁寧に対応',
               ].map((point) => (
                 <div
@@ -305,6 +305,20 @@ export default async function ProductDetailPage({ params }: Props) {
                 </div>
               ))}
             </div>
+
+            {/* 新規デザインの費用について */}
+            <p
+              style={{
+                fontSize: '11px',
+                color: '#9a958b',
+                lineHeight: 1.9,
+                letterSpacing: '0.04em',
+                marginTop: '16px',
+                fontFamily: "'Zen Old Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', 'Cormorant Garamond', Georgia, serif",
+              }}
+            >
+              ※ 新規デザインについては別途デザイン費用が発生いたしますので、ご相談ください。
+            </p>
           </div>
         </div>
 

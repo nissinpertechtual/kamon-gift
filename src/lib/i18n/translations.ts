@@ -12,7 +12,7 @@ export const EN = {
     sub: 'Delicate laser engraving on metal, acrylic and glass.\nFor weddings, celebrations and gifts you’ll treasure.',
     ctaShop: 'View Products',
     ctaOrder: 'Make an Inquiry',
-    trust: ['From a single piece', 'No crest? We’ll help you find it', 'Ships in about 2–3 weeks'],
+    trust: ['From a single piece', 'No crest? We’ll help you find it', 'Ships in about 1 month'],
     tate: 'A crest, carried into form.',
   },
   story: {
@@ -109,7 +109,7 @@ export const EN = {
       {
         number: '03',
         title: 'Crafted & Delivered',
-        body: 'Carefully engraved\nand delivered to you.\nTypical lead time: 2–3 weeks.',
+        body: 'Carefully engraved\nand delivered to you.\nTypical lead time: about 1 month.',
       },
     ],
     points: [
@@ -132,7 +132,7 @@ export const EN = {
       },
       {
         q: 'How long does it take?',
-        a: 'Typically about 2–3 weeks. It may vary by specification and quantity, so please let us know if you’re in a hurry.',
+        a: 'Typically from about 1 month. It may vary by specification and quantity, so please let us know if you’re in a hurry.',
       },
       {
         q: 'Which materials do you offer?',
@@ -149,6 +149,10 @@ export const EN = {
       {
         q: 'Can I submit my own crest image or data?',
         a: 'Yes. You can upload a crest image or logo data via the inquiry form.',
+      },
+      {
+        q: 'Is there a fee for new or custom designs?',
+        a: 'New or custom designs may incur a separate design fee. Please consult us — if you have crest data or a reference image, sending it with your inquiry helps us respond quickly.',
       },
     ],
   },

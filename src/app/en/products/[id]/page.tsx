@@ -208,7 +208,7 @@ export default async function EnProductDetailPage({ params }: Props) {
             <div style={{ padding: '20px', border: '0.5px solid #23272c' }}>
               {[
                 'Production begins after your order is confirmed',
-                'Typical lead time: about 2–3 weeks',
+                'Typical lead time: from about 1 month',
                 'Custom orders are handled personally by our team',
               ].map((point) => (
                 <div
@@ -229,6 +229,20 @@ export default async function EnProductDetailPage({ params }: Props) {
                 </div>
               ))}
             </div>
+
+            {/* Note on custom design fees */}
+            <p
+              style={{
+                fontSize: '11px',
+                color: '#9aa0a6',
+                lineHeight: 1.9,
+                letterSpacing: '0.03em',
+                marginTop: '16px',
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+              }}
+            >
+              * New or custom designs may incur a separate design fee. Please feel free to consult us.
+            </p>
           </div>
         </div>
 
